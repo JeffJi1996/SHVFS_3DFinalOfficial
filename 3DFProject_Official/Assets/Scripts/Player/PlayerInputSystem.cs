@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerInputSystem : Singleton<PlayerInputSystem>
+{
+    private Rigidbody rb;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    void FixedUpdate()
+    {
+        #region Move
+        float moveH = Input.GetAxis("Horizontal");
+        float moveV = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * moveH + transform.forward * moveV;
+        rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed();
+        #endregion
+    }
+    void Update()
+    {
+        #region Walk && Run
+        if (Input.GetKey(KeyCode.LeftShift)) PlayerMovement.Instance.Run();
+        if (Input.GetKeyUp(KeyCode.LeftShift)) PlayerMovement.Instance.Walk();
+        #endregion
+        #region TurnAround
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            PlayerMovement.Instance.Rotate180();
+        }
+        #endregion
+    }
+}
