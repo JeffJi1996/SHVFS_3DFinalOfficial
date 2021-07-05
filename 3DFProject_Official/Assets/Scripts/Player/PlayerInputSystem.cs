@@ -31,5 +31,14 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             PlayerMovement.Instance.Rotate180();
         }
         #endregion
+        #region Attack
+        if (PlayerAttack.Instance != null && PlayerAttack.Instance.enabled)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                PlayerAttack.Instance.Attack();
+            }
+        }
+        #endregion
     }
 }

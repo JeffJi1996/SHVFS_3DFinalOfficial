@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class MouseLook : Singleton<MouseLook>
 {
     public float mouseSensitivity = 100f;
 
-    public Transform playerBody;
+    [SerializeField]private Transform playerBody;
+    [SerializeField]private CinemachineVirtualCamera[] cams;
+    [SerializeField] private GameObject hands;
 
     private float xRotation = 0f;
     void Start()
@@ -23,9 +26,17 @@ public class MouseLook : Singleton<MouseLook>
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation,0f,0f);
+        foreach (var cam in cams)
+        {
+            cam.transform.localRotation = Quaternion.Euler(xRotation,0f,0f);
+        }
+        
+        if (hands.activeSelf)
+        {
+          hands.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);  
+        }
+        
         playerBody.Rotate(Vector3.up *mouseX);
-
     }
 
     public void StopMouseLook()
