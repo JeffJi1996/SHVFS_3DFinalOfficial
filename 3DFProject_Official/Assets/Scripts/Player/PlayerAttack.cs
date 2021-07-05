@@ -16,11 +16,20 @@ public class PlayerAttack : Singleton<PlayerAttack>
     {
         AttackNum++;
         var mark = AttackNum % 2;
+        if (Anim != null)
+        {
+            Anim.SetTrigger("Attack");
+        }
+    }
 
+    public void AttackAnimAlter()
+    {
+        AttackNum++;
+        var mark = AttackNum % 2;
         if (Anim != null)
         {
             Anim.SetInteger("AttackNum", mark);
-            Anim.SetTrigger("Attack");
+
         }
     }
 
