@@ -91,4 +91,14 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
         if(Instance.isActiveAndEnabled)
            isInMoon = whetherInMoon;
     }
+
+    public float GetFullDuration()
+    {
+        return transformDuration;
+    }
+
+    public float GetCurrentDuration()
+    {
+        return curDuration;
+    }
 }
