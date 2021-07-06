@@ -14,8 +14,6 @@ public class PlayerAttack : Singleton<PlayerAttack>
     }
     public void Attack()
     {
-        AttackNum++;
-        var mark = AttackNum % 2;
         if (Anim != null)
         {
             Anim.SetTrigger("Attack");
@@ -29,7 +27,6 @@ public class PlayerAttack : Singleton<PlayerAttack>
         if (Anim != null)
         {
             Anim.SetInteger("AttackNum", mark);
-
         }
     }
 

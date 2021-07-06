@@ -12,12 +12,15 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     private Animator anim;
     [Header("Debug")]
     [SerializeField] private float curDuration;
-
+    [SerializeField] private bool isInMoon;
+    private bool doOnce;
     void Start()
     {
         isTransforming = false;
         anim = GetComponent<Animator>();
         HandMesh.SetActive(false);
+        isInMoon = false;
+        doOnce = false;
     }
 
     void Update()
@@ -27,12 +30,17 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             if (curDuration > 0f && curDuration <= transformDuration)
             {
                 curDuration -= Time.deltaTime;
+                doOnce = true;
             }
 
-            if (curDuration <= 0f)
+            if (curDuration <= 0f && doOnce)
             {
-                BackToHuman();
+                if(!isInMoon) BackToHuman();
+                if (isInMoon) curDuration = transformDuration;
+                doOnce = false;
+
             }
+
         }
 
     }
@@ -50,12 +58,13 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             anim.SetBool("isTransforming", true);
             //手模打开
             HandMesh.SetActive(true);
+
         }
 
 
     }
 
-    void BackToHuman()
+    public void BackToHuman()
     {
         if (isTransforming)
         {
@@ -73,7 +82,13 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
 
     public void ReduceTranDuration(float recution)
     {
-        curDuration -= recution;
+        if(Instance.isActiveAndEnabled)
+           curDuration -= recution;
     }
 
+    public void ChangeMoonState(bool whetherInMoon)
+    {
+        if(Instance.isActiveAndEnabled)
+           isInMoon = whetherInMoon;
+    }
 }
