@@ -5,44 +5,41 @@ using UnityEngine.UI;
 
 public class EButtonUI : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private GameObject target;
 
     [SerializeField] private Sprite Unactive;
     [SerializeField] private Sprite Active;
 
-    [SerializeField] private Vector3 screenPosition;
-    [SerializeField] private RectTransform canvasRectTransform;
-    private Canvas canvas;
+    private Vector2 screenPosition;
     private RectTransform rectTransform;
 
     private Image image;
-    
+
 
     void Start()
     {
         image = GetComponent<Image>();
-        canvas = FindObjectOfType<Canvas>();
         rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
     {
-        screenPosition = Camera.main.WorldToScreenPoint(target.position);
-        Vector2 localVector;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, screenPosition, Camera.main,out localVector);
-        rectTransform.position = localVector;
+        screenPosition = Camera.main.WorldToScreenPoint(target.transform.position);
+        rectTransform.position = screenPosition;
     }
 
-    void OnEnable()
-    {
-
-    }
-
-    public void SetTarget(Transform settingTarget)
+    public void SetTarget(GameObject settingTarget)
     {
         target = settingTarget;
     }
 
-
+    public void ChangeSprite(bool isActive)
+    {
+        if (image != null)
+        {
+            if (isActive) image.sprite = Active;
+            if (!isActive) image.sprite = Unactive;
+        }
+    }
 
 }
