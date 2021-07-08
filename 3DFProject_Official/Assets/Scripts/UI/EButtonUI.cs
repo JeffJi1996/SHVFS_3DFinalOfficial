@@ -14,8 +14,6 @@ public class EButtonUI : MonoBehaviour
     private RectTransform rectTransform;
 
     private Image image;
-
-
     void Start()
     {
         image = GetComponent<Image>();

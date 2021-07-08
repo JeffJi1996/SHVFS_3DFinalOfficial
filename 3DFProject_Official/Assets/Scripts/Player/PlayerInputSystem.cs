@@ -40,5 +40,11 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             }
         }
         #endregion
+
+    }
+
+    public void Interact()
+    {
+
     }
 }

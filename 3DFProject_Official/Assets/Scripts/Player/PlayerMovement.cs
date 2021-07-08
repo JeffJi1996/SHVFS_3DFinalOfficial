@@ -28,12 +28,29 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public void Run()
     {
-        currentSpeed = runSpeed;
+        if (PlayerAbilityControl.Instance.isActiveAndEnabled)
+        {
+            if (PlayerAbilityControl.Instance.WhetherTransforming())
+            {
+                currentSpeed = runSpeed * runSuperRate;
+            }
+            else
+            {
+                currentSpeed = runSpeed;
+            }
+        }
     }
 
     public void Walk()
     {
-        currentSpeed = walkSpeed;
+        if (PlayerAbilityControl.Instance.WhetherTransforming())
+        {
+            currentSpeed = walkSpeed * walkSuperRate;
+        }
+        else
+        {
+            currentSpeed = walkSpeed;
+        }
     }
 
     public void Rotate180()

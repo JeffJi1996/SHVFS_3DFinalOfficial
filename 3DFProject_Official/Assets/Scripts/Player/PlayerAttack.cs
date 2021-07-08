@@ -19,7 +19,6 @@ public class PlayerAttack : Singleton<PlayerAttack>
             Anim.SetTrigger("Attack");
         }
     }
-
     public void AttackAnimAlter()
     {
         AttackNum++;
@@ -29,7 +28,13 @@ public class PlayerAttack : Singleton<PlayerAttack>
             Anim.SetInteger("AttackNum", mark);
         }
     }
-
+    public void PlayerInteract()
+    {
+        if (Anim != null)
+        {
+            Anim.SetTrigger("Interact");
+        }
+    }
     void OnTriggerEnter(Collider collider)
     {
         //如果是敌人，就把敌人杀掉
