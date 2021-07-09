@@ -32,19 +32,14 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
                 curDuration -= Time.deltaTime;
                 doOnce = true;
             }
-
             if (curDuration <= 0f && doOnce)
             {
                 if(!isInMoon) BackToHuman();
                 if (isInMoon) curDuration = transformDuration;
                 doOnce = false;
-
             }
-
         }
-
     }
-
     //变身时的效果
     public void Transform()
     {
@@ -58,10 +53,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             anim.SetBool("isTransforming", true);
             //手模打开
             HandMesh.SetActive(true);
-
         }
-
-
     }
 
     public void BackToHuman()
@@ -72,7 +64,6 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             anim.SetBool("isTransforming", false);
             HandMesh.SetActive(false);
         }
-
     }
 
     public bool WhetherTransforming()
