@@ -40,18 +40,18 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             }
         }
     }
-    //±äÉíÊ±µÄÐ§¹û
+    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§ï¿½ï¿½
     public void Transform()
     {
         if (isTransforming == false)
         {
-            //Ê¹µÃÊ±¼ä¿ªÊ¼¼õÉÙ
+            //Ê¹ï¿½ï¿½Ê±ï¿½ä¿ªÊ¼ï¿½ï¿½ï¿½ï¿½
             curDuration = transformDuration;
-            //×´Ì¬ÇÐ»»
+            //×´Ì¬ï¿½Ð»ï¿½
             isTransforming = true;
-            //¾µÍ·ÇÐ»»
+            //ï¿½ï¿½Í·ï¿½Ð»ï¿½
             anim.SetBool("isTransforming", true);
-            //ÊÖÄ£´ò¿ª
+            //ï¿½ï¿½Ä£ï¿½ï¿½
             HandMesh.SetActive(true);
         }
     }
@@ -91,5 +91,16 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     public float GetCurrentDuration()
     {
         return curDuration;
+    }
+
+    public void CamToWolf()
+    {
+        anim.SetBool("isTransforming", true);
+    }
+
+    public void CGRestTime()
+    {
+        isTransforming = true;
+        curDuration = transformDuration;
     }
 }

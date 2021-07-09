@@ -7,7 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
 
     List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
-
+    List<IEndGameObserver> cgObservers = new List<IEndGameObserver>();
     public GameObject player;
 
     public bool isBossState;
@@ -30,6 +30,15 @@ public class GameManager : Singleton<GameManager>
         endGameObservers.Remove(observer);
     }
 
+    public void AddCGObserver(IEndGameObserver observer)
+    {
+        cgObservers.Add(observer);
+    }
+    
+    public void RemoveCGObserver(IEndGameObserver observer)
+    {
+        cgObservers.Remove(observer);
+    }
     public void NotifyObservers()
     {
         foreach (var observer in endGameObservers)
@@ -40,9 +49,17 @@ public class GameManager : Singleton<GameManager>
 
     public void CGTime()
     {
-        foreach (var observer in endGameObservers)
+        foreach (var observer in cgObservers)
         {
             observer.CGTime();
+        }
+    }
+
+    public void EndCG()
+    {
+        foreach (var observer in cgObservers)
+        {
+            observer.EndCG();
         }
     }
 }

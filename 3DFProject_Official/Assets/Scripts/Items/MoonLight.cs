@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MoonLight : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
+            Debug.Log(111);
             PlayerAbilityControl.Instance.Transform();
             PlayerAbilityControl.Instance.ChangeMoonState(true);
         }

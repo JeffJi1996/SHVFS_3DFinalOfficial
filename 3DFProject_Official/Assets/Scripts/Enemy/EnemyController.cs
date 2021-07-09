@@ -60,6 +60,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         isPatol = true;
         
         GameManager.Instance.AddObserver(this);
+        GameManager.Instance.AddCGObserver(this);
     }
 
     protected virtual void Start()
@@ -70,6 +71,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     private void OnDisable()
     {
         GameManager.Instance.RemoveObserver(this);
+        GameManager.Instance.RemoveCGObserver(this);
+
     }
 
     protected virtual void Update()
