@@ -17,6 +17,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
 
         Vector3 move = transform.right * moveH + transform.forward * moveV;
         rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed();
+        
         #endregion
     }
     void Update()

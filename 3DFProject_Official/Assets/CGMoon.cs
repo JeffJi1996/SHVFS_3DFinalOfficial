@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +13,7 @@ public class CGMoon : Singleton<CGMoon>
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
-            LookAway.Instance.LookAtCG(LookTarget);
+            IntoCG2();
         }
     }
 

@@ -101,6 +101,8 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     public void CGRestTime()
     {
         isTransforming = true;
+        anim.SetBool("isTransforming", true);
         curDuration = transformDuration;
+        HandMesh.SetActive(true);
     }
 }
