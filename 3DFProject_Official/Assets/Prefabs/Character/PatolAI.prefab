@@ -389,7 +389,10 @@ MonoBehaviour:
   isStop: 0
   isChase: 0
   isPatol: 0
+  isWait: 0
+  isStare: 0
   waitTime: 2
+  alertDistance: 10
   patolPoints: []
   damageTime: 2
 --- !u!1 &6052592053408961288

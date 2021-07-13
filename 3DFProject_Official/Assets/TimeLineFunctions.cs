@@ -8,7 +8,7 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private PlayableDirector CG1;
     [SerializeField] private GameObject firstMoon;
-    
+
     public void StartCG1()
     {
         CG1.Play();
@@ -34,7 +34,11 @@ public class TimeLineFunctions : MonoBehaviour
         Player.GetComponent<PlayerInputSystem>().enabled = true;
         Player.GetComponentInChildren<MouseLook>().enabled = true;
         Player.GetComponent<PlayerAbilityControl>().CGRestTime();
+        GameManager.Instance.EndCG();
     }
 
-    
+    public void StartCG()
+    {
+        GameManager.Instance.CGTime();
+    }
 }

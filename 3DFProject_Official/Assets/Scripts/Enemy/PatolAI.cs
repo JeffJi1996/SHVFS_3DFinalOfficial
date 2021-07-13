@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE }
 public class PatolAI : EnemyController
 {
     public List<Transform> patolPoints = new List<Transform>();
     private List<Vector3> patolVectors =new List<Vector3>();
+    private EnemyStates enemyStates;
     private int pointNum;
     public float damageTime;
     private bool isWaiting;
@@ -42,23 +44,34 @@ public class PatolAI : EnemyController
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(BPlayerInArea());
-
-        dirToPlayer = (GameManager.Instance.player.transform.position + Vector3.up - transform.position).normalized;
-        if (BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
+        if (!isStop)
         {
-            if (BPlayerInArea())
+            Vector3 playerTrans = GameManager.Instance.player == null
+                ? new Vector3(22f, -4.449f, 41f)
+                : GameManager.Instance.player.transform.position;
+
+            dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
+            if (BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
             {
-                Debug.Log("InArea");
-                isChase = true;
-                timer = 0;
-            }
-            else
-            {
-                isStare = true;
-                isChase = false;
-            }
+                if (BPlayerInArea())
+                {
+                    Debug.Log("InArea");
+                    isChase = true;
+                    timer = 0;
+                }
+                else if (Vector3.Distance(playerTrans, transform.position) <=
+                    alertDistance && BCanSee())
+                {
+                    isStare = true;
+                    isChase = false;
+                }
+                else
+                {
+                    isChase = false;
+                    isStare = false;
+                }
         }
+    }
         
         SwitchState();
     }

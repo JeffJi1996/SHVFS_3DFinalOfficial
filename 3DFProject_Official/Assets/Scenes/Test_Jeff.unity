@@ -42499,6 +42499,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6c6582151d264cb40806a2170f74ac30, type: 2}
     - {fileID: 11400000, guid: 3d16b58c1d4da8542bab9253f55ea9a0, type: 2}
     - {fileID: 11400000, guid: 183e77505116f5147b36cd7558970492, type: 2}
+    - {fileID: 11400000, guid: 9dec5b5b89e7eb746be09828edc0e517, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -42533,6 +42534,20 @@ MonoBehaviour:
         - m_Target: {fileID: 558242064}
           m_TargetAssemblyTypeName: TimeLineFunctions, Assembly-CSharp
           m_MethodName: EndCG2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 558242064}
+          m_TargetAssemblyTypeName: TimeLineFunctions, Assembly-CSharp
+          m_MethodName: StartCG
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -49098,9 +49113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: -0.3, z: 0}
-  m_XDamping: 0.1
-  m_YDamping: 0.1
-  m_ZDamping: 0.1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -51354,9 +51369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0.1
-  m_YDamping: 0.1
-  m_ZDamping: 0.1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -120817,7 +120832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244837508833880725, guid: 4c78803935d696f4fb0d279da694ba21, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5082382470382913843, guid: 4c78803935d696f4fb0d279da694ba21, type: 3}
       propertyPath: patolPoints.Array.size
@@ -130751,7 +130766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 2bf76e36af269bc48a34d6fe33c0c8ca, type: 3}
   material: {fileID: 2100000, guid: f96aa74a5a9bbfc4fac09728907a1a32, type: 2}
-  times: 0
+  times: 16
 --- !u!81 &2103688531
 AudioListener:
   m_ObjectHideFlags: 0

@@ -7,12 +7,9 @@ using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 
-public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE }
-
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour, IEndGameObserver
 {
-    protected EnemyStates enemyStates;
     protected NavMeshAgent agent;
     protected Collider colli;
  
@@ -59,13 +56,13 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         depth = rightUp.position.z - leftDown.position.z;
         isPatol = true;
         
-        GameManager.Instance.AddObserver(this);
-        GameManager.Instance.AddCGObserver(this);
+
     }
 
     protected virtual void Start()
     {
-    
+        GameManager.Instance.AddObserver(this);
+        GameManager.Instance.AddCGObserver(this);
     }
 
     private void OnDisable()
@@ -124,10 +121,12 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void CGTime()
     {
         isStop = true;
+        Debug.Log("Enemy Stop");
     }
 
     public void EndCG()
     {
         isStop = false;
+        Debug.Log("Enemy Run");
     }
 }

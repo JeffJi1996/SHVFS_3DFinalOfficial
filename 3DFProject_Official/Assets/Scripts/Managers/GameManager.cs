@@ -20,6 +20,12 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
     }
 
+    private void Update()
+    {
+        if (PlayerMovement.Instance != null)
+            player = PlayerMovement.Instance.gameObject;
+    }
+
     public void AddObserver(IEndGameObserver observer)
     {
         endGameObservers.Add(observer);
