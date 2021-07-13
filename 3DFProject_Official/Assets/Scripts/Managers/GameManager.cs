@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
 
-    List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
-    List<IEndGameObserver> cgObservers = new List<IEndGameObserver>();
+    public List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
+    public List<IEndGameObserver> cgObservers = new List<IEndGameObserver>();
     public GameObject player;
 
     public bool isBossState;
@@ -55,7 +55,7 @@ public class GameManager : Singleton<GameManager>
 
     public void CGTime()
     {
-        Debug.Log("StopAI");
+        Debug.Log(cgObservers.Count);
         foreach (var observer in cgObservers)
         {
             observer.CGTime();

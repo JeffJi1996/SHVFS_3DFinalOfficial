@@ -37,6 +37,7 @@ public class PatolAI : EnemyController
     // Start is called before the first frame update
     protected override void Start()
     {
+        base.Start();
         pointNum = 0;
         GoToNextPoint();
     }

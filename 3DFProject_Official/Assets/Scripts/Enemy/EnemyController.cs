@@ -69,7 +69,6 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     {
         GameManager.Instance.RemoveObserver(this);
         GameManager.Instance.RemoveCGObserver(this);
-
     }
 
     protected virtual void Update()
