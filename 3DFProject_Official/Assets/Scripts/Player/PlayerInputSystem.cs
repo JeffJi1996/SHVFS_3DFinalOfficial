@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInputSystem : Singleton<PlayerInputSystem>
 {
     private Rigidbody rb;
+    private float gravity = -9.81f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,8 +17,9 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         float moveV = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * moveH + transform.forward * moveV;
-        rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed();
+        rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed()+new Vector3(0,gravity*Time.deltaTime,0);
         
+
         #endregion
     }
     void Update()

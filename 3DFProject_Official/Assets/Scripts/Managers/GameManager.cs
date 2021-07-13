@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
 
     public void CGTime()
     {
+        Debug.Log("StopAI");
         foreach (var observer in cgObservers)
         {
             observer.CGTime();
