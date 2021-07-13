@@ -27,45 +27,48 @@ public class GuardAI : EnemyController
     // Start is called before the first frame update
     protected override void Start()
     {
-
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerTrans = GameManager.Instance.player == null
-            ? new Vector3(22f, -4.449f, 41f)
-            : GameManager.Instance.player.transform.position;
-
-        dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
-        if (!isSleep && BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
+        if (!isStop)
         {
-            if (BPlayerInArea())
-            {
-                Debug.Log("InArea");
-                isChase = true;
-                timer = 0;
-            }
-            else if (Vector3.Distance(playerTrans, transform.position) <=
-                alertDistance && BCanSee())
-            {
-                isStare = true;
-                isChase = false;
-            }
-            else
-            {
-                isChase = false;
-                isStare = false;
-            }
-        }
+            Vector3 playerTrans = GameManager.Instance.player == null
+                ? new Vector3(22f, -4.449f, 41f)
+                : GameManager.Instance.player.transform.position;
 
-        if (isBack && Vector3.Distance(transform.position, guardPoint.position) < 0.5f)
-        {
-            transform.forward = guardPoint.forward;
-            isBack = false;
-            isGuard = true;
+            dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
+            if (!isSleep && BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
+            {
+                if (BPlayerInArea())
+                {
+                    Debug.Log("InArea");
+                    isChase = true;
+                    timer = 0;
+                }
+                else if (Vector3.Distance(playerTrans, transform.position) <=
+                    alertDistance && BCanSee())
+                {
+                    isStare = true;
+                    isChase = false;
+                }
+                else
+                {
+                    isChase = false;
+                    isStare = false;
+                }
+            }
+
+            if (isBack && Vector3.Distance(transform.position, guardPoint.position) < 0.5f)
+            {
+                transform.forward = guardPoint.forward;
+                isBack = false;
+                isGuard = true;
+            }
+            SwitchState();
         }
-        SwitchState();
     }
 
     void SwitchState()
