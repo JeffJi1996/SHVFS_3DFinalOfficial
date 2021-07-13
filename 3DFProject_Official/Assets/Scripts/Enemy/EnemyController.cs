@@ -55,8 +55,6 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         length = rightUp.position.x - leftDown.position.x;
         depth = rightUp.position.z - leftDown.position.z;
         isPatol = true;
-        
-
     }
 
     protected virtual void Start()
@@ -75,10 +73,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     {
         //isChase = !player.GetComponent<PlayerAbilityControl>().PowerUpState;
         //isEscape = !isChase;
-        
     }
     
-
     protected bool BCanSee()
     {
         Ray myRay = new Ray(transform.position, dirToPlayer);
