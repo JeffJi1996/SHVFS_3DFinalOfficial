@@ -12,6 +12,6 @@ public class Door : InteractableBi
     {
         hasBeenInteracted = true;
         GetOutUIHide();
-        Debug.Log("Door Open!");
+        GetComponentInChildren<Animator>().SetTrigger("OpenDoor");
     }
 }

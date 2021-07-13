@@ -48,6 +48,6 @@ public class Interactable : MonoBehaviour
     }
     protected virtual void Interact()
     {
-        Debug.Log("Item Interact");
+        Debug.Log(gameObject.name+"Item Interact");
     }
 }
