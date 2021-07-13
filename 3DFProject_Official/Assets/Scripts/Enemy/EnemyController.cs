@@ -124,4 +124,9 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         isStop = false;
         Debug.Log("Enemy Run");
     }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
