@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpikeManager : Singleton<SpikeManager>
 {
     [SerializeField]private float NormalActiveTime;
-    [SerializeField]private float BossActiveTime;
-    public float nowActiveDuration;
+    [SerializeField]private float SpikeDamage;
+    [HideInInspector]public float nowActiveDuration;
 
     protected override void Awake()
     {
@@ -14,9 +14,10 @@ public class SpikeManager : Singleton<SpikeManager>
         nowActiveDuration = NormalActiveTime;
     }
 
-    public void ChangeSpikeActiveTime()
+    public float GetSpikeDamage()
     {
-        nowActiveDuration = BossActiveTime;
+        return SpikeDamage;
     }
+
 
 }

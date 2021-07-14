@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class SpikeDamage : MonoBehaviour
 {
+    private bool canHurt;
+
     void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<PlayerMovement>()!= null)
+        canHurt = true;
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (canHurt)
         {
-            Debug.Log("PlayerDie");
-            
-            
+            if (col.GetComponent<PlayerMovement>() != null)
+            {
+                canHurt = false;
+                PlayerHealth.Instance.GetHurt(SpikeManager.Instance.GetSpikeDamage());
+            }
         }
     }
 }
