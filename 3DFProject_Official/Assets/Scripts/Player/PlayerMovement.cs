@@ -13,19 +13,16 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     [Header("Rotate")]
     public float rotateDuration = 0.2f;
-
     void Start()
     {
        
         currentSpeed = walkSpeed;
     }
-
     public float GetCurrentMoveSpeed()
     {
         var speed = currentSpeed;
         return speed;
     }
-
     public void Run()
     {
         if (PlayerAbilityControl.Instance.isActiveAndEnabled)
@@ -40,7 +37,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
             }
         }
     }
-
     public void Walk()
     {
         if (PlayerAbilityControl.Instance.WhetherTransforming())
@@ -52,7 +48,6 @@ public class PlayerMovement : Singleton<PlayerMovement>
             currentSpeed = walkSpeed;
         }
     }
-
     public void Rotate180()
     {
         Quaternion Turn180Degree = Quaternion.Euler(transform.localEulerAngles + new Vector3(0, 180, 0));

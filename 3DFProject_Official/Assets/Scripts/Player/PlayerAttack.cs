@@ -5,12 +5,33 @@ using UnityEngine;
 public class PlayerAttack : Singleton<PlayerAttack>
 {
     private int AttackNum = 1;
-    private Animator Anim;
+    [SerializeField]private Animator Anim;
+    [SerializeField]private Transform AttackLeftPoint;
+    [SerializeField] private Transform AttackRightPoint;
+    [SerializeField]private float AttackRange;
+    [SerializeField] private LayerMask enemyLayer;
+    private bool leftAttackStart;
+    private bool rightAttackStart;
 
     void Start()
     {
         AttackNum = 1;
-        Anim = GetComponent<Animator>();
+        leftAttackStart = false;
+        rightAttackStart = false;
+    }
+
+    void Update()
+    {
+        if (leftAttackStart)
+        {
+            AttackDetect(AttackLeftPoint);
+        }
+
+        if (rightAttackStart)
+        {
+            AttackDetect(AttackRightPoint);
+        }
+
     }
     public void Attack()
     {
@@ -35,10 +56,40 @@ public class PlayerAttack : Singleton<PlayerAttack>
             Anim.SetTrigger("Interact");
         }
     }
-    void OnTriggerEnter(Collider collider)
+
+    private void AttackDetect(Transform atkTransform)
     {
-        //如果是敌人，就把敌人杀掉
+        Collider[] colliderArray = Physics.OverlapSphere(atkTransform.position, AttackRange, enemyLayer);
+        foreach (var enemyCollider in colliderArray)
+        {
+            Debug.Log(enemyCollider+"EnemyDie");
+        }
     }
 
 
+    public void StartLeftLAtkDetect()
+    {
+        leftAttackStart = true;
+    }
+
+    public void EndLeftAtkDetect()
+    {
+        leftAttackStart = false;
+    }
+
+    public void StartRightAtkDetect()
+    {
+        rightAttackStart = true;
+    }
+
+    public void EndRightAtkDetect()
+    {
+        rightAttackStart = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(AttackLeftPoint.position,AttackRange);
+        Gizmos.DrawWireSphere(AttackRightPoint.position, AttackRange);
+    }
 }

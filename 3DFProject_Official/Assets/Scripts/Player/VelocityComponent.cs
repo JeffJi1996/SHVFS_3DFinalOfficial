@@ -16,7 +16,6 @@ public class VelocityComponent : MonoBehaviour
     {
         previousPosition = transform.position;
     }
-
     private void Update()
     {
         if (velocityVectors.Count >= Dampening)
