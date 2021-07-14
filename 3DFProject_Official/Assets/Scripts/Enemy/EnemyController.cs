@@ -37,11 +37,15 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public bool isPatol;
     public bool isWait;
     public bool isStare;
+    protected bool isDead;
+    protected float deadTime;
+    protected bool isIdle;
     protected bool canAttack;
     
     public float waitTime;
     public float alertDistance;
     protected float timer;
+    protected Animator anim;
     
     protected virtual void Awake()
     {
@@ -49,7 +53,9 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         colli = GetComponent<Collider>();
         speed = agent.speed;
         timer = 0;
-
+        deadTime = 0;
+        anim = GetComponentInChildren<Animator>();
+        
         vLeftDown = leftDown.position;
         vRightUp = rightUp.position;
         length = rightUp.position.x - leftDown.position.x;
@@ -127,6 +133,6 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     public void Die()
     {
-        Destroy(gameObject);
+        isDead = true;
     }
 }

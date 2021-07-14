@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE }
+public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD }
 public class PatolAI : EnemyController
 {
     public List<Transform> patolPoints = new List<Transform>();
@@ -71,16 +71,23 @@ public class PatolAI : EnemyController
                     isChase = false;
                     isStare = false;
                 }
+            }
         }
-    }
+    
         
         SwitchState();
+        
+        anim.SetBool("isDead", isDead);
+        anim.SetBool("isIdle", isIdle);
+
     }
 
     void SwitchState()
     {
         if (isStop)
             enemyStates = EnemyStates.STOP;
+        else if (isDead)
+            enemyStates = EnemyStates.DEAD;
         else if (isChase)
             enemyStates = EnemyStates.CHASE;
         else if (isStare)
@@ -95,16 +102,26 @@ public class PatolAI : EnemyController
             case EnemyStates.STOP:
                 agent.isStopped = true;
                 break;
+            case EnemyStates.DEAD:
+                isDead = true;
+                deadTime += Time.deltaTime;
+                if(deadTime >= 2f)
+                    Destroy(gameObject);
+                break;
             case EnemyStates.CHASE:
                 Debug.Log("Chase");
                 agent.isStopped = false;
+                agent.stoppingDistance = attackRange;
                 agent.destination = GameManager.Instance.player.transform.position;
-                if (canAttack && Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) < attackRange && !isWaiting) 
+                if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackRange)
                 {
-                    //PlayerHealth.Instance.GetHurt(damageTime);
-                    Debug.Log("Attack!");
-
-                    StartCoroutine(RefreshCanAttack());
+                    isIdle = true;
+                    if (canAttack && !isWaiting) 
+                        anim.SetTrigger("attack");
+                }
+                else
+                {
+                    isIdle = false;
                 }
 
                 // if (!BPlayerInArea())
@@ -115,8 +132,15 @@ public class PatolAI : EnemyController
                 break;
             case EnemyStates.STARE:
                 Debug.Log("Stare");
+                isIdle = true;
                 agent.isStopped = true;
+                
                 transform.forward = (GameManager.Instance.player.transform.position - transform.position).normalized;
+                
+                if (canAttack && Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <
+                    attackRange)
+                    Attack();
+                
                 if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) >=
                     alertDistance || !BCanSee())
                 {
@@ -126,6 +150,7 @@ public class PatolAI : EnemyController
                 break;
             case EnemyStates.WAIT:
                 Debug.Log("Wait");
+                isIdle = true;
                 agent.isStopped = true;
                 timer += Time.deltaTime;
                 if (timer >= waitTime)
@@ -138,6 +163,7 @@ public class PatolAI : EnemyController
                 break;
             case EnemyStates.PATOL:
                 Debug.Log("Patol");
+                agent.stoppingDistance = 0;
                 if (Vector3.Distance(transform.position, agent.destination) <= 0.7f && !isWaiting)
                 {
                     agent.isStopped = true;
@@ -152,6 +178,7 @@ public class PatolAI : EnemyController
     {
         agent.isStopped = false;
         agent.destination = new Vector3(patolVectors[pointNum].x, transform.position.y, patolVectors[pointNum].z);
+        isIdle = false;
         pointNum++;
         if (pointNum == patolPoints.Count)
             pointNum = 0;
@@ -160,6 +187,7 @@ public class PatolAI : EnemyController
     IEnumerator Wait()
     {
         isWaiting = true;
+        isIdle = true;
         yield return new WaitForSeconds(waitTime);
         agent.isStopped = false;
         isWaiting = false;
@@ -168,5 +196,12 @@ public class PatolAI : EnemyController
             GoToNextPoint();
         }
     }
-    
+
+    void Attack()
+    {
+        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
+        UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+        Debug.Log("Attack!");
+        StartCoroutine(RefreshCanAttack());
+    }
 }

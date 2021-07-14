@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GuardStates { CHASE, GUARD, STOP, BACK, STARE, SLEEP }
+public enum GuardStates { CHASE, GUARD, STOP, BACK, STARE, SLEEP, DEAD }
 public class GuardAI : EnemyController
 {
     public Transform guardPoint;
@@ -67,14 +67,21 @@ public class GuardAI : EnemyController
                 isBack = false;
                 isGuard = true;
             }
-            SwitchState();
+
         }
+        SwitchState();
+        
+        anim.SetBool("isDead", isDead);
+        anim.SetBool("isIdle", isIdle);
+
     }
 
     void SwitchState()
     {
         if (isStop)
             guardStates = GuardStates.STOP;
+        else if (isDead)
+            guardStates = GuardStates.DEAD;
         else if (isSleep)
             guardStates = GuardStates.SLEEP;
         else if (isChase)
@@ -100,10 +107,7 @@ public class GuardAI : EnemyController
                 agent.destination = GameManager.Instance.player.transform.position;
                 if (canAttack && Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) < attackRange && !isWaiting) 
                 {
-                    //PlayerHealth.Instance.GetHurt(damageTime);
-                    Debug.Log("Attack!");
-
-                    StartCoroutine(RefreshCanAttack());
+                    anim.SetTrigger("attack");
                 }
 
                 // if (!BPlayerInArea())
@@ -136,5 +140,13 @@ public class GuardAI : EnemyController
     public void WakeUp()
     {
         isSleep = false;
+    }
+    
+    void Attack()
+    {
+        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
+        UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+        Debug.Log("Attack!");
+        StartCoroutine(RefreshCanAttack());
     }
 }
