@@ -223,3 +223,27 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: Monster_Voc_01
+    clips:
+    - {fileID: 8300000, guid: d987aae28438c88419796b8f60db798b, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Monster_Voc_02
+    clips:
+    - {fileID: 8300000, guid: 7649c41b184415d49b8fb26cdabf558f, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Monster_Voc_03
+    clips:
+    - {fileID: 8300000, guid: e0cf3d51e1e5d0740b53df619bea31fa, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
