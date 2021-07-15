@@ -199,8 +199,8 @@ public class PatolAI : EnemyController
 
     void Attack()
     {
-        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
-        UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+        //PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
+        //UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
         Debug.Log("Attack!");
         StartCoroutine(RefreshCanAttack());
     }
