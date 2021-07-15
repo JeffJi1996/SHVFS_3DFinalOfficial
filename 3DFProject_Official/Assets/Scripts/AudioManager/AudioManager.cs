@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Audio;
 using UnityEngine;
+using Random = System.Random;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,7 +25,16 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            if (s.outPutGroup == null)
+            {
+                s.source.outputAudioMixerGroup = sounds[0].outPutGroup;
+            }
+            else
+            {
+                Debug.Log(s.name);
+                s.source.outputAudioMixerGroup = s.outPutGroup;
+            }
+            //s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -34,7 +44,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Theme");
+        Play("Player_Death");
     }
 
     // Update is called once per frame
@@ -49,6 +59,8 @@ public class AudioManager : MonoBehaviour
         }
         Debug.Log(s.name);
         AudioSource source = s.source;
+        //int i = Random.R
+        s.source.clip = s.clips[0];
         s.source.Play();
         Debug.Log("sounds great!");
 
