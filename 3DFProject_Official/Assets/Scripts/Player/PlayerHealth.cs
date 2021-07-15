@@ -21,7 +21,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
             Die();
         }
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

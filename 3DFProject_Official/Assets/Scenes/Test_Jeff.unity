@@ -48011,6 +48011,14 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[6].key
       value: 
       objectReference: {fileID: 7960698810244121207, guid: 541eec66bd340ae4ba1aa8bd71011aec, type: 2}
+    - target: {fileID: 5838768880408858431, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].value
+      value: 
+      objectReference: {fileID: 1822942861}
+    - target: {fileID: 5838768880408858431, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 2103688534}
     - target: {fileID: 5838768880437141095, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -48063,6 +48071,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 2103688530}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 577108880441306697}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 577108880441306696}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 2103688534}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[10].value
+      value: 
+      objectReference: {fileID: 577108880441306695}
+    - target: {fileID: 5838768880570559675, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_SceneBindings.Array.data[12].value
+      value: 
+      objectReference: {fileID: 1822942861}
     - target: {fileID: 5838768881082492963, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
       propertyPath: m_InitialState
       value: 1
@@ -86956,92 +86988,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Player_Death
-    clip: {fileID: 8300000, guid: 469991b0f2ca9ab4a8ab0236559231f1, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Player_Trans
-    clip: {fileID: 8300000, guid: efba698e8a28fad4b920292fc9faf6bf, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Attack_01
-    clip: {fileID: 8300000, guid: c0d8399bd3cc8264aade8b37a4ddc4d7, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Attack_02
-    clip: {fileID: 8300000, guid: 2d8143a483a74a148bdcc5f61fd77ea4, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Death_04
-    clip: {fileID: 8300000, guid: 74bbb31c8d4a5a546af17d7a8006c3af, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Mouth_Loop
-    clip: {fileID: 8300000, guid: e8c526ac76e5f544bbd6209dc56f3425, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Mumble_01
-    clip: {fileID: 8300000, guid: 15cba8ba2bf300045a29402611b3e0c4, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Enemy_Mumble_02
-    clip: {fileID: 8300000, guid: fa136f36cb7b9714fab4ba85339eb639, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SFX_Amb_Moonlight
-    clip: {fileID: 8300000, guid: 201fa35ecdc3407429a385acfa5ee272, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SFX_Door_Wood_Open
-    clip: {fileID: 8300000, guid: f107ea0f535aa3247b7de3741832634f, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SFX_ThornTrap_Active
-    clip: {fileID: 8300000, guid: 95b5849120576204ab62f1d8fc38c57c, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: SFX_ThornTrap_Return
-    clip: {fileID: 8300000, guid: 636deed5f0a715940b5cf54fb65892e8, type: 3}
+    clips: []
     volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: 
-    clip: {fileID: 0}
+    clips: []
     volume: 0
+    outPutGroup: {fileID: 0}
     pitch: 0
     source: {fileID: 0}
     loop: 0
   - name: 
-    clip: {fileID: 0}
+    clips: []
     volume: 0
+    outPutGroup: {fileID: 0}
     pitch: 0
     source: {fileID: 0}
     loop: 0
   - name: 
-    clip: {fileID: 0}
+    clips: []
     volume: 0
+    outPutGroup: {fileID: 0}
     pitch: 0
     source: {fileID: 0}
     loop: 0
@@ -127981,7 +128028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 2bf76e36af269bc48a34d6fe33c0c8ca, type: 3}
   material: {fileID: 2100000, guid: f96aa74a5a9bbfc4fac09728907a1a32, type: 2}
-  times: 0
+  times: 16
 --- !u!81 &2103688531
 AudioListener:
   m_ObjectHideFlags: 0
@@ -128803,6 +128850,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 28176289}
     m_Modifications:
+    - target: {fileID: 577108882081811919, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 577108882123790626, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
       propertyPath: m_Name
       value: TimeLineCanvas
@@ -128893,6 +128944,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
+--- !u!1 &577108880441306695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 577108882081811919, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
+  m_PrefabInstance: {fileID: 577108880441306694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &577108880441306696 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 577108882186205377, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
+  m_PrefabInstance: {fileID: 577108880441306694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &577108880441306697 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 577108880201597259, guid: a13bc2c95ae17114dba7fd0b7284c1b1, type: 3}
+  m_PrefabInstance: {fileID: 577108880441306694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &950507226226774497
 PrefabInstance:
   m_ObjectHideFlags: 0
