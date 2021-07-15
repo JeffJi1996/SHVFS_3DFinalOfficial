@@ -545,6 +545,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mantis_Rigarm
       objectReference: {fileID: 0}
+    - target: {fileID: 2086853955856323318, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42b3e5c46e1e75e4aba46b4d920bd370, type: 2}
+    - target: {fileID: 2086853955856323318, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10032eeb18c53c047aef87e931a2fc10, type: 2}
+    - target: {fileID: 2086853955856323318, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f77951309502571429c24b59ed14b61e, type: 2}
+    - target: {fileID: 2086853955856323318, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d407b6eb9b0a774fb1497a02d2f0e1b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
 --- !u!1 &6477710954249944919 stripped
