@@ -562,6 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2371500753568926102}
   - component: {fileID: 2371500753568926101}
+  - component: {fileID: -9023196868277734782}
   m_Layer: 0
   m_Name: TimeLine1
   m_TagString: Untagged
@@ -642,3 +643,33 @@ PlayableDirector:
     - deca95ccde906f5479f8279a207c740c: {fileID: 0}
     - ea7669d254e61d244bd976b4c9b1b487: {fileID: 2371500753538629505}
     - f0d441717e49a9941a66d5db08de6e4b: {fileID: 2371500751981987377}
+--- !u!114 &-9023196868277734782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2371500753568926100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: f4f1cf2cc362da148822120be4944211, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2371500753568926100}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
