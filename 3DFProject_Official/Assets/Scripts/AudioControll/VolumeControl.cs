@@ -23,6 +23,8 @@ public class VolumeControl : MonoBehaviour
     private void Awake()
     {
         //创建一个methods
+        _toggle.isOn = true;
+        _slider.value = _slider.maxValue;
         _slider.onValueChanged.AddListener(HandleSliderValueChanged);
         _toggle.onValueChanged.AddListener(HandleToggleValueChanged);
     }

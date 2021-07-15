@@ -62,7 +62,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
         Collider[] colliderArray = Physics.OverlapSphere(atkTransform.position, AttackRange, enemyLayer);
         foreach (var enemyCollider in colliderArray)
         {
-            Debug.Log(enemyCollider+"EnemyDie");
+            enemyCollider.GetComponent<EnemyController>().Die();
         }
     }
 

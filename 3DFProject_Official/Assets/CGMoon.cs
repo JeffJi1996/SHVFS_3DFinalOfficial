@@ -8,7 +8,6 @@ public class CGMoon : Singleton<CGMoon>
 {
 
     public PlayableDirector timeLine;
-    public Transform LookTarget;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>() != null)

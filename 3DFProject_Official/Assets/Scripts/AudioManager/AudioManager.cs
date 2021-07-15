@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Security.Cryptography;
 using UnityEngine.Audio;
 using UnityEngine;
-using Random = System.Random;
+using UnityEngine.SocialPlatforms;
+using Random = UnityEngine.Random;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -44,7 +47,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Player_Death");
+        //Play("Player_Death");
     }
 
     // Update is called once per frame
@@ -59,10 +62,9 @@ public class AudioManager : MonoBehaviour
         }
         Debug.Log(s.name);
         AudioSource source = s.source;
-        //int i = Random.R
-        s.source.clip = s.clips[0];
+        s.source.clip = s.clips[Random.Range(0,s.clips.Length)];
         s.source.Play();
-        Debug.Log("sounds great!");
+        //Debug.Log("sounds great!");
 
     }
 }

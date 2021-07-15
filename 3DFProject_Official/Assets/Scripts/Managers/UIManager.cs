@@ -21,7 +21,7 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         timePanel.SetActive(false);
-        fullTime = PlayerAbilityControl.Instance.GetFullDuration();
+        //fullTime = PlayerAbilityControl.Instance.GetFullDuration();
         curTime = fullTime;
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
