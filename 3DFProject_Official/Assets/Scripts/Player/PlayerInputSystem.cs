@@ -6,6 +6,13 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
 {
     private Rigidbody rb;
     private float gravity = -9.81f;
+    
+    private float DistanceCounter = 0;
+
+    [SerializeField] private float WalkFootSFXFrequency_Hunam;
+    [SerializeField] private float WalkFootSFXFrequency_Werewolf;
+    [SerializeField] private float RunFootSFXFrequency_Hunam;
+    [SerializeField] private float RunFootSFXFrequency_Werewolf;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,12 +28,58 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         
 
         #endregion
+        DistanceCounter += rb.velocity.magnitude * Time.deltaTime;
+        
     }
     void Update()
     {
         #region Walk && Run
-        if (Input.GetKey(KeyCode.LeftShift)) PlayerMovement.Instance.Run();
-        if (Input.GetKeyUp(KeyCode.LeftShift)) PlayerMovement.Instance.Walk();
+
+        if (IsMoving())
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                PlayerMovement.Instance.Run();
+                if (PlayerAbilityControl.Instance.WhetherTransforming())
+                {
+                    if (DistanceCounter >= 1f/RunFootSFXFrequency_Werewolf)
+                    {
+                        DistanceCounter = 0f;
+                        AudioManager.instance.Play("Werewolf_Foot_Walk_Wood");
+                    }
+                }
+                else
+                {
+                    if (DistanceCounter >= 1f/ RunFootSFXFrequency_Hunam)
+                    {
+                        DistanceCounter = 0f;
+                        AudioManager.instance.Play("Player_Foot_Walk_Wood");
+                    }
+                }
+            }
+            else
+            {
+                PlayerMovement.Instance.Walk();
+                if (PlayerAbilityControl.Instance.WhetherTransforming())
+                {
+                    if (DistanceCounter >= 1f/WalkFootSFXFrequency_Werewolf)
+                    {
+                        DistanceCounter = 0f;
+                        AudioManager.instance.Play("Werewolf_Foot_Walk_Wood");
+                    }
+                }
+                else
+                {
+                    if (DistanceCounter >= 1f/ WalkFootSFXFrequency_Hunam)
+                    {
+                        DistanceCounter = 0f;
+                        AudioManager.instance.Play("Player_Foot_Walk_Wood");
+                    }
+                }
+            }
+        }
+
+        
         #endregion
         #region TurnAround
         if (Input.GetKeyDown(KeyCode.Mouse2))
@@ -40,6 +93,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 PlayerAttack.Instance.Attack();
+                AudioManager.instance.Play("Werewolf_Attack");
             }
         }
         #endregion
@@ -49,5 +103,15 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
     public void Interact()
     {
 
+    }
+
+    bool IsMoving()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            return true;
+        else
+        {
+            return false;
+        }
     }
 }

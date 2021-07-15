@@ -116,8 +116,12 @@ public class PatolAI : EnemyController
                 if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <= attackRange)
                 {
                     isIdle = true;
-                    if (canAttack && !isWaiting) 
+                    if (canAttack && !isWaiting)
+                    {
                         anim.SetTrigger("attack");
+                        AudioManager.instance.Play("Enemy_Attack_01");
+                        StartCoroutine(RefreshCanAttack());
+                    }
                 }
                 else
                 {
@@ -139,7 +143,11 @@ public class PatolAI : EnemyController
                 
                 if (canAttack && Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) <
                     attackRange)
-                    Attack();
+                {
+                    anim.SetTrigger("attack");
+                    AudioManager.instance.Play("Enemy_Attack_01");
+                    StartCoroutine(RefreshCanAttack());
+                }
                 
                 if (Vector3.Distance(GameManager.Instance.player.transform.position, transform.position) >=
                     alertDistance || !BCanSee())
@@ -197,11 +205,11 @@ public class PatolAI : EnemyController
         }
     }
 
-    void Attack()
+    public void Attack()
     {
-        //PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
-        //UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
+        if (PlayerAbilityControl.Instance.WhetherTransforming())
+            UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
         Debug.Log("Attack!");
-        StartCoroutine(RefreshCanAttack());
     }
 }

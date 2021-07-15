@@ -247,3 +247,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: Werewolf_Attack
+    clips:
+    - {fileID: 8300000, guid: f5b2e654df9613142aeb0d321659aa35, type: 3}
+    - {fileID: 8300000, guid: 6eca714243c5f23499f02f6d6b6e7e9d, type: 3}
+    - {fileID: 8300000, guid: 9ed2b1661527995498c4eba8a32a70a6, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Werewolf_Hurt
+    clips:
+    - {fileID: 8300000, guid: 2870d56975cae1343a4f96ffe6053ca6, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

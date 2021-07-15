@@ -9,6 +9,7 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private PlayableDirector CG1;
     [SerializeField] private GameObject firstMoon;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource moonAudioSource;
 
 
     public void StartCG1()
@@ -19,6 +20,9 @@ public class TimeLineFunctions : MonoBehaviour
     public void EndCG1()
     {
         audioSource.PlayOneShot(audioSource.clip);
+        UIManager.Instance.SetFullTime(PlayerAbilityControl.Instance.GetFullDuration());
+        moonAudioSource.volume = 1;
+        Debug.Log(111);
     }
     public void ClosePlayerInput()
     {
@@ -31,7 +35,7 @@ public class TimeLineFunctions : MonoBehaviour
         Player.transform.position = transform.position;
         Player.transform.rotation = transform.rotation;
     }
-
+    
     public void EndCG2()
     {
         Destroy(firstMoon.GetComponent<CGMoon>());
@@ -41,10 +45,17 @@ public class TimeLineFunctions : MonoBehaviour
         Player.GetComponentInChildren<MouseLook>().enabled = true;
         Player.GetComponent<PlayerAbilityControl>().CGRestTime();
         GameManager.Instance.EndCG();
+        UIManager.Instance.TimePanelOpen();
+        moonAudioSource.volume = 0.1f;
     }
 
+    public void IntroStart()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void StartCG()
     {
         GameManager.Instance.CGTime();
+        moonAudioSource.volume = 0f;
     }
 }

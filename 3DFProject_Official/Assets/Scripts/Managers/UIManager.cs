@@ -21,8 +21,7 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         timePanel.SetActive(false);
-        //fullTime = PlayerAbilityControl.Instance.GetFullDuration();
-        curTime = fullTime;
+        fullTime = 10f;
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
     }
@@ -49,6 +48,13 @@ public class UIManager : Singleton<UIManager>
         isTimeOpen = true;
     }
 
+    public void CloseTimePanel()
+    {
+        curTime = 0f;
+        isTimeOpen = false;
+        timePanel.SetActive(false);
+    }
+    
     public void DecreaseTime(float decreaseTime)
     {
         tempTime = curTime;
@@ -90,5 +96,10 @@ public class UIManager : Singleton<UIManager>
         yield return new WaitForEndOfFrame();
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
+    }
+
+    public void SetFullTime(float maxTime)
+    {
+        fullTime = maxTime;
     }
 }

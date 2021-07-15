@@ -27,6 +27,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     {
         if (isTransforming)
         {
+            
             if (curDuration > 0f && curDuration <= transformDuration)
             {
                 curDuration -= Time.deltaTime;
@@ -53,6 +54,8 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             anim.SetBool("isTransforming", true);
             //��ģ��
             HandMesh.SetActive(true);
+            AudioManager.instance.Play("Player_Trans");
+            UIManager.Instance.TimePanelOpen();
         }
     }
 

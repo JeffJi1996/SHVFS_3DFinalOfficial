@@ -13,5 +13,6 @@ public class Door : InteractableBi
         hasBeenInteracted = true;
         GetOutUIHide();
         GetComponentInChildren<Animator>().SetTrigger("OpenDoor");
+        AudioManager.instance.Play("SFX_Door_Wood_Open");
     }
 }

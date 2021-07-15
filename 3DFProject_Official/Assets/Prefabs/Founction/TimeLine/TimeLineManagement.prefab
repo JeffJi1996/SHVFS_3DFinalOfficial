@@ -51,6 +51,7 @@ MonoBehaviour:
   CG1: {fileID: 5838768880570559675}
   firstMoon: {fileID: 0}
   audioSource: {fileID: 3119354753192992165}
+  moonAudioSource: {fileID: 0}
 --- !u!82 &3119354753192992165
 AudioSource:
   m_ObjectHideFlags: 0
@@ -219,6 +220,14 @@ PrefabInstance:
       value: TimeLine2
       objectReference: {fileID: 0}
     - target: {fileID: 6898182048846659339, guid: da3aecc9ade00f04cbbc7d7feb72c7e3, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898182048846659339, guid: da3aecc9ade00f04cbbc7d7feb72c7e3, type: 3}
+      propertyPath: m_SceneBindings.Array.data[6].key
+      value: 
+      objectReference: {fileID: 7960698810244121207, guid: 541eec66bd340ae4ba1aa8bd71011aec, type: 2}
+    - target: {fileID: 6898182048846659339, guid: da3aecc9ade00f04cbbc7d7feb72c7e3, type: 3}
       propertyPath: m_SceneBindings.Array.data[3].value
       value: 
       objectReference: {fileID: 0}
@@ -248,6 +257,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5838768880437141095}
     m_Modifications:
+    - target: {fileID: -9023196868277734782, guid: 86cafc474bceb4e4cb576f12ecb68fef, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5838768880437141094}
+    - target: {fileID: -9023196868277734782, guid: 86cafc474bceb4e4cb576f12ecb68fef, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndCG1
+      objectReference: {fileID: 0}
+    - target: {fileID: -9023196868277734782, guid: 86cafc474bceb4e4cb576f12ecb68fef, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TimeLineFunctions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -9023196868277734782, guid: 86cafc474bceb4e4cb576f12ecb68fef, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2371500753568926100, guid: 86cafc474bceb4e4cb576f12ecb68fef, type: 3}
       propertyPath: m_Name
       value: TimeLine1
@@ -420,9 +445,49 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Signals.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97ef5d0246f329e4e962244dc2f16032, type: 2}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5838768880437141094}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5838768880437141094}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IntroStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TimeLineFunctions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674292, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2655386923304674293, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 

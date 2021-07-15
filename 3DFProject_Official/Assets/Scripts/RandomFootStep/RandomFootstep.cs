@@ -26,8 +26,9 @@ public class RandomFootstep : MonoBehaviour
     {
         footSource = GetComponent<AudioSource>();
     }
+    
 
-    private void Update()
+    public void PlaySound()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {

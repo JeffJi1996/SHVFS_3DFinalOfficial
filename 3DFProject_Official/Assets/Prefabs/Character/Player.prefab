@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  playerDeathCG: {fileID: 0}
 --- !u!114 &3282893997117784237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +524,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0312de01d4e49ed438d70e58e780917b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkLength: 0
+  runLength: 0
+  WalkFootSFXFrequency_Hunam: 0
+  WalkFootSFXFrequency_Werewolf: 0
+  RunFootSFXFrequency_Hunam: 0
+  RunFootSFXFrequency_Werewolf: 0
 --- !u!95 &3282893997117784239
 Animator:
   serializedVersion: 3

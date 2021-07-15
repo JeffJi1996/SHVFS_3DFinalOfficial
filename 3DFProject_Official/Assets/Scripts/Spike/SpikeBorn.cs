@@ -8,7 +8,6 @@ public class SpikeBorn : MonoBehaviour
     public bool isActive;
     private bool doOnce;
     public Vector3 initialPosition;
-    private AudioSource audio;
 
     [Header("Time")]
     [SerializeField] private float GoUpDuration;
@@ -31,7 +30,6 @@ public class SpikeBorn : MonoBehaviour
         doOnce = true;
         initialPosition = transform.localPosition;
         nowTime = activeTime;
-        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -71,13 +69,13 @@ public class SpikeBorn : MonoBehaviour
     void GoUp()
     {
         LeanTween.moveLocalY(this.gameObject, GoUpPosition, GoUpDuration).setEaseInQuint();
-        audio.Play();
+        AudioManager.instance.Play("SFX_ThornTrap_Active");
     }
 
     void GoDown()
     {
         LeanTween.moveLocalY(gameObject, initialPosition.y, GoDownDuration).setEaseInQuint().setOnComplete(ChangeState);
-        audio.Play();
+        AudioManager.instance.Play("SFX_ThornTrap_Return");
     }
 
     IEnumerator Puncture()

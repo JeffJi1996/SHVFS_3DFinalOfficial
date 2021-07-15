@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected IEnumerator RefreshCanAttack()
     {
         canAttack = false;
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(2f);
         canAttack = true;
     }
 
@@ -134,5 +134,6 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void Die()
     {
         isDead = true;
+        AudioManager.instance.Play("Enemy_Death_04");
     }
 }

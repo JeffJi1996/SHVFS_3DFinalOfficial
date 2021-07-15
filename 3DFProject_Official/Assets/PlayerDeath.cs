@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerDeath : MonoBehaviour
         Player.transform.position = ResetPointManagement.Instance.ReturnResetPoint().position;
         Player.transform.rotation = ResetPointManagement.Instance.ReturnResetPoint().rotation;
         Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        PlayerHealth.Instance.CanHurt();
     }
 
     public void Death_OpenPlayerInput()
@@ -50,6 +52,17 @@ public class PlayerDeath : MonoBehaviour
     public void OpenSelect()
     {
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void PlayAgain()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+            .buildIndex);
+    }
+
+    public void BackToMainScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
 }
