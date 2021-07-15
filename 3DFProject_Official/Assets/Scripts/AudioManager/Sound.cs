@@ -11,9 +11,11 @@ public class Sound
     // We use this to control what data is stored in each sound  so we need to creat a custom class  to do that we go inside of unity we go
 
     public string name;
-    public AudioClip clip;
+    public AudioClip[] clips;
     [Range(0f, 1f)]
     public float volume;
+
+    public AudioMixerGroup outPutGroup;
 
 
 

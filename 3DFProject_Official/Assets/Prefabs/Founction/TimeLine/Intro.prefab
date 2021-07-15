@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2655386923304674290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2655386923304674291}
+  - component: {fileID: 2655386923304674293}
+  - component: {fileID: 2655386923304674292}
+  m_Layer: 0
+  m_Name: Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2655386923304674291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655386923304674290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &2655386923304674293
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655386923304674290}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 6568699038867489971, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1111101618745162774, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7971638536008357458, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 590722625262283975, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 829128102986001511, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6543401876830078089, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6463071959763912770, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -439003796218539599, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1191232572232674219, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5352528560869458207, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1689379247227802786, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4272278274041264376, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4976243404226501720, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1228502762977512183, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &2655386923304674292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655386923304674290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 62c56a627ea288a46880d9a174ce88a4, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: TimeLineFunctions, Assembly-CSharp
+          m_MethodName: StartCG1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

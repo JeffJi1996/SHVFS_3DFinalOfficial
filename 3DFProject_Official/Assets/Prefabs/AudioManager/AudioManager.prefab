@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1188811807839182099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188811807839182101}
+  - component: {fileID: 1188811807839182098}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1188811807839182101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188811807839182099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188811807839182098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188811807839182099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b37b713153299a488a6496af495f107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Player_Death
+    clips:
+    - {fileID: 8300000, guid: 469991b0f2ca9ab4a8ab0236559231f1, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Player_Trans
+    clips:
+    - {fileID: 8300000, guid: efba698e8a28fad4b920292fc9faf6bf, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Attack_01
+    clips:
+    - {fileID: 8300000, guid: c0d8399bd3cc8264aade8b37a4ddc4d7, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Player_Foot_Walk_Ceramic
+    clips:
+    - {fileID: 8300000, guid: b9de845fea8d7b74099a678ed90b227c, type: 3}
+    - {fileID: 8300000, guid: 207e018fe6b2e834081f4c60e50e36a5, type: 3}
+    - {fileID: 8300000, guid: 879e2f3bc86eb8945a66d75cfd9d2082, type: 3}
+    - {fileID: 8300000, guid: 2cae37a73b655a74fb6fcb7d93257cda, type: 3}
+    - {fileID: 8300000, guid: f74d9861979a17f43b7a473c110e8b0f, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Player_Foot_Walk_Concrete
+    clips:
+    - {fileID: 8300000, guid: 8fc8b184c90ba574fa91412b0bf577cf, type: 3}
+    - {fileID: 8300000, guid: 7cdab5beb34c7034bbc5015a9721bb10, type: 3}
+    - {fileID: 8300000, guid: ded13c975207ade40b3a677d78930bbe, type: 3}
+    - {fileID: 8300000, guid: 8818c554a7da1fb4c911711fa3528913, type: 3}
+    - {fileID: 8300000, guid: 44322063479e3b94787687c4a4d5d41d, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Player_Foot_Walk_Wood
+    clips:
+    - {fileID: 8300000, guid: c94e0e03681658c418e2dcef92624e36, type: 3}
+    - {fileID: 8300000, guid: 4f79b70d8a9b9d645853f781f705b7d9, type: 3}
+    - {fileID: 8300000, guid: b7847642b7f4a944fb6d7e5405402eb0, type: 3}
+    - {fileID: 8300000, guid: 174d419086665044eae29ff0e300e27a, type: 3}
+    - {fileID: 8300000, guid: 49d097f7b0dda664d8006b68797f01a3, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Attack_02
+    clips:
+    - {fileID: 8300000, guid: 2d8143a483a74a148bdcc5f61fd77ea4, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Death_04
+    clips:
+    - {fileID: 8300000, guid: 74bbb31c8d4a5a546af17d7a8006c3af, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Mouth_Loop
+    clips:
+    - {fileID: 8300000, guid: e8c526ac76e5f544bbd6209dc56f3425, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Mumble_01
+    clips:
+    - {fileID: 8300000, guid: 15cba8ba2bf300045a29402611b3e0c4, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Mumble_02
+    clips:
+    - {fileID: 8300000, guid: fa136f36cb7b9714fab4ba85339eb639, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Enemy_Foot_Walk
+    clips:
+    - {fileID: 8300000, guid: aa1b37900ab93054f8733a33d950c75b, type: 3}
+    - {fileID: 8300000, guid: 67238a1c92428d7439ae54db85d35868, type: 3}
+    - {fileID: 8300000, guid: c4c4a32876ccb7245bedafe70371256e, type: 3}
+    - {fileID: 8300000, guid: cab1d96f89362f74a8e312541d0ed49e, type: 3}
+    - {fileID: 8300000, guid: 25c3ad97af3960c47ab67f7ecfc311ed, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_Amb_Moonlight
+    clips:
+    - {fileID: 8300000, guid: 201fa35ecdc3407429a385acfa5ee272, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_Door_Wood_Open
+    clips:
+    - {fileID: 8300000, guid: f107ea0f535aa3247b7de3741832634f, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_ThornTrap_Active
+    clips:
+    - {fileID: 8300000, guid: 95b5849120576204ab62f1d8fc38c57c, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_ThornTrap_Return
+    clips: []
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Werewolf_Foot_Walk_Ceramic
+    clips:
+    - {fileID: 8300000, guid: 6496cbd7ca2fe9944909fffe8e8fb9ac, type: 3}
+    - {fileID: 8300000, guid: a7fd58109abf6084482606364eeda6c9, type: 3}
+    - {fileID: 8300000, guid: dd27f7b1f36d2384f8027d99a01ec7dc, type: 3}
+    - {fileID: 8300000, guid: 619cbf380735b4b4bb1ac0169ead6b2e, type: 3}
+    - {fileID: 8300000, guid: 08b7531a36c935245bbb99077b2c0ce7, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Werewolf_Foot_Walk_Concrete
+    clips:
+    - {fileID: 8300000, guid: c36864cb03c70fc4694b5213bfbeebac, type: 3}
+    - {fileID: 8300000, guid: b85956565344f184e995ea6e5dae235e, type: 3}
+    - {fileID: 8300000, guid: a0a8d7f8acfd2ce42b778cf5b29151bf, type: 3}
+    - {fileID: 8300000, guid: 5749afae68d816b4783ad2133d206ada, type: 3}
+    - {fileID: 8300000, guid: 2d09d13aac543d34e9daeb32b46a95ca, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Werewolf_Foot_Walk_Wood
+    clips:
+    - {fileID: 8300000, guid: 0157edbf50c7bf24eaebe86b7087de49, type: 3}
+    - {fileID: 8300000, guid: ed1e15c37fb60824aa19e8f45b2ce63c, type: 3}
+    - {fileID: 8300000, guid: 7e28c3c2d31fba645b0cac8e3e7b97ea, type: 3}
+    - {fileID: 8300000, guid: c845fe6d6b6d0a742999c29814f4ad64, type: 3}
+    - {fileID: 8300000, guid: f9a4a5e21cca87847b451a703e4626aa, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
