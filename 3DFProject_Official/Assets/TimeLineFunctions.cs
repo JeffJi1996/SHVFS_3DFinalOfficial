@@ -8,12 +8,18 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private PlayableDirector CG1;
     [SerializeField] private GameObject firstMoon;
+    [SerializeField] private AudioSource audioSource;
+
 
     public void StartCG1()
     {
         CG1.Play();
     }
 
+    public void EndCG1()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
     public void ClosePlayerInput()
     {
         Player.GetComponent<PlayerInputSystem>().enabled = false;
