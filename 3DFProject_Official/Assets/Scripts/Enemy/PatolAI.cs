@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD }
+public enum EnemyStates { CHASE, PATOL, STOP, STARE, DEAD }
 public class PatolAI : EnemyController
 {
     public List<Transform> patolPoints = new List<Transform>();
@@ -73,11 +73,8 @@ public class PatolAI : EnemyController
                 }
             }
         }
-    
-        
+ 
         SwitchState();
-        
-        anim.SetBool("isDead", isDead);
         anim.SetBool("isIdle", isIdle);
 
     }
@@ -92,8 +89,6 @@ public class PatolAI : EnemyController
             enemyStates = EnemyStates.CHASE;
         else if (isStare)
             enemyStates = EnemyStates.STARE;
-        else if (isWait)
-            enemyStates = EnemyStates.WAIT;
         else if (isPatol)
             enemyStates = EnemyStates.PATOL;
 
@@ -101,6 +96,11 @@ public class PatolAI : EnemyController
         {
             case EnemyStates.STOP:
                 agent.isStopped = true;
+                if (stopOnce)
+                {
+                    stopOnce = false;
+                    GoToNextPoint();
+                }
                 break;
             case EnemyStates.DEAD:
                 isDead = true;
@@ -156,19 +156,6 @@ public class PatolAI : EnemyController
                     isStare = false;
                 }
                 break;
-            case EnemyStates.WAIT:
-                Debug.Log("Wait");
-                isIdle = true;
-                agent.isStopped = true;
-                timer += Time.deltaTime;
-                if (timer >= waitTime)
-                {
-                    timer = 0;
-                    isWait = false;
-                    GoToNextPoint();
-                }
-
-                break;
             case EnemyStates.PATOL:
                 Debug.Log("Patol");
                 agent.stoppingDistance = 0;
@@ -211,5 +198,11 @@ public class PatolAI : EnemyController
         if (PlayerAbilityControl.Instance.WhetherTransforming())
             UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
         Debug.Log("Attack!");
+    }
+    
+    public void Die()
+    {
+        isDead = true;
+        anim.SetTrigger("die");
     }
 }

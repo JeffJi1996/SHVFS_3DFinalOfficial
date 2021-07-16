@@ -19,27 +19,18 @@ public class RandomFootstep : MonoBehaviour
     [Range(0.8f, 1.2f)]
     public float pitchMultiplier = 0.8f;
 
-
-
-
-    private void Start()
-    {
-        footSource = GetComponent<AudioSource>();
-    }
+    
     
 
     public void PlaySound()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            footSource.clip = footClip[Random.Range(0, footClip.Length)];
+        footSource.clip = footClip[Random.Range(0, footClip.Length)];
 
-            footSource.volume = 1f;
-            footSource.volume = Random.Range(footSource.volume * volumeMultiplier, 1f);
-            footSource.pitch = 1f;
-            footSource.pitch = Random.Range(footSource.pitch * volumeMultiplier, 1.2f);
+        footSource.volume = 1f;
+        footSource.volume = Random.Range(footSource.volume * volumeMultiplier, 1f);
+        footSource.pitch = 1f;
+        footSource.pitch = Random.Range(footSource.pitch * volumeMultiplier, 1.2f);
 
-            footSource.Play();
-        }
+        footSource.Play();
     }
 }

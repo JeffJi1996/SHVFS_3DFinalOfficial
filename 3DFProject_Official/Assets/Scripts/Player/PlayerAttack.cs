@@ -62,7 +62,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
         Collider[] colliderArray = Physics.OverlapSphere(atkTransform.position, AttackRange, enemyLayer);
         foreach (var enemyCollider in colliderArray)
         {
-            enemyCollider.GetComponent<EnemyController>().Die();
+            enemyCollider.GetComponent<PatolAI>().Die();
         }
     }
 
@@ -85,6 +85,11 @@ public class PlayerAttack : Singleton<PlayerAttack>
     public void EndRightAtkDetect()
     {
         rightAttackStart = false;
+    }
+
+    public void PlayAttackSFX()
+    {
+        AudioManager.instance.Play("Werewolf_Attack");
     }
 
     void OnDrawGizmos()

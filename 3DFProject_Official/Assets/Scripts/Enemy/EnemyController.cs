@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     [Header("Basic Settings")]
     protected float speed;
+    protected bool stopOnce;
     public float attackRange;
     public float sightAngle;
 
@@ -128,12 +129,10 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void EndCG()
     {
         isStop = false;
+        stopOnce = true;
         Debug.Log("Enemy Run");
     }
 
-    public void Die()
-    {
-        isDead = true;
-        AudioManager.instance.Play("Enemy_Death_04");
-    }
+    
+    
 }

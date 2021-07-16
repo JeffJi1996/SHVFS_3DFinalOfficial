@@ -93,7 +93,6 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 PlayerAttack.Instance.Attack();
-                AudioManager.instance.Play("Werewolf_Attack");
             }
         }
         #endregion

@@ -407,7 +407,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244837508833880725}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.47889262
   m_Height: 1.9986494
@@ -572,7 +572,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c4c4a32876ccb7245bedafe70371256e, type: 3}
   - {fileID: 8300000, guid: cab1d96f89362f74a8e312541d0ed49e, type: 3}
   - {fileID: 8300000, guid: 25c3ad97af3960c47ab67f7ecfc311ed, type: 3}
-  footSource: {fileID: 0}
+  footSource: {fileID: 8835330414904825682}
   volume: 1
   pitch: 1
   volumeMultiplier: 0.6
