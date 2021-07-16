@@ -10041,6 +10041,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9462942
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5650558
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.x
+      value: -0.42302853
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.z
+      value: -0.057136536
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982301, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
 --- !u!1001 &26356890
@@ -36389,6 +36409,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d652779ec7140488b6b8e360497937, type: 3}
+--- !u!114 &505048901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59306422a2ca4454aabce3daa79c3334, type: 3}
+  m_Name: New Aura Base Settings
+  m_EditorClassIdentifier: 
+  useDensity: 1
+  density: 0.25
+  useScattering: 1
+  scattering: 0.5
+  useAmbientLighting: 1
+  ambientLightingStrength: 1
+  useColor: 0
+  color: {r: 0, g: 0.5, b: 0.5, a: 0.5}
+  colorStrength: 1
+  useTint: 0
+  tint: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  tintStrength: 1
+  useExtinction: 0
+  extinction: 0.75
 --- !u!4 &508061925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 10bc6d9fae2413142a4f49825af0487a, type: 3}
@@ -36914,6 +36960,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859991590965094690, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.873437
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.z
+      value: 1.8495369
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.x
+      value: 0.3784587
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.z
+      value: -0.35149193
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982301, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -69313,6 +69379,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859991590965094690, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982301, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -131302,6 +131372,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.x
+      value: 2.2511718
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Size.z
+      value: 2.4025612
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.x
+      value: -0.5754667
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982300, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Center.z
+      value: 0.7012806
+      objectReference: {fileID: 0}
+    - target: {fileID: 859991591725982301, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eeee011794f39044adb1ed5c3ca78d5, type: 3}
 --- !u!1001 &1976413769
@@ -138112,6 +138202,7 @@ GameObject:
   - component: {fileID: 2103688530}
   - component: {fileID: 2103688534}
   - component: {fileID: 2103688531}
+  - component: {fileID: 2103688535}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -138233,6 +138324,21 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2103688535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103688529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frustumSettings:
+    baseSettings: {fileID: 505048901}
+    qualitySettings: {fileID: 2117096233}
 --- !u!1001 &2105264338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138457,6 +138563,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
+--- !u!114 &2117096233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8334a49e76cafef4da22976db1613959, type: 3}
+  m_Name: Default Aura Quality Settings
+  m_EditorClassIdentifier: 
+  displayVolumetricLightingBuffer: 0
+  frustumGridResolution: {x: 160, y: 88, z: 128}
+  enableAutomaticStereoResizing: 1
+  farClipPlaneDistance: 128
+  depthBiasCoefficient: 0.35
+  enableVolumes: 1
+  enableVolumesTexture2DMask: 1
+  enableVolumesTexture3DMask: 1
+  enableVolumesNoiseMask: 1
+  enableAmbientLighting: 1
+  enableDirectionalLights: 1
+  enableDirectionalLightsShadows: 1
+  enableSpotLights: 1
+  enableSpotLightsShadows: 1
+  enablePointLights: 1
+  enablePointLightsShadows: 1
+  enableLightsCookies: 1
+  enableDithering: 1
+  texture3DFiltering: 1
+  EXPERIMENTAL_enableDenoisingFilter: 0
+  EXPERIMENTAL_denoisingFilterRange: 0
+  EXPERIMENTAL_enableBlurFilter: 0
+  EXPERIMENTAL_blurFilterRange: 0
+  EXPERIMENTAL_blurFilterType: 0
+  EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025
+  enableTemporalReprojection: 1
+  temporalReprojectionFactor: 0.95
+  enableOcclusionCulling: 1
+  debugOcclusionCulling: 0
+  occlusionCullingAccuracy: 0
+  enableLightProbes: 0
 --- !u!1001 &2119989439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138877,6 +139026,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 722570229}
     m_Modifications:
+    - target: {fileID: 2538358295498975921, guid: 0f5fbda681d9ae44bae4b3313f3fe618, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2538358295498975923, guid: 0f5fbda681d9ae44bae4b3313f3fe618, type: 3}
       propertyPath: timeLine
       value: 
