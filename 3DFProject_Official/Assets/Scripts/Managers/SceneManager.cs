@@ -8,7 +8,7 @@ public class SceneManager : Singleton<SceneManager>
    protected override void Awake()
    {
       base.Awake();
-      DontDestroyOnLoad(this);
+     // DontDestroyOnLoad(this);
    }
 
    public void NextScene()
