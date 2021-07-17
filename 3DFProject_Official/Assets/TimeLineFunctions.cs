@@ -26,6 +26,7 @@ public class TimeLineFunctions : MonoBehaviour
     }
     public void ClosePlayerInput()
     {
+        PlayerInputSystem.Instance.StopVelocity();
         Player.GetComponent<PlayerInputSystem>().enabled = false;
         Player.GetComponentInChildren<MouseLook>().enabled = false;
     }

@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void Death_StopPlayerInput()
     {
+        Player.GetComponent<PlayerInputSystem>().StopVelocity();
         Player.GetComponent<PlayerInputSystem>().enabled = false;
         Player.GetComponentInChildren<MouseLook>().enabled = false;
     }

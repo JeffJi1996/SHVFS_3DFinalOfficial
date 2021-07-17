@@ -6,9 +6,9 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
 {
     private Rigidbody rb;
     private float gravity = -9.81f;
-    
-    private float DistanceCounter = 0;
 
+    private float DistanceCounter = 0;
+    [SerializeField] private Vector3 velocity;
     [SerializeField] private float WalkFootSFXFrequency_Hunam;
     [SerializeField] private float WalkFootSFXFrequency_Werewolf;
     [SerializeField] private float RunFootSFXFrequency_Hunam;
@@ -29,7 +29,8 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
 
         #endregion
         DistanceCounter += rb.velocity.magnitude * Time.deltaTime;
-        
+        velocity = rb.velocity;
+
     }
     void Update()
     {
@@ -112,5 +113,10 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         {
             return false;
         }
+    }
+
+    public void StopVelocity()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
     }
 }
