@@ -18,10 +18,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
             {
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
+                CameraShake.Instance.Shake();
             }
 
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
+                CameraShake.Instance.Shake();
                 Die();
             }
         }
