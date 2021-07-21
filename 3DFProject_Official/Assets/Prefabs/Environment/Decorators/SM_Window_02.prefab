@@ -132,7 +132,7 @@ MonoBehaviour:
   volumeShape:
     shape: 5
     fading:
-      falloffExponent: 3
+      falloffExponent: 0.7
       xPositiveCubeFade: 0.25
       xNegativeCubeFade: 0.25
       yPositiveCubeFade: 0.25
@@ -175,7 +175,7 @@ MonoBehaviour:
       scale: {x: 5, y: 5, z: 5}
   densityInjection:
     enable: 1
-    strength: 5
+    strength: 0.5
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
@@ -236,7 +236,7 @@ MonoBehaviour:
   lightInjection:
     injectionParameters:
       enable: 1
-      strength: 3
+      strength: 8
       useNoiseMask: 1
       useNoiseMaskLevels: 1
       noiseMaskLevelParameters:
@@ -298,7 +298,7 @@ MonoBehaviour:
         saturateOutputValues: 0
     color: {r: 1, g: 1, b: 1, a: 1}
   ambientInjection:
-    enable: 1
+    enable: 0
     strength: 1
     useNoiseMask: 1
     useNoiseMaskLevels: 1
@@ -328,8 +328,8 @@ MonoBehaviour:
       contrast: 1
       saturateOutputValues: 0
   boostInjection:
-    enable: 0
-    strength: 1
+    enable: 1
+    strength: 10
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:

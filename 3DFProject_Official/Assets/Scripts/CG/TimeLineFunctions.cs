@@ -48,6 +48,7 @@ public class TimeLineFunctions : MonoBehaviour
         GameManager.Instance.EndCG();
         UIManager.Instance.TimePanelOpen();
         moonAudioSource.volume = 0.1f;
+        PlayerAbilityControl.Instance.PlayFx();
     }
 
     public void IntroStart()

@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _mask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bae8fbcf060e99f40bc4736b4c2de4b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -34,7 +34,7 @@ Material:
     - _U: 0.5
     - _V: 0.5
     - _blur: 0.4
-    - _mask_Scale: 1
+    - _mask_Scale: 0.6
     - _mask_qd: 1
     m_Colors: []
   m_BuildTextureStacks: []

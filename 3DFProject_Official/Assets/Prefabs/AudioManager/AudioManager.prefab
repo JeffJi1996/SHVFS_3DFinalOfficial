@@ -266,3 +266,11 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: sfx_destroyPlank
+    clips:
+    - {fileID: 8300000, guid: 0fb2e526a1f796e43acd867ca145a74d, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

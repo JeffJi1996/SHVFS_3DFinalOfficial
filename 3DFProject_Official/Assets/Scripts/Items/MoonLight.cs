@@ -10,9 +10,11 @@ public class MoonLight : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
-            Debug.Log(111);
+            //Debug.Log(111);
             PlayerAbilityControl.Instance.Transform();
             PlayerAbilityControl.Instance.ChangeMoonState(true);
+            UIManager.Instance.TimePanelOpen();
+            UIManager.Instance.EnterMoon();
         }
     }
 
@@ -21,6 +23,7 @@ public class MoonLight : MonoBehaviour
         if (other.GetComponent<PlayerMovement>() != null )
         {
             PlayerAbilityControl.Instance.ChangeMoonState(true);
+            UIManager.Instance.TimePanelOpen();
         }
     }
 
@@ -29,6 +32,7 @@ public class MoonLight : MonoBehaviour
         if (other.GetComponent<PlayerMovement>() != null)
         {
             PlayerAbilityControl.Instance.ChangeMoonState(false);
+            UIManager.Instance.ExitMoon();
         }
     }
 }

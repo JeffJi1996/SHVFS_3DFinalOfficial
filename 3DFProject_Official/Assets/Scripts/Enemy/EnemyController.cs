@@ -117,8 +117,9 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     public void EndNotify()
     {
-        transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
-        agent.enabled = false;
+        //transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
+        //agent.enabled = false;
+        isChase = false;
     }
     public void CGTime()
     {
@@ -130,9 +131,13 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     {
         isStop = false;
         stopOnce = true;
+        GetComponent<PatolAI>().GoToNextPoint();
         Debug.Log("Enemy Run");
     }
 
-    
+    public void AnimAttack()
+    {
+        anim.SetTrigger("attack");
+    }
     
 }

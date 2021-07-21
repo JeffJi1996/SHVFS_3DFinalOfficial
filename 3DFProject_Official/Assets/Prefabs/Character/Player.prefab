@@ -76,7 +76,9 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 3282893997117784239}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras: []
+  m_ChildCameras:
+  - {fileID: 3282893996867282527}
+  - {fileID: 3282893997161091197}
   m_Instructions:
   - m_FullHash: 1709435500
     m_VirtualCamera: {fileID: 3282893996867282527}
@@ -560,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTransforming: 0
   HandMesh: {fileID: 2399934145653450439}
-  transformDuration: 10
+  transformDuration: 15
   curDuration: 0
   isInMoon: 0
 --- !u!114 &3282893997117784234

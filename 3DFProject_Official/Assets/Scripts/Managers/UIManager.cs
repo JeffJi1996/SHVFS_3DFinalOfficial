@@ -14,6 +14,8 @@ public class UIManager : Singleton<UIManager>
     private float fullTime;
     private float curTime;
     public float waitTime;
+    private bool canDrop;
+    private bool isExitTransform;
     public bool isActive;
     private float timeTrack2Timer;
     private float tempTime;
@@ -21,7 +23,7 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         timePanel.SetActive(false);
-        fullTime = 10f;
+        fullTime = 15f;
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
     }
@@ -29,7 +31,7 @@ public class UIManager : Singleton<UIManager>
     // Update is called once per frame
     void Update()
     {
-        if (isTimeOpen)
+        if (isTimeOpen && canDrop)
         {
             curTime -= Time.deltaTime;
             timeTrack.fillAmount = curTime / fullTime;
@@ -38,12 +40,21 @@ public class UIManager : Singleton<UIManager>
                 StartCoroutine(DelayHide());
             }
         }
+
+        if (isTimeOpen && isExitTransform)
+        {
+            PlayerAbilityControl.Instance.PlayFx();
+            
+            AudioManager.instance.Play("Player_Trans");
+            isExitTransform = false;
+        }
     }
 
 
     public void TimePanelOpen()
     {
         timePanel.SetActive(true);
+        timeTrack.fillAmount = 1;
         curTime = fullTime;
         isTimeOpen = true;
     }
@@ -72,6 +83,8 @@ public class UIManager : Singleton<UIManager>
 
     IEnumerator DelayHide()
     {
+        isTimeOpen = false;
+        isExitTransform = true;
         yield return new WaitForSeconds(waitTime);
         if (!PlayerAbilityControl.Instance.WhetherTransforming())
         {
@@ -101,5 +114,15 @@ public class UIManager : Singleton<UIManager>
     public void SetFullTime(float maxTime)
     {
         fullTime = maxTime;
+    }
+
+    public void EnterMoon()
+    {
+        canDrop = false;
+    }
+
+    public void ExitMoon()
+    {
+        canDrop = true;
     }
 }

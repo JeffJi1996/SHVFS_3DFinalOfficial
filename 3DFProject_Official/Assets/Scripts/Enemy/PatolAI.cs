@@ -118,7 +118,7 @@ public class PatolAI : EnemyController
                     isIdle = true;
                     if (canAttack && !isWaiting)
                     {
-                        anim.SetTrigger("attack");
+                        AnimAttack();
                         AudioManager.instance.Play("Enemy_Attack_01");
                         StartCoroutine(RefreshCanAttack());
                     }
@@ -169,7 +169,7 @@ public class PatolAI : EnemyController
         }
     }
 
-    void GoToNextPoint()
+    public void GoToNextPoint()
     {
         agent.isStopped = false;
         agent.destination = new Vector3(patolVectors[pointNum].x, transform.position.y, patolVectors[pointNum].z);
@@ -204,5 +204,7 @@ public class PatolAI : EnemyController
     {
         isDead = true;
         anim.SetTrigger("die");
+        AudioManager.instance.Play("Enemy_Death_04");
     }
+
 }

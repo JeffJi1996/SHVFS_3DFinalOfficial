@@ -14,6 +14,7 @@ public class Blank : InteractableWolf
     {
         hasBeenInteracted = true;
         GetOutUIHide();
+        AudioManager.instance.Play("sfx_destroyPlank");
         Destroy(this.gameObject);
     }
 }
