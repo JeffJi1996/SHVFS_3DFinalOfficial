@@ -18,7 +18,7 @@ public class SpikeDamage : MonoBehaviour
             if (col.GetComponent<PlayerMovement>() != null)
             {
                 canHurt = false;
-                PlayerHealth.Instance.GetHurt(SpikeManager.Instance.GetSpikeDamage());
+                PlayerHealth.Instance.GetHurt(SpikeManager.Instance.GetSpikeDamage(),gameObject);
             }
         }
     }

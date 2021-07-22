@@ -42,13 +42,13 @@ public class GuardAI : EnemyController
             dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
             if (!isSleep && BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
             {
-                if (BPlayerInArea())
-                {
-                    Debug.Log("InArea");
-                    isChase = true;
-                    timer = 0;
-                }
-                else if (Vector3.Distance(playerTrans, transform.position) <=
+                // if (BPlayerInArea())
+                // {
+                //     Debug.Log("InArea");
+                //     isChase = true;
+                //     timer = 0;
+                // }
+                if (Vector3.Distance(playerTrans, transform.position) <=
                     alertDistance && BCanSee())
                 {
                     isStare = true;
@@ -144,7 +144,7 @@ public class GuardAI : EnemyController
     
     void Attack()
     {
-        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime);
+        PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
         UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
         Debug.Log("Attack!");
         StartCoroutine(RefreshCanAttack());

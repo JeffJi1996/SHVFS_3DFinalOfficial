@@ -6,6 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD }
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour, IEndGameObserver
@@ -33,17 +34,22 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected Vector3 dirToPlayer;
     public LayerMask layerMask;
 
-    public bool isStop;
-    public bool isChase;
-    public bool isPatol;
-    public bool isWait;
-    public bool isStare;
+    protected bool isStop;
+    protected bool isChase;
+    protected bool isPatol;
+    protected bool isWait;
+    protected bool isStare;
     protected bool isDead;
     protected float deadTime;
     protected bool isIdle;
     protected bool canAttack;
     
-    public float waitTime;
+    [SerializeField] protected float waitTime;
+    protected float waitTimer;
+    [SerializeField] protected float chaseTime = 5f;
+    protected float chaseTimer = 0;
+    [SerializeField] protected float alertTime = 3f;
+    protected float alertTimer = 0;
     public float alertDistance;
     protected float timer;
     protected Animator anim;
@@ -117,8 +123,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     public void EndNotify()
     {
-        //transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
-        //agent.enabled = false;
+        transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
+        agent.enabled = false;
         isChase = false;
     }
     public void CGTime()

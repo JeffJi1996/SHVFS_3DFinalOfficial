@@ -5,25 +5,26 @@ using UnityEngine.Playables;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    private GameObject killMeEnemy;
     [SerializeField]private int health;
     private bool canBeHurt = true;
 
     [SerializeField]
     private PlayableDirector playerDeathCG;
-    public void GetHurt(float reduction)
+    public void GetHurt(float reduction,GameObject _killMeEnemy)
     {
         if (canBeHurt)
         {
+            CameraShake.Instance.Shake();
             if (PlayerAbilityControl.Instance.WhetherTransforming() == true)
             {
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
-                CameraShake.Instance.Shake();
             }
 
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
-                CameraShake.Instance.Shake();
+                killMeEnemy = _killMeEnemy;
                 Die();
             }
         }

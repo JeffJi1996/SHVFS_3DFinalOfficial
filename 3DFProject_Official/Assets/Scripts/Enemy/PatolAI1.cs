@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PatolAI : EnemyController
+
+public class PatolAI1 : EnemyController
 {
     public List<Transform> patolPoints = new List<Transform>();
     private List<Vector3> patolVectors =new List<Vector3>();
     private EnemyStates enemyStates;
     private int pointNum;
-    
+    private float chaseTimer = 0;
     public float damageTime;
     private bool isWaiting;
     
@@ -50,11 +51,31 @@ public class PatolAI : EnemyController
                 : GameManager.Instance.player.transform.position;
 
             dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
-            
+            if (BCanSee() && Mathf.Acos(Vector3.Dot(transform.forward, dirToPlayer)) <= 1)
+            {
+                // if (BPlayerInArea())
+                // {
+                //     Debug.Log("InArea");
+                //     isChase = true;
+                //     timer = 0;
+                // }
+                if (Vector3.Distance(playerTrans, transform.position) <=
+                    alertDistance && BCanSee())
+                {
+                    isStare = true;
+                    isChase = false;
+                }
+                else
+                {
+                    isChase = false;
+                    isStare = false;
+                }
+            }
         }
  
         SwitchState();
         anim.SetBool("isIdle", isIdle);
+
     }
 
     void SwitchState()
@@ -65,8 +86,6 @@ public class PatolAI : EnemyController
             enemyStates = EnemyStates.DEAD;
         else if (isChase)
             enemyStates = EnemyStates.CHASE;
-        else if (isWait)
-            enemyStates = EnemyStates.WAIT;
         else if (isStare)
             enemyStates = EnemyStates.STARE;
         else if (isPatol)
@@ -115,9 +134,6 @@ public class PatolAI : EnemyController
                 //     isWait = true;
                 //     isChase = false;
                 // }
-                break;
-            case EnemyStates.WAIT:
-                
                 break;
             case EnemyStates.STARE:
                 Debug.Log("Stare");
@@ -192,13 +208,4 @@ public class PatolAI : EnemyController
         AudioManager.instance.Play("Enemy_Death_04");
     }
 
-    void PlayAlertSound()
-    {
-        Debug.Log("Alert Sound");
-    }
-
-    void CheckPlayer()
-    {
-        
-    }
 }
