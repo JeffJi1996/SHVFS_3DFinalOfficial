@@ -47,6 +47,7 @@ public class TimeLineFunctions : MonoBehaviour
         Player.GetComponent<PlayerAbilityControl>().CGRestTime();
         GameManager.Instance.EndCG();
         UIManager.Instance.TimePanelOpen();
+        UIManager.Instance.ExitMoon();
         moonAudioSource.volume = 0.1f;
         PlayerAbilityControl.Instance.PlayFx();
     }

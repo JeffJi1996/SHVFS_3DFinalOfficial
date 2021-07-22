@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
-public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD }
+public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD, TURN }
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour, IEndGameObserver
@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected float speed;
     protected bool stopOnce;
     public float attackRange;
-    public float sightAngle;
+    public int sightAngle = 120;
 
     [SerializeField]
     protected Vector3 dirToPlayer;
@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected bool isWait;
     protected bool isStare;
     protected bool isDead;
+    protected bool isTurn;
+    
     protected float deadTime;
     protected bool isIdle;
     protected bool canAttack;
@@ -51,6 +53,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     [SerializeField] protected float alertTime = 3f;
     protected float alertTimer = 0;
     public float alertDistance;
+    [SerializeField] protected float turnDistance = 2f;
     protected float timer;
     protected Animator anim;
     
@@ -93,7 +96,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         Ray myRay = new Ray(transform.position, dirToPlayer);
         Physics.Raycast(myRay, out RaycastHit hitInfo,100f, layerMask, QueryTriggerInteraction.Ignore);
         //Debug.Log(hitInfo.collider.name);
-        if (hitInfo.collider.gameObject.GetComponent<PlayerAbilityControl>() != null)
+        if (hitInfo.collider.gameObject.GetComponent<PlayerAbilityControl>() != null && BInSight())
         {
             //Debug.Log(hitInfo.collider.name);
             return true;
@@ -113,6 +116,21 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         else
             return false;
     }
+
+    protected bool BInSight()
+    {
+        float sight = 0.5f * sightAngle;
+        if (Vector3.Dot(transform.forward,
+                (GameManager.Instance.player.transform.position- transform.position).normalized) >=
+            Mathf.Sin(sight * Mathf.Deg2Rad))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     protected IEnumerator RefreshCanAttack()
     {
@@ -123,9 +141,13 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
 
     public void EndNotify()
     {
-        transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
-        agent.enabled = false;
+        //transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
+        //agent.enabled = false;
         isChase = false;
+        isStare = false;
+        isWait = false;
+        isPatol = true;
+        GetComponent<PatolAI>().RefreshData();
     }
     public void CGTime()
     {
@@ -144,6 +166,11 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void AnimAttack()
     {
         anim.SetTrigger("attack");
+        AudioManager.instance.Play("Enemy_Attack_01");
     }
-    
+
+    public void ChuJue()
+    {
+        anim.SetTrigger("chuJue");
+    }
 }

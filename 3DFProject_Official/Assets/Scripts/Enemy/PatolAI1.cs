@@ -13,13 +13,14 @@ public class PatolAI1 : EnemyController
     private float chaseTimer = 0;
     public float damageTime;
     private bool isWaiting;
-    
+
 
     // Update is called once per frame
 
     protected override void Awake()
     {
         base.Awake();
+        //attackColli.enabled = false;
         if (patolPoints.Count > 0)
         {
             for (var i = 0; i < patolPoints.Count; i++)
@@ -207,5 +208,5 @@ public class PatolAI1 : EnemyController
         anim.SetTrigger("die");
         AudioManager.instance.Play("Enemy_Death_04");
     }
-
+    
 }
