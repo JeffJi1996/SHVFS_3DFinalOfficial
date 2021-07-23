@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3282893996867282525}
   - component: {fileID: 3282893996867282527}
+  - component: {fileID: 465065600815285671}
   m_Layer: 0
   m_Name: NormalPlayerCam
   m_TagString: Untagged
@@ -410,6 +411,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 3282893996050436090}
+--- !u!114 &465065600815285671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3282893996867282524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286ad6aa819ca2949b57ed6ba114ff80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3282893997117784241
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +439,6 @@ GameObject:
   - component: {fileID: 3282893997117784237}
   - component: {fileID: 3282893997117784239}
   - component: {fileID: 3282893997117784232}
-  - component: {fileID: 3282893997117784234}
   - component: {fileID: 6466544397516236314}
   m_Layer: 0
   m_Name: Player
@@ -511,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7c5fc03bf88764789f9808a36ed059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 2
   health: 3
   playerDeathCG: {fileID: 0}
 --- !u!114 &3282893997117784237
@@ -525,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0312de01d4e49ed438d70e58e780917b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
   WalkFootSFXFrequency_Hunam: 0
   WalkFootSFXFrequency_Werewolf: 0
   RunFootSFXFrequency_Hunam: 0
@@ -565,20 +579,9 @@ MonoBehaviour:
   transformDuration: 15
   curDuration: 0
   isInMoon: 0
---- !u!114 &3282893997117784234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3282893997117784241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f08b1356ea9c7341a7d6a5714cc6c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 3282893996007814253}
-  rotateSpeed: 30
+  ScreenFx: {fileID: 0}
+  mohu: {fileID: 0}
+  mohuLong: {fileID: 0}
 --- !u!114 &6466544397516236314
 MonoBehaviour:
   m_ObjectHideFlags: 0

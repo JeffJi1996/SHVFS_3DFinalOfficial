@@ -17,7 +17,7 @@ public class Skip_Timeline : MonoBehaviour
             _sceneSkipped = true;
         }
     }
-
+     
     public void GetDirector(PlayableDirector director)
     {
         _sceneSkipped = false;

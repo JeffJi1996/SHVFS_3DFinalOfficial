@@ -1,17 +1,17 @@
- using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     private GameObject killMeEnemy;
-    [SerializeField]private int health;
+    [SerializeField] private float duration;
+    [SerializeField] private int health;
     private bool canBeHurt = true;
 
     [SerializeField]
     private PlayableDirector playerDeathCG;
-    public void GetHurt(float reduction,GameObject _killMeEnemy)
+    public void GetHurt(float reduction, GameObject _killMeEnemy)
     {
         if (canBeHurt)
         {
@@ -25,17 +25,37 @@ public class PlayerHealth : Singleton<PlayerHealth>
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
                 killMeEnemy = _killMeEnemy;
-                Die();
+                Die(killMeEnemy);
             }
         }
-        
+
     }
-    public void Die()
+
+    public void Die(GameObject KillMeObj)
     {
         canBeHurt = false;
         health--;
         UIManager.Instance.CloseTimePanel();
-        AudioManager.instance.Play("Player_Death");
+        PlayerDeath.Instance.Death_StopPlayerInput();
+        CamLookAt.Instance.LookAt(killMeEnemy.transform.position,duration,EnemyAction);
+        //AudioManager.instance.Play("Player_Death");
+        //playerDeathCG.Play();
+    }
+
+    public void EnemyAction()
+    {
+        if (killMeEnemy.GetComponent<EnemyController>() != null)
+        {
+            killMeEnemy.GetComponent<EnemyController>().AnimAttack();
+        }
+        else if (killMeEnemy.GetComponent<SpikeDamage>() != null)
+        {
+            Debug.Log("Kill By Spike");
+        }
+    }
+
+    public void DeathCG()
+    {
         playerDeathCG.Play();
     }
 
