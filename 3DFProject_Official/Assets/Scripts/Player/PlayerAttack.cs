@@ -6,6 +6,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
 {
     private int AttackNum = 1;
     [SerializeField]private Animator Anim;
+    [SerializeField] private Animator AttackCamAnim;
     [SerializeField]private Transform AttackLeftPoint;
     [SerializeField] private Transform AttackRightPoint;
     [SerializeField]private float AttackRange;
@@ -55,6 +56,25 @@ public class PlayerAttack : Singleton<PlayerAttack>
         {
             Anim.SetTrigger("Interact");
         }
+    }
+
+    public void StartLeft()
+    {
+        AttackCamAnim.SetBool("isLeftAttack",true);
+    }
+
+    public void EndLeft()
+    {
+        AttackCamAnim.SetBool("isLeftAttack", false);
+    }
+
+    public void StartRight()
+    {
+        AttackCamAnim.SetBool("isRightAttack", true);
+    }
+    public void EndRight()
+    {
+        AttackCamAnim.SetBool("isRightAttack", false);
     }
 
     private void AttackDetect(Transform atkTransform)
