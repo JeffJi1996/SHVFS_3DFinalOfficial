@@ -11,6 +11,10 @@ public class GameManager : Singleton<GameManager>
     public GameObject player;
 
     public bool isBossState;
+
+    [SerializeField] private GameObject bloodFx;
+
+    private bool isBloodActive;
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -18,6 +22,8 @@ public class GameManager : Singleton<GameManager>
         player = GameObject.Find("Player");
         isBossState = false;
         DontDestroyOnLoad(this);
+        
+        bloodFx.SetActive(false);
     }
 
     private void Update()
@@ -68,5 +74,24 @@ public class GameManager : Singleton<GameManager>
         {
             observer.EndCG();
         }
+    }
+
+    public void PlayBloodFx(Transform hitTrans)
+    {
+        if (!isBloodActive)
+        {
+            isBloodActive = true;
+            bloodFx.transform.position = hitTrans.position;
+            bloodFx.transform.forward = (player.transform.position - hitTrans.position).normalized;
+            bloodFx.SetActive(false);
+            StartCoroutine(CloseBloodFx());
+        }
+    }
+
+    IEnumerator CloseBloodFx()
+    {
+        yield return new WaitForSeconds(1f);
+        bloodFx.SetActive(true);
+        isBloodActive = false;
     }
 }

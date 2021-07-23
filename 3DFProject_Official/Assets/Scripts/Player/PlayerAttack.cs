@@ -13,7 +13,6 @@ public class PlayerAttack : Singleton<PlayerAttack>
     [SerializeField] private LayerMask enemyLayer;
     private bool leftAttackStart;
     private bool rightAttackStart;
-
     void Start()
     {
         AttackNum = 1;
@@ -83,6 +82,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
         foreach (var enemyCollider in colliderArray)
         {
             enemyCollider.GetComponent<PatolAI>().Die();
+            GameManager.Instance.PlayBloodFx(enemyCollider.GetComponent<EnemyController>().bloodFxPos);
         }
     }
 
