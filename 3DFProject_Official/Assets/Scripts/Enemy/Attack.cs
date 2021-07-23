@@ -24,4 +24,16 @@ public class Attack : MonoBehaviour
     {
         GetComponentInParent<PatolAI>().Attack();
     }
+
+    public void ChuJue()
+    {
+        PlayerDeath.Instance.PlayerDeathAction();
+    }
+
+    public void ChuJueEffect()
+    {
+        PlayerDeath.Instance.PlayerDeathEffect();
+    }
+    
+    
 }

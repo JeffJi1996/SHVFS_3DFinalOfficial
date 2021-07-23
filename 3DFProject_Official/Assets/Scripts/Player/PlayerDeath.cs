@@ -44,6 +44,7 @@ public class PlayerDeath : Singleton<PlayerDeath>
         if (PlayerHealth.Instance.GetPlayerHealth()>0)
         {
             StillAliveCG.Play();
+            GameManager.Instance.NotifyObservers();
         }
         else if (PlayerHealth.Instance.GetPlayerHealth()==0)
         {

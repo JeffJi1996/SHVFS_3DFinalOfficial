@@ -143,6 +143,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     {
         //transform.forward = new Vector3(GameManager.Instance.player.transform.position.x - transform.position.x,0, GameManager.Instance.player.transform.position.z - transform.position.z).normalized;
         //agent.enabled = false;
+        isStop = false;
         isChase = false;
         isStare = false;
         isWait = false;
@@ -172,5 +173,10 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void ChuJue()
     {
         anim.SetTrigger("chuJue");
+    }
+
+    public void SetIsStop()
+    {
+        isStop = true;
     }
 }

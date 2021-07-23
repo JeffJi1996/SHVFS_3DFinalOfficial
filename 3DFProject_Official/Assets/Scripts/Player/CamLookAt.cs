@@ -12,7 +12,7 @@ public class CamLookAt : Singleton<CamLookAt>
 
     public void LookDown(float rotateAngle,float duration, TweenCallback _action = null)
     {
-        Tweener tweener = transform.DOLocalRotate(new Vector3(rotateAngle, transform.eulerAngles.y, 0), duration);
+        Tweener tweener = transform.DOLocalRotate(new Vector3(rotateAngle, transform.localEulerAngles.y, 0), duration);
         tweener.OnComplete(_action);
     }
 

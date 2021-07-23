@@ -25,6 +25,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
                 killMeEnemy = _killMeEnemy;
+                _killMeEnemy.GetComponent<EnemyController>().SetIsStop();
                 Die(killMeEnemy);
             }
         }
@@ -37,7 +38,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         health--;
         UIManager.Instance.CloseTimePanel();
         PlayerDeath.Instance.Death_StopPlayerInput();
-        CamLookAt.Instance.LookAt(killMeEnemy.transform.position,duration,EnemyAction);
+        CamLookAt.Instance.LookAt(killMeEnemy.transform.GetChild(0).position,duration,EnemyAction);
         //AudioManager.instance.Play("Player_Death");
         //playerDeathCG.Play();
     }
@@ -46,7 +47,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (killMeEnemy.GetComponent<EnemyController>() != null)
         {
-            killMeEnemy.GetComponent<EnemyController>().AnimAttack();
+            killMeEnemy.GetComponent<EnemyController>().ChuJue();
         }
         else if (killMeEnemy.GetComponent<SpikeDamage>() != null)
         {
