@@ -56,7 +56,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     [SerializeField] protected float turnDistance = 2f;
     protected float timer;
     protected Animator anim;
-    
+
+    public Transform bloodFxPos;
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();

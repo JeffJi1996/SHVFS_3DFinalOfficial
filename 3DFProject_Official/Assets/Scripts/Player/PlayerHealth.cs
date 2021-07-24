@@ -7,6 +7,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private GameObject killMeEnemy;
     [SerializeField] private float duration;
     [SerializeField] private int health;
+    [SerializeField] private PostEffects postEffects;
     private bool canBeHurt = true;
 
     [SerializeField]
@@ -18,6 +19,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             CameraShake.Instance.Shake();
             if (PlayerAbilityControl.Instance.WhetherTransforming() == true)
             {
+                postEffects.Screen_Blur();
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
             }
@@ -25,13 +27,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
                 killMeEnemy = _killMeEnemy;
-                _killMeEnemy.GetComponent<EnemyController>().SetIsStop();
                 Die(killMeEnemy);
             }
         }
-
     }
-
     public void Die(GameObject KillMeObj)
     {
         canBeHurt = false;
@@ -47,11 +46,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (killMeEnemy.GetComponent<EnemyController>() != null)
         {
+            killMeEnemy.GetComponent<EnemyController>().SetIsStop();
             killMeEnemy.GetComponent<EnemyController>().ChuJue();
         }
         else if (killMeEnemy.GetComponent<SpikeDamage>() != null)
         {
-            Debug.Log("Kill By Spike");
+            PlayerDeath.Instance.PlayerDeathEffect();
+            DeathCG();
         }
     }
 
