@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 8999805158293284359}
-  AttackCamAnim: {fileID: 0}
+  AttackCamAnim: {fileID: 3282893997117784239}
   AttackLeftPoint: {fileID: 2034225211428624642}
   AttackRightPoint: {fileID: 5641123417144048165}
   AttackRange: 0.25
@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   health: 3
+  postEffects: {fileID: 0}
   playerDeathCG: {fileID: 0}
 --- !u!114 &3282893997117784237
 MonoBehaviour:
