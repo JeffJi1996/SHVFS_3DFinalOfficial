@@ -9,7 +9,7 @@ public class CheckPointManager : MonoBehaviour
 
    private void Start()
    {
-      checkPos = 
+      
    }
 
    public void ChangeCheckPoint( Transform newCheckPoint)
