@@ -27,7 +27,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
                 killMeEnemy = _killMeEnemy;
-                _killMeEnemy.GetComponent<EnemyController>().SetIsStop();
                 Die(killMeEnemy);
             }
         }
@@ -47,11 +46,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (killMeEnemy.GetComponent<EnemyController>() != null)
         {
+            killMeEnemy.GetComponent<EnemyController>().SetIsStop();
             killMeEnemy.GetComponent<EnemyController>().ChuJue();
         }
         else if (killMeEnemy.GetComponent<SpikeDamage>() != null)
         {
-            Debug.Log("Kill By Spike");
+            PlayerDeath.Instance.PlayerDeathEffect();
             DeathCG();
         }
     }
