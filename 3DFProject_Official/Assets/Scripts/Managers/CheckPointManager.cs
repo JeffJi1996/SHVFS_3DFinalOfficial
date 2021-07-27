@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPointManager : MonoBehaviour
+public class CheckPointManager : Singleton<CheckPointManager>
 {
    private Transform checkPos;
 
    private void Start()
    {
-      
+      ChangeCheckPoint(transform.GetChild(0));
    }
 
    public void ChangeCheckPoint( Transform newCheckPoint)
@@ -21,4 +21,6 @@ public class CheckPointManager : MonoBehaviour
    {
       return checkPos;
    }
+   
+   
 }

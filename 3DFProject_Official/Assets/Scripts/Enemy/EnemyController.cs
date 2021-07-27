@@ -50,10 +50,11 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected float waitTimer;
     [SerializeField] protected float chaseTime = 5f;
     protected float chaseTimer = 0;
-    [SerializeField] protected float alertTime = 3f;
+    [SerializeField] protected float alertTime = 2f;
     protected float alertTimer = 0;
     public float alertDistance;
-    [SerializeField] protected float turnDistance = 2f;
+    [SerializeField] protected float turnDistance = 5f;
+    [SerializeField] protected float turnTime = 1f;
     protected float timer;
     protected Animator anim;
 
@@ -174,6 +175,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     public void ChuJue()
     {
         anim.SetTrigger("chuJue");
+        SetIsStop();
     }
 
     public void SetIsStop()
