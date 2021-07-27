@@ -25,8 +25,8 @@ public class PlayerDeath : Singleton<PlayerDeath>
 
     public void Death_ResetPlayer()
     {
-        Player.transform.position = ResetPointManagement.Instance.ReturnResetPoint().position;
-        Player.transform.rotation = ResetPointManagement.Instance.ReturnResetPoint().rotation;
+        Player.transform.position = CheckPointManager.Instance.LoadCheckPoint().position;
+        Player.transform.rotation = CheckPointManager.Instance.LoadCheckPoint().rotation;
         CamLookAt.Instance.CamReset();
         Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         PlayerHealth.Instance.CanHurt();
