@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 6015936181335582666}
   - component: {fileID: 8835330414904825682}
   - component: {fileID: 8831166352928117922}
+  - component: {fileID: -4134385388838518375}
   m_Layer: 7
   m_Name: PatolAI
   m_TagString: Untagged
@@ -425,7 +426,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
-  m_audioClip: {fileID: 8300000, guid: aa1b37900ab93054f8733a33d950c75b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -436,7 +437,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1.0171779
-  MaxDistance: 10
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -455,8 +456,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.08597553
-      value: 0.996859
+      time: 0.2023505
+      value: 0.81246424
       inSlope: -1.6499561
       outSlope: -1.6499561
       tangentMode: 0
@@ -464,8 +465,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.32693094
-      value: 0.7875794
+      time: 0.35280222
+      value: 0.5904702
       inSlope: -1.1581829
       outSlope: -1.1581829
       tangentMode: 0
@@ -473,8 +474,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6630328
-      value: 0.1858752
+      time: 0.7018207
+      value: 0.0968478
       inSlope: -1.289685
       outSlope: -1.289685
       tangentMode: 0
@@ -569,16 +570,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footClip:
-  - {fileID: 8300000, guid: aa1b37900ab93054f8733a33d950c75b, type: 3}
-  - {fileID: 8300000, guid: 67238a1c92428d7439ae54db85d35868, type: 3}
-  - {fileID: 8300000, guid: c4c4a32876ccb7245bedafe70371256e, type: 3}
-  - {fileID: 8300000, guid: cab1d96f89362f74a8e312541d0ed49e, type: 3}
-  - {fileID: 8300000, guid: 25c3ad97af3960c47ab67f7ecfc311ed, type: 3}
+  - {fileID: 8300000, guid: ab3f38e8a03a22b438993f23e5913c95, type: 3}
+  - {fileID: 8300000, guid: 58e297df73c9ee64fad3a97dcca22571, type: 3}
+  - {fileID: 8300000, guid: 127dec0b3df327a40a380188db8a75b3, type: 3}
+  - {fileID: 8300000, guid: 958c1262c5059394694626855570127d, type: 3}
+  - {fileID: 8300000, guid: 9371fd09d9c69b44cbbf3d6f31b3d91e, type: 3}
   footSource: {fileID: 8835330414904825682}
   volume: 1
   pitch: 1
   volumeMultiplier: 0.6
   pitchMultiplier: 0.8
+--- !u!169 &-4134385388838518375
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244837508833880725}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.11323329
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3096827567159008015
 GameObject:
   m_ObjectHideFlags: 0
