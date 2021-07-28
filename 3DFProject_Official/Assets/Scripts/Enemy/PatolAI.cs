@@ -79,6 +79,7 @@ public class PatolAI : EnemyController
         {
             case EnemyStates.STOP:
                 agent.isStopped = true;
+                isIdle = true;
                 if (stopOnce)
                 {
                     stopOnce = false;
@@ -113,7 +114,7 @@ public class PatolAI : EnemyController
                     isIdle = false;
                 }
 
-                //Check if need to chang states
+                //Check if need to change states
                 chaseTimer += Time.deltaTime;
                 if (chaseTimer >= chaseTime)
                 {
@@ -137,6 +138,7 @@ public class PatolAI : EnemyController
                 
                 break;
             case EnemyStates.WAIT:
+                Debug.Log("Wait");
                 waitTimer += Time.deltaTime;
                 agent.isStopped = true;
                 if (BCanSee())
@@ -285,9 +287,12 @@ public class PatolAI : EnemyController
             PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
             if (PlayerAbilityControl.Instance.WhetherTransforming())
                 UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+            else
+            {
+                isIdle = true;
+                isStop = true;
+            }
             Debug.Log("Attack!");
-            isIdle = true;
-            isStop = true;
         }
     }
     
