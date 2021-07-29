@@ -91,7 +91,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         #region Attack
         if (PlayerAttack.Instance != null && PlayerAttack.Instance.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&!PlayerAttack.Instance.interactBlank)
             {
                 PlayerAttack.Instance.Attack();
             }

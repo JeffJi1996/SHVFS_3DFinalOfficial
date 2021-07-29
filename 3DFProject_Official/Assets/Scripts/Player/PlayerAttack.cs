@@ -13,11 +13,13 @@ public class PlayerAttack : Singleton<PlayerAttack>
     [SerializeField] private LayerMask enemyLayer;
     private bool leftAttackStart;
     private bool rightAttackStart;
+    public bool interactBlank;
     void Start()
     {
         AttackNum = 1;
         leftAttackStart = false;
         rightAttackStart = false;
+        interactBlank = false;
     }
 
     void Update()

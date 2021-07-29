@@ -32,12 +32,12 @@ public class InteractableWolf : Interactable
         {
             UIHideInBack();
             RaycastHit hit;
-            InteractUIManager.Instance.ChangeUI(false, InteractPosition());
+            E_UIManager.Instance.ChangeUI(false, InteractPosition());
             canInteract = false;
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, InteractRange(), interactLayer, QueryTriggerInteraction.Ignore))
             {
-                InteractUIManager.Instance.ChangeUI(true, InteractPosition());
+                E_UIManager.Instance.ChangeUI(true, InteractPosition());
                 canInteract = true;
             }
         }
