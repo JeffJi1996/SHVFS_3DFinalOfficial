@@ -119,4 +119,5 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
     {
         rb.velocity = new Vector3(0, 0, 0);
     }
+
 }
