@@ -1,47 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &8203627993868953389
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014040295491151765}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7181456072592598955, guid: b2cd8c93d4e038840b29b5284ccd7ee2, type: 3}
---- !u!64 &8203627994075692738
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014040295601093085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8762679857402228166, guid: 3648e50fd0c5a3a42825a3f510ebb2dc, type: 3}
---- !u!64 &8203627994117303377
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9014040294781387869}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7670109674360816782, guid: cb28557b1a53bbe49993eb19fae56f11, type: 3}
 --- !u!1 &8203627994456054098
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +158,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00930760ffda5a44a8f059d63d0deaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &8203627994117303377
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014040294781387869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7670109674360816782, guid: cb28557b1a53bbe49993eb19fae56f11, type: 3}
+--- !u!64 &8203627993868953389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014040295491151765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7181456072592598955, guid: b2cd8c93d4e038840b29b5284ccd7ee2, type: 3}
+--- !u!64 &8203627994075692738
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014040295601093085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8762679857402228166, guid: 3648e50fd0c5a3a42825a3f510ebb2dc, type: 3}
 --- !u!1001 &8203627993663511236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,6 +251,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b2cd8c93d4e038840b29b5284ccd7ee2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e04a39dc74c52a4c9274cc972ba2046, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b2cd8c93d4e038840b29b5284ccd7ee2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e04a39dc74c52a4c9274cc972ba2046, type: 2}
     - target: {fileID: 919132149155446097, guid: b2cd8c93d4e038840b29b5284ccd7ee2, type: 3}
       propertyPath: m_Name
       value: SM_Door_Wood_left
@@ -322,6 +330,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3648e50fd0c5a3a42825a3f510ebb2dc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e04a39dc74c52a4c9274cc972ba2046, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 3648e50fd0c5a3a42825a3f510ebb2dc, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e04a39dc74c52a4c9274cc972ba2046, type: 2}
     - target: {fileID: 919132149155446097, guid: 3648e50fd0c5a3a42825a3f510ebb2dc, type: 3}
       propertyPath: m_Name
       value: SM_Door_Wood_right
@@ -393,6 +409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: cb28557b1a53bbe49993eb19fae56f11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e04a39dc74c52a4c9274cc972ba2046, type: 2}
     - target: {fileID: 919132149155446097, guid: cb28557b1a53bbe49993eb19fae56f11, type: 3}
       propertyPath: m_Name
       value: SM_Door_Wood_post
