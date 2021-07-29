@@ -8,6 +8,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float duration;
     [SerializeField] private int health;
     [SerializeField] private PostEffects postEffects;
+    [SerializeField] private ParticleSystem hurtFx;
     private bool canBeHurt = true;
 
     [SerializeField]
@@ -17,6 +18,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (canBeHurt)
         {
             CameraShake.Instance.Shake();
+            hurtFx.Play();
             if (PlayerAbilityControl.Instance.WhetherTransforming() == true)
             {
                 postEffects.Screen_Blur();

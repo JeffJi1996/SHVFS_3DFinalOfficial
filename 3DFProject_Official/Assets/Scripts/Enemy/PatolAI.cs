@@ -53,11 +53,7 @@ public class PatolAI : EnemyController
 
             dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
             
-            if ( !isDead && Vector3.Dot(dirToPlayer,transform.forward) < 0 && 
-                 Vector3.Distance(playerTrans,transform.position) <= turnDistance)
-            {
-                
-            }
+            
         }
  
         SwitchState();
@@ -83,6 +79,7 @@ public class PatolAI : EnemyController
         {
             case EnemyStates.STOP:
                 agent.isStopped = true;
+                isIdle = true;
                 if (stopOnce)
                 {
                     stopOnce = false;
@@ -117,7 +114,7 @@ public class PatolAI : EnemyController
                     isIdle = false;
                 }
 
-                //Check if need to chang states
+                //Check if need to change states
                 chaseTimer += Time.deltaTime;
                 if (chaseTimer >= chaseTime)
                 {
@@ -141,7 +138,9 @@ public class PatolAI : EnemyController
                 
                 break;
             case EnemyStates.WAIT:
+                Debug.Log("Wait");
                 waitTimer += Time.deltaTime;
+                agent.isStopped = true;
                 if (BCanSee())
                 {
                     if (BPlayerInArea())
@@ -165,6 +164,7 @@ public class PatolAI : EnemyController
                     GoToNextPoint();
                 }
                 break;
+            
             case EnemyStates.STARE:
                 Debug.Log("Stare");
                 agent.isStopped = true;
@@ -192,7 +192,6 @@ public class PatolAI : EnemyController
                     isStare = false;
                     isIdle = false;
                 }
-
                 break;
 
             case EnemyStates.PATOL:
@@ -243,6 +242,16 @@ public class PatolAI : EnemyController
                         isAlert = false;
                     }
                 }
+
+                if (GameManager.Instance.player != null)
+                {
+                    if (Vector3.Distance(GameManager.Instance.player.transform.position,transform.position) <= turnDistance
+                        && !isAlert && Vector3.Dot(dirToPlayer,transform.forward) < 0 )
+                    {
+                        StartCoroutine(TurnAround());
+
+                    }
+                }
                 //Debug.Log(Vector3.Distance(transform.position, agent.destination));
                 break;
         }
@@ -278,6 +287,11 @@ public class PatolAI : EnemyController
             PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
             if (PlayerAbilityControl.Instance.WhetherTransforming())
                 UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
+            else
+            {
+                isIdle = true;
+                isStop = true;
+            }
             Debug.Log("Attack!");
         }
     }
@@ -306,11 +320,7 @@ public class PatolAI : EnemyController
         isAlert = false;
         isWaiting = false;
     }
-
-    void Alert()
-    {
-        
-    }
+    
 
     public void OpenCollider()
     {
@@ -326,5 +336,17 @@ public class PatolAI : EnemyController
     float Distance2Player()
     {
         return Vector3.Distance(GameManager.Instance.player.transform.position, transform.position);
+    }
+
+    IEnumerator TurnAround()
+    {
+        Debug.Log("Turn Around");
+        isPatol = false;
+        agent.isStopped = false;
+        agent.destination = GameManager.Instance.player.transform.position;
+        PlayAlertSound();
+        yield return new WaitForSeconds(turnTime);
+        isChase = true;
+        isPatol = true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Playables;
 
 public class TimeLineFunctions : MonoBehaviour
@@ -10,7 +11,8 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private GameObject firstMoon;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource moonAudioSource;
-
+    [SerializeField] private GameObject mohuFx;
+    [SerializeField] private GameObject screenFx;
 
     public void StartCG1()
     {
@@ -60,5 +62,23 @@ public class TimeLineFunctions : MonoBehaviour
     {
         GameManager.Instance.CGTime();
         moonAudioSource.volume = 0f;
+    }
+
+    public void StartFx()
+    {
+        mohuFx.SetActive(true);
+        mohuFx.GetComponent<ParticleSystem>().Play();
+        screenFx.SetActive(true);
+        screenFx.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void PlayEnemySFX()
+    {
+        AudioManager.instance.Play("Enemy_Death_04");
+    }
+
+    public void PlayPlayerSFX()
+    {
+        AudioManager.instance.Play("Werewolf_Attack");
     }
 }

@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Play("Player_Death");
+        Play("Amb");
     }
 
     // Update is called once per frame

@@ -12,12 +12,12 @@ public class Interactable : MonoBehaviour
 
     protected void GetInUIShow()
     {
-        InteractUIManager.Instance.GetUI(InteractPosition());
+        E_UIManager.Instance.GetUI(InteractPosition());
     }
 
     protected void GetOutUIHide()
     {
-        InteractUIManager.Instance.ReturnUI(InteractPosition());
+        E_UIManager.Instance.ReturnUI(InteractPosition());
     }
 
 
@@ -34,11 +34,11 @@ public class Interactable : MonoBehaviour
         angle = Vector3.Angle(dir1, dirCam);
         if (angle>90 && angle<270)
         {
-            InteractUIManager.Instance.UIHide(InteractPosition());
+            E_UIManager.Instance.UIHide(InteractPosition());
         }
         else
         {
-            InteractUIManager.Instance.UIShow(InteractPosition());
+            E_UIManager.Instance.UIShow(InteractPosition());
         }
     }
     protected virtual float InteractRange()
