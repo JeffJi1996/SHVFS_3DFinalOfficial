@@ -104,7 +104,9 @@ public class Blank_2 : MonoBehaviour
     {
         hasBeenInteracted = true;
         GetOutUIHide();
+        GetComponent<Collider>().enabled = false;
+        BlankManager.Instance.PlayWoodFx(transform);
         AudioManager.instance.Play("sfx_destroyPlank");
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
