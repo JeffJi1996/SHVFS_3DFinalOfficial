@@ -57,7 +57,6 @@ public class Blank_2 : MonoBehaviour
             {
                 Interact();
                 PlayerAttack.Instance.PlayerInteract();
-                PlayerAttack.Instance.interactBlank = false;
             }
         }
     }

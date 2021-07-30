@@ -119,4 +119,9 @@ public class PlayerAttack : Singleton<PlayerAttack>
         Gizmos.DrawWireSphere(AttackLeftPoint.position,AttackRange);
         Gizmos.DrawWireSphere(AttackRightPoint.position, AttackRange);
     }
+
+    public void CloseInteract()
+    {
+        PlayerAttack.Instance.interactBlank = false;
+    }
 }
