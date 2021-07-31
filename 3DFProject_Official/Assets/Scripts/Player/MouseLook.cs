@@ -15,6 +15,7 @@ public class MouseLook : Singleton<MouseLook>
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        //mouseSensitivity
     }
 
     // Update is called once per frame
