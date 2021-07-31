@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : Singleton<SceneManager>
+public class SceneManager1 : Singleton<SceneManager1>
 {
    protected override void Awake()
    {
