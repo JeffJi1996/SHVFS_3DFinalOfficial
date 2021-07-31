@@ -102,9 +102,15 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             }
         }
         #endregion
-
     }
 
+    public void AdjustPWalkingSoundSpeed(float radius)
+    {
+        WalkFootSFXFrequency_Hunam *= radius;
+        WalkFootSFXFrequency_Werewolf *= radius;
+        RunFootSFXFrequency_Hunam *= radius;
+        RunFootSFXFrequency_Werewolf *= radius;
+    }
     public void Interact()
     {
 

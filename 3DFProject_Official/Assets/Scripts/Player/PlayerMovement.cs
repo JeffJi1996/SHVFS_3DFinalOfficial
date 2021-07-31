@@ -54,4 +54,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
         transform.DOLocalRotateQuaternion(Turn180Degree, rotateDuration);
     }
 
+    public void AdjustWalkingSpeed(float radius)
+    {
+        walkSpeed *= radius;
+        runSpeed *= radius;
+        PlayerInputSystem.Instance.AdjustPWalkingSoundSpeed(radius);
+    }
+
 }
