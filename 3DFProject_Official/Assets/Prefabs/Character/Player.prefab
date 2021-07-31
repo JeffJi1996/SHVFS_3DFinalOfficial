@@ -254,6 +254,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  interactBlank: 0
 --- !u!1 &3282893996007814252
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,6 +764,7 @@ MonoBehaviour:
   duration: 2
   health: 3
   postEffects: {fileID: 0}
+  hurtFx: {fileID: 0}
   playerDeathCG: {fileID: 0}
 --- !u!114 &3282893997117784237
 MonoBehaviour:
@@ -781,6 +783,10 @@ MonoBehaviour:
   WalkFootSFXFrequency_Werewolf: 0
   RunFootSFXFrequency_Hunam: 0
   RunFootSFXFrequency_Werewolf: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  raycastTrans: {fileID: 3282893996867282525}
 --- !u!95 &3282893997117784239
 Animator:
   serializedVersion: 3
