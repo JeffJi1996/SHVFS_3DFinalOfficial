@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
     public List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
     public List<IEndGameObserver> cgObservers = new List<IEndGameObserver>();
     public GameObject player;
-
+    public int mouseSensitivity = 100;
     public bool isBossState;
 
     [SerializeField] private GameObject bloodFx;

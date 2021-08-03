@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
-public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD, TURN }
+public enum EnemyStates { CHASE, PATOL, STOP, WAIT, STARE, DEAD }
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyController : MonoBehaviour, IEndGameObserver
@@ -40,8 +40,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     protected bool isWait;
     protected bool isStare;
     protected bool isDead;
-    protected bool isTurn;
-    
+
     protected float deadTime;
     protected bool isIdle;
     protected bool canAttack;
