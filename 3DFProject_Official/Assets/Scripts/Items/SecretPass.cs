@@ -10,7 +10,7 @@ public class SecretPass : MonoBehaviour
     {
         if (other.GetComponent<BossAI>() != null)
         {
-            other.GetComponent<BossAI>().SetTarget(obstacle.gameObject,obstacle.objectLevel);
+            other.GetComponent<BossAI>().SetTarget(obstacle.gameObject,obstacle.objectLevel ,false);
         }
     }
 }

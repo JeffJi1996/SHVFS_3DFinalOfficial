@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public enum BossStates { CHASE, STOP, WAIT }
 [RequireComponent(typeof(NavMeshAgent))]
-public class BossAI : Singleton<BossAI>, IEndGameObserver
+public class BossAI : MonoBehaviour, IEndGameObserver
 {
     private NavMeshAgent agent;
     private Animator anim;
@@ -78,13 +78,14 @@ public class BossAI : Singleton<BossAI>, IEndGameObserver
             case BossStates.CHASE:
                 if (isTargetPlayer)
                 {
+                    Debug.Log(1);
                     if (Distance2Player() <= attackRange && BInSight())
                     {
                         agent.isStopped = true;
                         isIdle = true;
                         if (canAttack)
                         {
-                            Attack();
+                            AnimAttack();
                             StartCoroutine(RefreshCanAttack());
                         }
                     }
@@ -97,8 +98,10 @@ public class BossAI : Singleton<BossAI>, IEndGameObserver
                 }
                 else
                 {
+                    Debug.Log(2);
                     if (canAttackObstacle)
                     {
+                        agent.isStopped = true;
                         if (weiHeOnce)
                         {
                             StartCoroutine(WeiHe());
@@ -106,10 +109,10 @@ public class BossAI : Singleton<BossAI>, IEndGameObserver
 
                         if (weiHeEnd && canAttack && attackCounter < obstacleLevel)
                         {
-                            Attack();
+                            AnimAttack();
                             StartCoroutine(RefreshCanAttack());
                             attackCounter++;
-                            targetObject.GetComponent<Obstacle>().CheckHealth(attackCounter);
+                            targetObject.transform.GetChild(0).GetComponent<Obstacle>().CheckHealth(attackCounter);
                         }
                     }
                     else
@@ -224,10 +227,11 @@ public class BossAI : Singleton<BossAI>, IEndGameObserver
         }
     }
     
-    public void SetTarget(GameObject targetObstacle, int attackNum)
+    public void SetTarget(GameObject targetObstacle, int attackNum, bool isWeiHe)
     {
         targetObject = targetObstacle;
         obstacleLevel = attackNum;
+        weiHeOnce = isWeiHe;
         isTargetPlayer = false;
     }
 
@@ -238,6 +242,12 @@ public class BossAI : Singleton<BossAI>, IEndGameObserver
         weiHeEnd = false;
         isTargetPlayer = true;
         attackCounter = 0;
+        agent.destination = GameManager.Instance.player.transform.position;
+    }
+
+    private void AnimAttack()
+    {
+        
     }
     
     public void SetCanAttackObstacle(bool flag)

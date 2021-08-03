@@ -22,11 +22,14 @@ public class UIManager : Singleton<UIManager>
     private float tempTime;
 
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingPanel;
     private bool isPause;
+    private bool isSettingOpen;
     private void Start()
     {
         timePanel.SetActive(false);
         pausePanel.SetActive(isPause);
+        settingPanel.SetActive(isSettingOpen);
         fullTime = 15f;
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
@@ -55,17 +58,24 @@ public class UIManager : Singleton<UIManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPause = !isPause;
-            pausePanel.SetActive(isPause);
-            if (isPause)
+            if (isSettingOpen)
             {
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.Confined;
+                CloseSettingPanel();
             }
             else
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Time.timeScale = 1;
+                isPause = !isPause;
+                pausePanel.SetActive(isPause);
+                if (isPause)
+                {
+                    Time.timeScale = 0;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Time.timeScale = 1;
+                }
             }
         }
     }
@@ -157,5 +167,17 @@ public class UIManager : Singleton<UIManager>
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    public void OpenSettingPanel()
+    {
+        isSettingOpen = true;
+        settingPanel.SetActive(isSettingOpen);
+    }
+
+    public void CloseSettingPanel()
+    {
+        isSettingOpen = false;
+        settingPanel.SetActive(isSettingOpen);
     }
 }
