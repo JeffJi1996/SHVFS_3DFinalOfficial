@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9191417874938087754}
   - component: {fileID: 5197613903803270895}
   - component: {fileID: 8053936998345585189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Basement_WoodFloor
-  m_TagString: Untagged
+  m_TagString: WoodenFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c385a34edd6fbc47a14b250a512d646, type: 2}
+  - {fileID: 2100000, guid: 967a2a4e942ad464c973bd2d5e6dc176, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

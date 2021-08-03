@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(s.name);
+                //Debug.Log(s.name);
                 s.source.outputAudioMixerGroup = s.outPutGroup;
             }
             //s.source.clip = s.clip;

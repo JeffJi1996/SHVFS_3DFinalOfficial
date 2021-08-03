@@ -10,7 +10,7 @@ public class CheckPoint : MonoBehaviour
         if (other.GetComponent<PlayerMovement>() != null)
         {
             CheckPointManager.Instance.ChangeCheckPoint(transform);
-            Destroy(gameObject);
+            GetComponent<Collider>().enabled = false;
         }
     }
 }

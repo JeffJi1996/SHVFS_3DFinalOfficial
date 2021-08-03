@@ -6,6 +6,9 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
 {
     private Rigidbody rb;
     private float gravity = -9.81f;
+    private string woodenFloor = "WoodenFloor";
+    private string stoneFloor = "StoneFloor";
+    private string ceramicFloor = "CeramicFloor";
 
     private float DistanceCounter = 0;
     [SerializeField] private Vector3 velocity;
@@ -13,6 +16,8 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
     [SerializeField] private float WalkFootSFXFrequency_Werewolf;
     [SerializeField] private float RunFootSFXFrequency_Hunam;
     [SerializeField] private float RunFootSFXFrequency_Werewolf;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Transform raycastTrans;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,7 +51,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                     if (DistanceCounter >= 1f/RunFootSFXFrequency_Werewolf)
                     {
                         DistanceCounter = 0f;
-                        AudioManager.instance.Play("Werewolf_Foot_Walk_Wood");
+                        WerewolfWalkSFX();
                     }
                 }
                 else
@@ -54,7 +59,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                     if (DistanceCounter >= 1f/ RunFootSFXFrequency_Hunam)
                     {
                         DistanceCounter = 0f;
-                        AudioManager.instance.Play("Player_Foot_Walk_Wood");
+                        HumanWalkSFX();
                     }
                 }
             }
@@ -66,7 +71,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                     if (DistanceCounter >= 1f/WalkFootSFXFrequency_Werewolf)
                     {
                         DistanceCounter = 0f;
-                        AudioManager.instance.Play("Werewolf_Foot_Walk_Wood");
+                        WerewolfWalkSFX();
                     }
                 }
                 else
@@ -74,7 +79,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                     if (DistanceCounter >= 1f/ WalkFootSFXFrequency_Hunam)
                     {
                         DistanceCounter = 0f;
-                        AudioManager.instance.Play("Player_Foot_Walk_Wood");
+                        HumanWalkSFX();
                     }
                 }
             }
@@ -91,15 +96,21 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         #region Attack
         if (PlayerAttack.Instance != null && PlayerAttack.Instance.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&!PlayerAttack.Instance.interactBlank)
             {
                 PlayerAttack.Instance.Attack();
             }
         }
         #endregion
-
     }
 
+    public void AdjustPWalkingSoundSpeed(float radius)
+    {
+        WalkFootSFXFrequency_Hunam *= radius;
+        WalkFootSFXFrequency_Werewolf *= radius;
+        RunFootSFXFrequency_Hunam *= radius;
+        RunFootSFXFrequency_Werewolf *= radius;
+    }
     public void Interact()
     {
 
@@ -118,5 +129,58 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
     public void StopVelocity()
     {
         rb.velocity = new Vector3(0, 0, 0);
+    }
+
+    private void WerewolfWalkSFX()
+    {
+        int index = RaycastExam();
+        switch (index)
+        {
+            case 1:
+                AudioManager.instance.Play("Werewolf_Foot_Walk_Wood");
+                break;
+            case 2:
+                AudioManager.instance.Play("Werewolf_Foot_Walk_Concrete");
+                break;
+            case 3:
+                AudioManager.instance.Play("Werewolf_Foot_Walk_Ceramic");
+                break;
+        }
+    }
+
+    private void HumanWalkSFX()
+    {
+        int index = RaycastExam();
+        switch (index)
+        {
+            case 1:
+                AudioManager.instance.Play("Player_Foot_Walk_Wood");
+                break;
+            case 2:
+                AudioManager.instance.Play("Player_Foot_Walk_Concrete");
+                break;
+            case 3:
+                AudioManager.instance.Play("Player_Foot_Walk_Ceramic");
+                break;
+        }
+    }
+    
+    private int RaycastExam()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(raycastTrans.position,Vector3.down, out hit, 2f, layerMask))
+        {
+            if (hit.collider.CompareTag(woodenFloor))
+                return 1;
+            else if (hit.collider.CompareTag(stoneFloor))
+                return 2;
+            else
+                return 3;
+        }
+        else
+        {
+            Debug.LogError("Floor tag Lost!");
+            return 0;
+        }
     }
 }

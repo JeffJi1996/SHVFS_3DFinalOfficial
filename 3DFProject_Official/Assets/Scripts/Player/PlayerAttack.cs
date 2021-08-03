@@ -13,11 +13,13 @@ public class PlayerAttack : Singleton<PlayerAttack>
     [SerializeField] private LayerMask enemyLayer;
     private bool leftAttackStart;
     private bool rightAttackStart;
+    public bool interactBlank;
     void Start()
     {
         AttackNum = 1;
         leftAttackStart = false;
         rightAttackStart = false;
+        interactBlank = false;
     }
 
     void Update()
@@ -116,5 +118,10 @@ public class PlayerAttack : Singleton<PlayerAttack>
     {
         Gizmos.DrawWireSphere(AttackLeftPoint.position,AttackRange);
         Gizmos.DrawWireSphere(AttackRightPoint.position, AttackRange);
+    }
+
+    public void CloseInteract()
+    {
+        PlayerAttack.Instance.interactBlank = false;
     }
 }

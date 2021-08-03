@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +20,13 @@ public class UIManager : Singleton<UIManager>
     public bool isActive;
     private float timeTrack2Timer;
     private float tempTime;
-    
+
+    [SerializeField] private GameObject pausePanel;
+    private bool isPause;
     private void Start()
     {
         timePanel.SetActive(false);
+        pausePanel.SetActive(isPause);
         fullTime = 15f;
         timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
@@ -47,6 +51,22 @@ public class UIManager : Singleton<UIManager>
             
             AudioManager.instance.Play("Player_Trans");
             isExitTransform = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPause = !isPause;
+            pausePanel.SetActive(isPause);
+            if (isPause)
+            {
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
+            }
         }
     }
 
@@ -124,5 +144,18 @@ public class UIManager : Singleton<UIManager>
     public void ExitMoon()
     {
         canDrop = true;
+    }
+
+    public void Resume()
+    {
+        isPause = false;
+        pausePanel.SetActive(isPause);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }
