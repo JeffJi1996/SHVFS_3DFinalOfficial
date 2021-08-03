@@ -232,6 +232,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
         targetObject = targetObstacle;
         obstacleLevel = attackNum;
         weiHeOnce = isWeiHe;
+        if (!isWeiHe)
+        {
+            weiHeEnd = true;
+        }
         isTargetPlayer = false;
     }
 
