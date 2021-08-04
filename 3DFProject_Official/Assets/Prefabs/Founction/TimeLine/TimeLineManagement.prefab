@@ -220,6 +220,8 @@ MonoBehaviour:
   moonAudioSource: {fileID: 0}
   mohuFx: {fileID: 0}
   screenFx: {fileID: 0}
+  CG: {fileID: -2422834081513281674, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+  CG_End: {fileID: -2568353535171375464, guid: 305632a1067151e40af71562bebc3a04, type: 2}
 --- !u!82 &3119354753192992165
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1004,6 +1006,10 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2655386923304674293, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d84428a2273dcc4f9efd1416c0a2a44, type: 2}
     - target: {fileID: 2655386923304674293, guid: 3a6df1e41a48c034c8e25757e493d93d, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 15

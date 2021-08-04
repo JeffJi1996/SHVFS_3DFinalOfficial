@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
 {
+    [SerializeField] private AudioMixer aMixer;
     [SerializeField] private bool isTransforming;
     [SerializeField] private GameObject HandMesh;
     [SerializeField] private float transformDuration;
@@ -19,6 +20,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     public GameObject ScreenFx;
     public ParticleSystem mohu;
     public GameObject mohuLong;
+
     void Start()
     {
         isTransforming = false;
@@ -56,6 +58,8 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
         anim.SetBool("isTransforming", true);
         HandMesh.SetActive(true);
         PlayFx();
+        TranToWolfSFX();
+        AudioManager.instance.Play("Vo_Werewolf_Roar");
     }
 
     public void BackToHuman()
@@ -65,6 +69,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             isTransforming = false;
             anim.SetBool("isTransforming", false);
             HandMesh.SetActive(false);
+            TranToHumanSFX();
         }
         ScreenFxOff();
     }
@@ -145,5 +150,19 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
         yield return new WaitForSeconds(0.8f);
         mohuLong.SetActive(true);
         mohuLong.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void TranToHumanSFX()
+    {
+        StartCoroutine(LowAndHighPassFader.LowPassFade(aMixer, "LowPass", 1f, 10000f));
+        StartCoroutine(LowAndHighPassFader.HighPassFade(aMixer, "HighPass", 1f, 20f));
+        StartCoroutine(LowAndHighPassFader.HighPassFade(aMixer, "MasterVolume", 1f, -3f));
+    }
+
+    public void TranToWolfSFX()
+    {
+        aMixer.SetFloat("LowPass", 1000f);
+        aMixer.SetFloat("HighPass", 500f);
+        aMixer.SetFloat("MasterVolume", 3f);
     }
 }
