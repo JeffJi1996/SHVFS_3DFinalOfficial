@@ -31,7 +31,7 @@ public class GeneralCameraShake : MonoBehaviour {
 				LeanTween.cancel(gameObject);
 
 				/**************
-				* Camera Shake
+				* Camera Shake_Wolf
 				**************/
 				
 				float shakeAmt = height*0.2f; // the degrees to shake the camera
@@ -51,7 +51,7 @@ public class GeneralCameraShake : MonoBehaviour {
 
 
 				/********************
-				* Shake scene objects
+				* Shake_Wolf scene objects
 				********************/
 
 				// Make the boxes jump from the big stomping

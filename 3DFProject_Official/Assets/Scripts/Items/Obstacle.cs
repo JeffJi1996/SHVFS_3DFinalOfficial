@@ -6,12 +6,20 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public int objectLevel;
+    private BossAI boss;
+    [SerializeField] private bool isWeiHe; 
+    private void Start()
+    {
+        boss = GameManager.Instance.Boss.GetComponent<BossAI>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.GetComponent<BossAI>() != null)
         {
-            other.GetComponent<BossAI>().SetTarget(gameObject,objectLevel);
+            Debug.Log("In Obstacle");
+            other.GetComponent<BossAI>().SetTarget(transform.parent.gameObject, objectLevel, isWeiHe);
             other.GetComponent<BossAI>().SetCanAttackObstacle(true);
         }
     }
@@ -20,10 +28,8 @@ public class Obstacle : MonoBehaviour
     {
         if (totalDamage >= objectLevel)
         {
-            BossAI.Instance.RefreshObstacleAttack();
-            Destroy(gameObject);
+            boss.RefreshObstacleAttack();
+            transform.parent.gameObject.SetActive(false);
         }
     }
-    
-    
 }

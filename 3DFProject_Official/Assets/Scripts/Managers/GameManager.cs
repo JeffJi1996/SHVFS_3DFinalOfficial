@@ -10,7 +10,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject player;
     public int mouseSensitivity = 100;
     public bool isBossState;
-
+    public GameObject Boss;
+    
     [SerializeField] private GameObject bloodFx;
 
     private bool isBloodActive;

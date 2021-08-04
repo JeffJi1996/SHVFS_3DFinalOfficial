@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MouseLook : Singleton<MouseLook>
 {
-    public float mouseSensitivity = 100f;
+    public int mouseSensitivity = 100;
 
     [SerializeField]private Transform playerBody;
     [SerializeField]private CinemachineVirtualCamera[] cams;

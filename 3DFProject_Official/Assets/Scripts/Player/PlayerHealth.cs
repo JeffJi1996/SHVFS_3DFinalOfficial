@@ -17,7 +17,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (canBeHurt)
         {
-            CameraShake.Instance.Shake();
+            CameraShake.Instance.Shake_Wolf();
             hurtFx.Play();
             if (PlayerAbilityControl.Instance.WhetherTransforming() == true)
             {

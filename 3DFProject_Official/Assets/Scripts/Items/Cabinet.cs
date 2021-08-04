@@ -15,6 +15,7 @@ public class Cabinet : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        //Debug.Log(col.name);
         if (col.GetComponent<PlayerMovement>()!= null&&!isDestroyed)
         {
             PlayerMovement.Instance.AdjustWalkingSpeed(CabinetManager.Instance.GetSpeedRate());

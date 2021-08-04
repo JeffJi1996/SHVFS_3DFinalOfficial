@@ -5,22 +5,31 @@ using UnityEngine;
 
 public class CameraShake : Singleton<CameraShake>
 {
-    [SerializeField] private CinemachineVirtualCamera Vcam;
-    private CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin;
-
+    [SerializeField] private CinemachineVirtualCamera wolf_Vcam;
+    [SerializeField] private CinemachineVirtualCamera human_Vcam;
+    private CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin_wolf;
+    private CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin_human;
     [SerializeField] private float intensity;
     [SerializeField] private float time;
     private float shakeTimer;
 
     void Start()
     {
-        cinemachineBasicMultiChannelPerlin =
-            Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineBasicMultiChannelPerlin_wolf =
+            wolf_Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cinemachineBasicMultiChannelPerlin_human =
+            human_Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
-    public void Shake()
+    public void Shake_Wolf()
     {
-        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
+        cinemachineBasicMultiChannelPerlin_wolf.m_AmplitudeGain = intensity;
+        shakeTimer = time;
+    }
+
+    public void Shake_Human()
+    {
+        cinemachineBasicMultiChannelPerlin_human.m_AmplitudeGain = intensity;
         shakeTimer = time;
     }
 
@@ -39,6 +48,7 @@ public class CameraShake : Singleton<CameraShake>
     public void CloseShake()
     {
         shakeTimer = 0;
-        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+        cinemachineBasicMultiChannelPerlin_wolf.m_AmplitudeGain = 0f;
+        cinemachineBasicMultiChannelPerlin_human.m_AmplitudeGain = 0f;
     }
 }
