@@ -10351,7 +10351,6 @@ MonoBehaviour:
   timeTrack2: {fileID: 2012070956}
   waitTime: 2
   isActive: 0
-  pausePanel: {fileID: 0}
 --- !u!1001 &31684027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17361,14 +17360,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7538012941146190199, guid: 784d17001e5388948a8975947a45be76, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8780589098999815353, guid: 784d17001e5388948a8975947a45be76, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784d17001e5388948a8975947a45be76, type: 3}
 --- !u!224 &184710043 stripped
@@ -17379,11 +17370,6 @@ RectTransform:
 --- !u!1 &184710044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4148617646637183358, guid: 784d17001e5388948a8975947a45be76, type: 3}
-  m_PrefabInstance: {fileID: 184710042}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &184710047 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4148617646637183355, guid: 784d17001e5388948a8975947a45be76, type: 3}
   m_PrefabInstance: {fileID: 184710042}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &187900757 stripped
@@ -94014,14 +94000,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1822942861}
     - target: {fileID: 5838768880437141094, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
-      propertyPath: mohuFx
-      value: 
-      objectReference: {fileID: 1646554077}
-    - target: {fileID: 5838768880437141094, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
-      propertyPath: screenFx
-      value: 
-      objectReference: {fileID: 184710044}
-    - target: {fileID: 5838768880437141094, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
       propertyPath: firstMoon
       value: 
       objectReference: {fileID: 2538358295861572062}
@@ -117041,11 +117019,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
---- !u!1 &1646554077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5453270666586435106, guid: 74abaebb66eaf7f4d9885a5e85d21945, type: 3}
-  m_PrefabInstance: {fileID: 1480946883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1647233101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139892,8 +139865,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103688529}
-  m_LocalRotation: {x: -0.0022893446, y: -0.9658881, z: -0.25880894, w: 0.00854395}
-  m_LocalPosition: {x: 2.843861, y: -0.6198292, z: 51.698975}
+  m_LocalRotation: {x: 0, y: 0.9659259, z: 0.25881907, w: 0}
+  m_LocalPosition: {x: 2.838814, y: -0.6158292, z: 51.708294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -141064,10 +141037,6 @@ PrefabInstance:
       propertyPath: mohuLong
       value: 
       objectReference: {fileID: 213872017}
-    - target: {fileID: 3282893997117784233, guid: 95d7b406a6f07234c966c372daf6af24, type: 3}
-      propertyPath: hurtFx
-      value: 
-      objectReference: {fileID: 184710047}
     - target: {fileID: 3282893997117784233, guid: 95d7b406a6f07234c966c372daf6af24, type: 3}
       propertyPath: postEffects
       value: 

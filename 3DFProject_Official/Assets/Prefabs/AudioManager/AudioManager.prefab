@@ -274,27 +274,3 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: SFX_Amb_1stFloor
-    clips:
-    - {fileID: 8300000, guid: 5c60d2964677a6b43856b208e35c8d56, type: 3}
-    volume: 1
-    outPutGroup: {fileID: -355002096746389388, guid: 305632a1067151e40af71562bebc3a04, type: 2}
-    pitch: 1
-    source: {fileID: 0}
-    loop: 1
-  - name: Music_Explore
-    clips:
-    - {fileID: 8300000, guid: 79a6f90728568f04081fd2036af7394f, type: 3}
-    volume: 1
-    outPutGroup: {fileID: 1999917638636182996, guid: 305632a1067151e40af71562bebc3a04, type: 2}
-    pitch: 1
-    source: {fileID: 0}
-    loop: 1
-  - name: Vo_Werewolf_Roar
-    clips:
-    - {fileID: 8300000, guid: eb86141bbc7680c4196e2967d8739e3e, type: 3}
-    volume: 1
-    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
-    pitch: 1
-    source: {fileID: 0}
-    loop: 0

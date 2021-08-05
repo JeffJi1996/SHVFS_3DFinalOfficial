@@ -29,8 +29,8 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         float moveV = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * moveH + transform.forward * moveV;
-        rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed() + new Vector3(0, gravity * Time.deltaTime, 0);
-
+        rb.velocity = move * PlayerMovement.Instance.GetCurrentMoveSpeed()+new Vector3(0,gravity*Time.deltaTime,0);
+        
 
         #endregion
         DistanceCounter += rb.velocity.magnitude * Time.deltaTime;
@@ -40,42 +40,15 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
     void Update()
     {
         #region Walk && Run
+
         if (IsMoving())
         {
-            /*
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (PlayerAbilityControl.Instance.WhetherTransforming())
-                {
-                    BreathController.Instance.BreathIn(BreathController.Instance.BreathClips[1]);
-
-                }
-                else
-                {
-                    BreathController.Instance.BreathIn(BreathController.Instance.BreathClips[0]);
-                }
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                if (PlayerAbilityControl.Instance.WhetherTransforming())
-                {
-                    BreathController.Instance.BreathOut(BreathController.Instance.BreathClips[1]);
-                    //Play werewolf breathOut
-
-                }
-                else
-                {
-                    //Play Human BreathOut
-                    BreathController.Instance.BreathOut(BreathController.Instance.BreathClips[0]);
-                }
-
-            }*/
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 PlayerMovement.Instance.Run();
                 if (PlayerAbilityControl.Instance.WhetherTransforming())
                 {
-                    if (DistanceCounter >= 1f / RunFootSFXFrequency_Werewolf)
+                    if (DistanceCounter >= 1f/RunFootSFXFrequency_Werewolf)
                     {
                         DistanceCounter = 0f;
                         WerewolfWalkSFX();
@@ -83,7 +56,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                 }
                 else
                 {
-                    if (DistanceCounter >= 1f / RunFootSFXFrequency_Hunam)
+                    if (DistanceCounter >= 1f/ RunFootSFXFrequency_Hunam)
                     {
                         DistanceCounter = 0f;
                         HumanWalkSFX();
@@ -95,7 +68,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                 PlayerMovement.Instance.Walk();
                 if (PlayerAbilityControl.Instance.WhetherTransforming())
                 {
-                    if (DistanceCounter >= 1f / WalkFootSFXFrequency_Werewolf)
+                    if (DistanceCounter >= 1f/WalkFootSFXFrequency_Werewolf)
                     {
                         DistanceCounter = 0f;
                         WerewolfWalkSFX();
@@ -103,7 +76,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                 }
                 else
                 {
-                    if (DistanceCounter >= 1f / WalkFootSFXFrequency_Hunam)
+                    if (DistanceCounter >= 1f/ WalkFootSFXFrequency_Hunam)
                     {
                         DistanceCounter = 0f;
                         HumanWalkSFX();
@@ -112,7 +85,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
             }
         }
 
-
+        
         #endregion
         #region TurnAround
         if (Input.GetKeyDown(KeyCode.Mouse2))
@@ -123,7 +96,7 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
         #region Attack
         if (PlayerAttack.Instance != null && PlayerAttack.Instance.enabled)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !PlayerAttack.Instance.interactBlank)
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&!PlayerAttack.Instance.interactBlank)
             {
                 PlayerAttack.Instance.Attack();
             }
@@ -191,11 +164,11 @@ public class PlayerInputSystem : Singleton<PlayerInputSystem>
                 break;
         }
     }
-
+    
     private int RaycastExam()
     {
         RaycastHit hit;
-        if (Physics.Raycast(raycastTrans.position, Vector3.down, out hit, 2f, layerMask))
+        if (Physics.Raycast(raycastTrans.position,Vector3.down, out hit, 2f, layerMask))
         {
             if (hit.collider.CompareTag(woodenFloor))
                 return 1;
