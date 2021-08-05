@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CobWeb : MonoBehaviour
+public class CobWeb : MonoBehaviour,ICheckPointObserver
 {
     private bool hasTriggered;
     [SerializeField] private GameObject WebMesh;
@@ -33,4 +33,8 @@ public class CobWeb : MonoBehaviour
         WebMesh.SetActive(true);
     }
 
+    public void CheckPoint()
+    {
+        Initialize();
+    }
 }
