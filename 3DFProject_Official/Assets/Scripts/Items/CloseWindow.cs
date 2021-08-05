@@ -4,7 +4,7 @@ using Aura2API;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CloseWindow : MonoBehaviour
+public class CloseWindow : MonoBehaviour,ICheckPointObserver
 {
     private bool isTriggered;
     [SerializeField] private GameObject transformTrigger;
@@ -26,10 +26,7 @@ public class CloseWindow : MonoBehaviour
     {
         if (!isTriggered && col.GetComponent<PlayerMovement>()!=null)
         {
-            StartCoroutine(MoonLightFadeOut());
-            doorAnim.SetTrigger("Close");
-            transformTrigger.SetActive(false);
-            isTriggered = true;
+            Trigger();
         }
     }
 
@@ -42,5 +39,17 @@ public class CloseWindow : MonoBehaviour
         }
     }
 
+    void Trigger()
+    {
+        StartCoroutine(MoonLightFadeOut());
+        doorAnim.SetTrigger("Close");
+        transformTrigger.SetActive(false);
+        isTriggered = true;
+        CPManager.Instance.AddObserver(this);
+    }
 
+    public void CheckPoint()
+    {
+        Initialize();
+    }
 }

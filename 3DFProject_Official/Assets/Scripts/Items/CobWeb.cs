@@ -25,6 +25,7 @@ public class CobWeb : MonoBehaviour,ICheckPointObserver
         hasTriggered = true;
         WebMesh.SetActive(false);
         WebPanel.Instance.StartWebVFX();
+        CPManager.Instance.AddObserver(this);
     }
 
     void Initialize()

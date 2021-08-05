@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cabinet : MonoBehaviour,ICheckPointObserver
 {
-    private bool isDestroyed;
+    public bool isDestroyed;
     [SerializeField]private GameObject LeftMesh;
     [SerializeField]private GameObject RightMesh;
+
 
     void Start()
     {
@@ -30,8 +32,18 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
         }
     }
 
-    void Initialize()
+    public void BeDestroyed()
     {
+        isDestroyed = true;
+        GetComponentInChildren<Obstacle>().isTriggered = true;
+        LeftMesh.SetActive(false);
+        RightMesh.SetActive(false);
+        CPManager.Instance.AddObserver(this);
+    }
+
+    public void Initialize()
+    {
+        GetComponentInChildren<Obstacle>().isTriggered = true;
         isDestroyed = false;
         LeftMesh.SetActive(true);
         RightMesh.SetActive(true);
@@ -41,4 +53,5 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
     {
         Initialize();
     }
+
 }
