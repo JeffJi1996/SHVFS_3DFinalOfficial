@@ -10,7 +10,7 @@ public class UIManager : Singleton<UIManager>
     [Header("TimePanel")] 
     public GameObject timePanel;
     public Image timeTrack;
-    public Image timeTrack2;
+    public Slider timeTrack2;
     private bool isTimeOpen;
     private float fullTime;
     private float curTime;
@@ -42,6 +42,7 @@ public class UIManager : Singleton<UIManager>
         {
             curTime -= Time.deltaTime;
             timeTrack.fillAmount = curTime / fullTime;
+            timeTrack2.value = timeTrack.fillAmount;
             if (curTime <= 0)
             {
                 StartCoroutine(DelayHide());
@@ -78,12 +79,18 @@ public class UIManager : Singleton<UIManager>
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DecreaseTime(4f);
+        }
     }
 
 
     public void TimePanelOpen()
     {
         timePanel.SetActive(true);
+        timeTrack2.gameObject.SetActive(true);
         timeTrack.fillAmount = 1;
         curTime = fullTime;
         isTimeOpen = true;
@@ -125,20 +132,18 @@ public class UIManager : Singleton<UIManager>
 
     IEnumerator TimeTrack2()
     {
-        timeTrack2.gameObject.SetActive(true);
-        var tempCurTime = curTime;
+        var tempCurTime = Mathf.Max(curTime - 1f,0);
         var deltaTime = tempTime - tempCurTime;
         while (timeTrack2Timer <= 1f)
         {
             timeTrack2Timer += Time.deltaTime;
-            timeTrack2.fillAmount = tempCurTime / fullTime + (1 - timeTrack2Timer) * deltaTime / fullTime;
+            timeTrack2.value = tempCurTime / fullTime + (1 - timeTrack2Timer) * deltaTime / fullTime;
             //Debug.Log(timeTrack2.fillAmount);
             yield return 0;
         }
 
         yield return new WaitForEndOfFrame();
-        timeTrack2Timer = 0;
-        timeTrack2.gameObject.SetActive(false);
+        
     }
 
     public void SetFullTime(float maxTime)
