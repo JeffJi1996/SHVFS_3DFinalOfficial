@@ -16,16 +16,17 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     [SerializeField] private float attackRange;
     [SerializeField] private float attackTime;
     [SerializeField] private LayerMask layerMask;
+    
     private float attackTimer = 0;
     private bool isTargetPlayer = true;
     private bool canAttack = true;
 
     private bool isStop;
-    private bool isChase;
+    private bool isChase = true;
     private bool isIdle = true;
     private bool isRoal;
     private bool isAttack;
-    private bool isWait;
+    private bool isWait = true;
 
     private int saveState = 0;
     private Transform saveTrans;
@@ -124,9 +125,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 }
                 break;
             case BossStates.WAIT:
+                Debug.Log(3);
                 agent.isStopped = true;
                 isIdle = true;
-                if (BCanSee())
+                if (BCanSee()&&BInSight())
                 {
                     isChase = true;
                 }
@@ -184,7 +186,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
             playerPos.z - transform.position.z);
         Ray myRay = new Ray(transform.position, dirToPlayer);
         Physics.Raycast(myRay, out RaycastHit hitInfo,100f, layerMask, QueryTriggerInteraction.Ignore);
-        //Debug.Log(hitInfo.collider.name);
+        Debug.Log(hitInfo.collider.name);
         if (hitInfo.collider.gameObject.GetComponent<PlayerAbilityControl>() != null && BInSight())
         {
             //Debug.Log(hitInfo.collider.name);
@@ -203,10 +205,12 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 (GameManager.Instance.player.transform.position- transform.position).normalized) >=
             Mathf.Sin(sight * Mathf.Deg2Rad))
         {
+            Debug.Log("InSight");
             return true;
         }
         else
         {
+            Debug.Log("NotInSight");
             return false;
         }
     }
@@ -258,6 +262,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         canAttackObstacle = flag;
     }
+
     
     public void EndNotify()
     {
@@ -272,5 +277,11 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     public void EndCG()
     {
         isStop = false;
+    }
+
+    public void WaitState()
+    {
+        isChase = false;
+        
     }
 }
