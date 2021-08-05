@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cabinet : MonoBehaviour
+public class Cabinet : MonoBehaviour,ICheckPointObserver
 {
     private bool isDestroyed;
     [SerializeField]private GameObject LeftMesh;
@@ -35,5 +35,10 @@ public class Cabinet : MonoBehaviour
         isDestroyed = false;
         LeftMesh.SetActive(true);
         RightMesh.SetActive(true);
+    }
+
+    public void CheckPoint()
+    {
+        Initialize();
     }
 }
