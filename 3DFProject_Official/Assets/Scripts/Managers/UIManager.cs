@@ -89,8 +89,8 @@ public class UIManager : Singleton<UIManager>
 
     public void TimePanelOpen()
     {
-        timePanel.SetActive(true);
         timeTrack2.gameObject.SetActive(true);
+        timePanel.SetActive(true);
         timeTrack.fillAmount = 1;
         curTime = fullTime;
         isTimeOpen = true;
