@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class StoneTrap : MonoBehaviour
+public class StoneTrap : MonoBehaviour,ICheckPointObserver
 {
     [SerializeField] private GameObject StoneMesh;
     [SerializeField] private float fallDuration;
@@ -36,5 +36,9 @@ public class StoneTrap : MonoBehaviour
         StoneMesh.transform.position = iniPosition;
     }
 
+    public void CheckPoint()
+    {
+        Initialize();
+    }
 
 }
