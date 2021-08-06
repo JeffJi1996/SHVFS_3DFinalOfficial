@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: sandbag
-  m_Shader: {fileID: 4800000, guid: b34091510eb9ca841a575be127f99965, type: 3}
+  m_Name: Props_Stand
+  m_Shader: {fileID: 4800000, guid: 6f1489ffaa81b0d418b39cc868be2813, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -20,15 +20,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: d00a5e709d4fc5e45880ceff1af835b7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9a711ac46438e5647a2faa5b5015a0ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 76f6c4d1ccfb2094cb1e735a9b0b0f28, type: 3}
+        m_Texture: {fileID: 2800000, guid: 313374fa7707c7b47b4fcec9b5da7e09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _rmo:
-        m_Texture: {fileID: 2800000, guid: f52972ff112a1ae42b8a03786eb0834e, type: 3}
+        m_Texture: {fileID: 2800000, guid: a6bb0c97878db064b955cb3666c16632, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Oven
+  m_Name: Props_Stone
   m_Shader: {fileID: 4800000, guid: 6f1489ffaa81b0d418b39cc868be2813, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 06dea127fd472f4499d44da5636346f3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 77bc150e79921ff4a843aa3dfa0f33db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 866a781745b8f6149a44328db49a07dc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 71c6319c88a889b4f8f09b8ff1547562, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _rmo:
