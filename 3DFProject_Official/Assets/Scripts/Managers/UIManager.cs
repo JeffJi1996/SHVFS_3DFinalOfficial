@@ -37,7 +37,7 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
-        fullTime = 15f;
+        fullTime = 10f;
         timeTrack2Timer = 0;
         timeTrack.color = originColor;
         handle = timeTrack2.transform.GetChild(3).GetChild(0).GetComponent<Image>();
@@ -112,6 +112,7 @@ public class UIManager : Singleton<UIManager>
     {
         timeTrack2.gameObject.SetActive(true);
         timePanel.SetActive(true);
+        timeTrack2.GetComponent<Slider>().value = 1;
         timePanel.GetComponent<Image>().color = Color.white;
         handle.color = Color.white;
         timeTrack.color = originColor;

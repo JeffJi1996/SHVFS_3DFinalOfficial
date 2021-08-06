@@ -52,10 +52,7 @@ public class PatolAI : EnemyController
                 : GameManager.Instance.player.transform.position;
 
             dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
-            
-            
         }
- 
         SwitchState();
         anim.SetBool("isIdle", isIdle);
     }
@@ -285,9 +282,7 @@ public class PatolAI : EnemyController
         if (Distance2Player() <= 2f && BInSight())
         {
             PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
-            if (PlayerAbilityControl.Instance.WhetherTransforming())
-                UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
-            else
+            if (!PlayerAbilityControl.Instance.WhetherTransforming())
             {
                 isIdle = true;
                 isStop = true;
