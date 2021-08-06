@@ -3,7 +3,12 @@ guid: 764ef5afbfdfde445b18c919b76b4b8a
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Props_Sandbag
+    second: {fileID: 2100000, guid: 90d65b23edb07884ba08da2fa0c33d7a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
