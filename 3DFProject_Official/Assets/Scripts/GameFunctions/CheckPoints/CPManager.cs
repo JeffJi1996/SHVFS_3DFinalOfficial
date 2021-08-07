@@ -11,13 +11,6 @@ public class CPManager : Singleton<CPManager>
         checkPointObservers.Add(observer);
     }
 
-
-
-    public void RemoveObserver(ICheckPointObserver observer)
-    {
-        checkPointObservers.Remove(observer);
-    }
-
     public void ClearList()
     {
         checkPointObservers.Clear();
@@ -30,7 +23,4 @@ public class CPManager : Singleton<CPManager>
             observer.CheckPoint();
         }
     }
-
-
-
 }

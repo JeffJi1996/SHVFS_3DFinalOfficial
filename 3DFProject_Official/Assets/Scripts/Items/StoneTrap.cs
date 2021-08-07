@@ -21,6 +21,7 @@ public class StoneTrap : MonoBehaviour,ICheckPointObserver
         {
             StoneFallDown();
             isTriggered = true;
+            CPManager.Instance.AddObserver(this);
         }
     }
 

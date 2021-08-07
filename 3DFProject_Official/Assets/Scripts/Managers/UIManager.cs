@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("TimePanel")] 
+    [Header("Werewolf UI Panel")] 
     public GameObject timePanel;
     public Image timeTrack;
     public Slider timeTrack2;
@@ -20,19 +20,35 @@ public class UIManager : Singleton<UIManager>
     public bool isActive;
     private float timeTrack2Timer;
     private float tempTime;
-
+    [SerializeField] private Color originColor;
+    [SerializeField] private Color glitterColor;
+    [SerializeField] private float colorChangeTime = 0.1f;
+    [SerializeField] private float startChangeTime = 3f;
+    private bool isOriginColor = true;
+    private float glitterTimer = 0f;
+    private Image handle;
+    
+    [Header("OtherPanel")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingPanel;
     private bool isPause;
     private bool isSettingOpen;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        fullTime = 10f;
+        timeTrack2Timer = 0;
+        timeTrack.color = originColor;
+        handle = timeTrack2.transform.GetChild(3).GetChild(0).GetComponent<Image>();
+    }
+
     private void Start()
     {
-        timePanel.SetActive(false);
         pausePanel.SetActive(isPause);
         settingPanel.SetActive(isSettingOpen);
-        fullTime = 15f;
-        timeTrack2Timer = 0;
         timeTrack2.gameObject.SetActive(false);
+        timePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,9 +59,18 @@ public class UIManager : Singleton<UIManager>
             curTime -= Time.deltaTime;
             timeTrack.fillAmount = curTime / fullTime;
             timeTrack2.value = timeTrack.fillAmount;
-            if (curTime <= 0)
+            if (curTime <= startChangeTime)
             {
-                StartCoroutine(DelayHide());
+                glitterTimer += Time.deltaTime;
+                if (glitterTimer >= colorChangeTime)
+                {
+                    ChangeColor();
+                    glitterTimer = 0f;
+                }
+                if (curTime <= 0)
+                {
+                    StartCoroutine(DelayHide());
+                }
             }
         }
 
@@ -80,10 +105,6 @@ public class UIManager : Singleton<UIManager>
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DecreaseTime(4f);
-        }
     }
 
 
@@ -91,9 +112,16 @@ public class UIManager : Singleton<UIManager>
     {
         timeTrack2.gameObject.SetActive(true);
         timePanel.SetActive(true);
+        timeTrack2.GetComponent<Slider>().value = 1;
+        timePanel.GetComponent<Image>().color = Color.white;
+        handle.color = Color.white;
+        timeTrack.color = originColor;
+        isOriginColor = true;
+        glitterTimer = 0f;
         timeTrack.fillAmount = 1;
         curTime = fullTime;
         isTimeOpen = true;
+        StopCoroutine(DelayHide());
     }
 
     public void CloseTimePanel()
@@ -120,9 +148,18 @@ public class UIManager : Singleton<UIManager>
 
     IEnumerator DelayHide()
     {
+        float timer = 0f;
         isTimeOpen = false;
         isExitTransform = true;
-        yield return new WaitForSeconds(waitTime);
+        
+        while (timer < waitTime)
+        {
+            timer += Time.deltaTime;
+            timePanel.GetComponent<Image>().color = new Color(1,1,1,1f - timer/waitTime);
+            handle.color = new Color(1,1,1,1f - timer/waitTime);
+            yield return null;
+        }
+        yield return new WaitForFixedUpdate();
         if (!PlayerAbilityControl.Instance.WhetherTransforming())
         {
             isTimeOpen = false;
@@ -146,6 +183,15 @@ public class UIManager : Singleton<UIManager>
         
     }
 
+    void ChangeColor()
+    {
+        if (isOriginColor)
+            timeTrack.color = glitterColor;
+        else
+            timeTrack.color = originColor;
+        isOriginColor = !isOriginColor;
+    }
+    
     public void SetFullTime(float maxTime)
     {
         fullTime = maxTime;

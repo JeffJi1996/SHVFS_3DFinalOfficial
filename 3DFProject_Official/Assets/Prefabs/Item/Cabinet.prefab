@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8416326127028665049}
   - component: {fileID: 3778218792412485617}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ObstacleDetect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectLevel: 2
+  isWeiHe: 0
+  isTriggered: 0
 --- !u!1 &4970944184884912270
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,5 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edf20c71f5db64a8a446f49307b04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDestroyed: 0
   LeftMesh: {fileID: 4970944184884912270}
   RightMesh: {fileID: 4970944184980139586}

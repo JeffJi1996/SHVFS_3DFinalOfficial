@@ -76,8 +76,11 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
 
     public void ReduceTranDuration(float recution)
     {
-        if(Instance.isActiveAndEnabled)
-           curDuration -= recution;
+        if (Instance.isActiveAndEnabled)
+        {
+            curDuration -= recution;
+            UIManager.Instance.DecreaseTime(recution);
+        }
     }
 
     public void ChangeMoonState(bool whetherInMoon)

@@ -52,6 +52,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7436733713882976824}
     m_Modifications:
+    - target: {fileID: 3778218792412485617, guid: 4dda0f61aa9c07b45914b425cfc9cabf, type: 3}
+      propertyPath: isWeiHe
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4970944185529644244, guid: 4dda0f61aa9c07b45914b425cfc9cabf, type: 3}
       propertyPath: m_Name
       value: Cabinet
