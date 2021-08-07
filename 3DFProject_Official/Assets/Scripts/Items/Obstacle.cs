@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour
     public int objectLevel;
     private BossAI boss;
     [SerializeField] private bool isWeiHe;
+    public event EventHandler OnDestroy;
     public bool isTriggered;
 
     private void Start()
@@ -20,10 +21,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BossAI>() == null)
-        {
-            Debug.Log(other.name + "233");
-        }
+        Debug.Log(other.gameObject.name);
         if (other.GetComponent<BossAI>() != null && isTriggered == false)
         {
             Debug.Log("In Obstacle");

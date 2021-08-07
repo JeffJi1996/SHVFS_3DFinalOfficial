@@ -21,6 +21,7 @@ public class CloseWindow : MonoBehaviour,ICheckPointObserver
             auraVolume.densityInjection.strength = 0.5f;
         }
     }
+
     void OnTriggerEnter(Collider col)
     {
         if (!isTriggered && col.GetComponent<PlayerMovement>()!=null)
@@ -43,8 +44,6 @@ public class CloseWindow : MonoBehaviour,ICheckPointObserver
         StartCoroutine(MoonLightFadeOut());
         doorAnim.SetTrigger("Close");
         transformTrigger.SetActive(false);
-        UIManager.Instance.ExitMoon();
-        PlayerAbilityControl.Instance.ChangeMoonState(false);
         isTriggered = true;
         CPManager.Instance.AddObserver(this);
     }
