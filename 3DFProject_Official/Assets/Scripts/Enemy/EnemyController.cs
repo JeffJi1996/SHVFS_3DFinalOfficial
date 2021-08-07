@@ -94,7 +94,8 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     
     protected bool BCanSee()
     {
-        Ray myRay = new Ray(transform.position, dirToPlayer);
+        Vector3 startTrans = new Vector3(transform.position.x,transform.position.y+1.8f,transform.position.z);
+        Ray myRay = new Ray(startTrans, dirToPlayer);
         Physics.Raycast(myRay, out RaycastHit hitInfo,100f, layerMask, QueryTriggerInteraction.Ignore);
         //Debug.Log(hitInfo.collider.name);
         if (hitInfo.collider.gameObject.GetComponent<PlayerAbilityControl>() != null && BInSight())
