@@ -51,7 +51,7 @@ public class PatolAI : EnemyController
                 ? new Vector3(22f, -4.449f, 41f)
                 : GameManager.Instance.player.transform.position;
 
-            dirToPlayer = (playerTrans + Vector3.up - transform.position).normalized;
+            dirToPlayer = (playerTrans - transform.position).normalized;
         }
         SwitchState();
         anim.SetBool("isIdle", isIdle);

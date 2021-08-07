@@ -182,9 +182,9 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     protected bool BCanSee()
     {
         var playerPos = GameManager.Instance.player.transform.position;
-        var dirToPlayer = new Vector3(playerPos.x - transform.position.x,playerPos.y + 1f - transform.position.y, 
+        var dirToPlayer = new Vector3(playerPos.x - transform.position.x,playerPos.y - transform.position.y, 
             playerPos.z - transform.position.z);
-        Ray myRay = new Ray(transform.position, dirToPlayer);
+        Ray myRay = new Ray(transform.position + Vector3.up * 1.8f, dirToPlayer);
         Physics.Raycast(myRay, out RaycastHit hitInfo,100f, layerMask, QueryTriggerInteraction.Ignore);
         Debug.Log(hitInfo.collider.name);
         if (hitInfo.collider.gameObject.GetComponent<PlayerAbilityControl>() != null && BInSight())
