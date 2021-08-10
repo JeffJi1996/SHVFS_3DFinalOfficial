@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: -0.3, z: 0}
+  m_FollowOffset: {x: 0, y: 0.05, z: 0}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: 0}
+  m_FollowOffset: {x: 0, y: 0.33, z: 0}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -1174,7 +1174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 582cfde2924d59d4fb92d0015b7b6996, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.292
+      value: -0.962
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 582cfde2924d59d4fb92d0015b7b6996, type: 3}
       propertyPath: m_LocalPosition.z

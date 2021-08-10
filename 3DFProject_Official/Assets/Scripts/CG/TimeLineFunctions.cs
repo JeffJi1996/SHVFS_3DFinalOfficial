@@ -58,10 +58,12 @@ public class TimeLineFunctions : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void StartCG()
+    public void StartCG2()
     {
         GameManager.Instance.CGTime();
         moonAudioSource.volume = 0f;
+        Player.GetComponent<PlayerInputSystem>().enabled = false;
+        Player.GetComponentInChildren<MouseLook>().enabled = false;
     }
 
     public void StartFx()
