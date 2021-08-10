@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BookEvent : MonoBehaviour
 {
-    private bool isTriggered;
+    [SerializeField]private bool isTriggered;
     [SerializeField] private GameObject bookMesh;
     private Rigidbody rb;
 
@@ -17,8 +17,9 @@ public class BookEvent : MonoBehaviour
     {
         if (!isTriggered && col.GetComponent<PlayerMovement>()!= null)
         {
-            rb.AddForce(new Vector3(0, 10, 10));
+            rb.AddForce(new Vector3(0, 10, 100));
             isTriggered = true;
         }
     }
+
 }
