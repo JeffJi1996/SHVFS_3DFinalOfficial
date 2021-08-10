@@ -56,6 +56,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
             PlayerDeath.Instance.PlayerDeathEffect();
             DeathCG();
         }
+        else if (killMeEnemy.GetComponent<BossAI>() != null)
+        {
+            killMeEnemy.GetComponent<BossAI>().ChuJue();
+        }
     }
 
     public void DeathCG()

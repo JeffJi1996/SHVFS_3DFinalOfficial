@@ -16,7 +16,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     [SerializeField] private float attackRange;
     [SerializeField] private float attackTime;
     [SerializeField] private LayerMask layerMask;
-    
+
     private float attackTimer = 0;
     private bool isTargetPlayer = true;
     private bool canAttack = true;
@@ -39,7 +39,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
         saveTrans = transform;
     }
 
@@ -58,6 +58,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     private void Update()
     {
         SwitchStates();
+        SetAnimState();
     }
 
     void SwitchStates()
@@ -77,6 +78,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 
                 break;
             case BossStates.CHASE:
+                isIdle = false;
                 if (isTargetPlayer)
                 {
                     Debug.Log(1);
@@ -86,7 +88,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                         isIdle = true;
                         if (canAttack)
                         {
-                            AnimAttack();
+                            AnimAttack1();
                             StartCoroutine(RefreshCanAttack());
                         }
                     }
@@ -110,7 +112,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
 
                         if (weiHeEnd && canAttack && attackCounter < obstacleLevel)
                         {
-                            AnimAttack();
+                            AnimAttack2();
                             StartCoroutine(RefreshCanAttack());
                             attackCounter++;
                             targetObject.transform.GetChild(0).GetComponent<Obstacle>().CheckHealth(attackCounter);
@@ -126,6 +128,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 break;
             case BossStates.WAIT:
                 Debug.Log(3);
+                isIdle = true;
                 agent.isStopped = true;
                 isIdle = true;
                 if (BCanSee()&&BInSight())
@@ -139,13 +142,13 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     //每帧设置动画状态
     void SetAnimState()
     {
-        
+        anim.SetBool("isIdle",isIdle); ;
     }
     
     IEnumerator WeiHe()
     {
+        anim.SetTrigger("threat");
         weiHeOnce = false;
-        Debug.Log("WeiHe!");
         yield return new WaitForSeconds(1f);
         weiHeEnd = true;
     }
@@ -253,11 +256,17 @@ public class BossAI : MonoBehaviour, IEndGameObserver
         agent.destination = GameManager.Instance.player.transform.position;
     }
 
-    private void AnimAttack()
+    private void AnimAttack1()
     {
-        
+        Debug.Log("attack 01");
+        anim.SetTrigger("attack1");
     }
     
+    private void AnimAttack2()
+    {
+        Debug.Log("attack 02");
+        anim.SetTrigger("attack2");
+    }
     public void SetCanAttackObstacle(bool flag)
     {
         canAttackObstacle = flag;
@@ -266,7 +275,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     
     public void EndNotify()
     {
-        
+        isStop = false;
+        isChase = true;
+        transform.position = saveTrans.position;
+        transform.rotation = saveTrans.rotation;
     }
 
     public void CGTime()
@@ -283,5 +295,11 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         isChase = false;
         
+    }
+
+    public void ChuJue()
+    {
+        isStop = true;
+        anim.SetTrigger("attack1");
     }
 }
