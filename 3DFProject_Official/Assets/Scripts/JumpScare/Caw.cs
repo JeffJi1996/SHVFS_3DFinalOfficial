@@ -12,7 +12,7 @@ public class Caw : MonoBehaviour
     {
         if (!isTriggered && col.GetComponent<PlayerMovement>() != null)
         {
-           Debug.Log("ÎÚÑ»½Ð"); 
+            GetComponentInChildren<AudioSource>().Play();
         }
         
     }

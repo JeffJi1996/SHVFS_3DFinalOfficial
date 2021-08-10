@@ -13,6 +13,8 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private AudioSource moonAudioSource;
     [SerializeField] private GameObject mohuFx;
     [SerializeField] private GameObject screenFx;
+    [SerializeField] private AudioMixerSnapshot CG;
+    [SerializeField] private AudioMixerSnapshot CG_End;
 
     public void StartCG1()
     {
@@ -24,7 +26,7 @@ public class TimeLineFunctions : MonoBehaviour
         audioSource.PlayOneShot(audioSource.clip);
         UIManager.Instance.SetFullTime(PlayerAbilityControl.Instance.GetFullDuration());
         moonAudioSource.volume = 1;
-        Debug.Log(111);
+        CG_End.TransitionTo(3.5f);
     }
     public void ClosePlayerInput()
     {
@@ -52,11 +54,13 @@ public class TimeLineFunctions : MonoBehaviour
         UIManager.Instance.ExitMoon();
         moonAudioSource.volume = 0.1f;
         PlayerAbilityControl.Instance.PlayFx();
+        CG_End.TransitionTo(0.5f);
     }
 
     public void IntroStart()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        CG.TransitionTo(0.1f);
     }
     public void StartCG2()
     {
@@ -64,6 +68,7 @@ public class TimeLineFunctions : MonoBehaviour
         moonAudioSource.volume = 0f;
         Player.GetComponent<PlayerInputSystem>().enabled = false;
         Player.GetComponentInChildren<MouseLook>().enabled = false;
+        CG.TransitionTo(0.1f);
     }
 
     public void StartFx()

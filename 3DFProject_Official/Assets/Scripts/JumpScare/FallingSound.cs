@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingSound : MonoBehaviour
 {
-    [SerializeField]private bool hasPlayedSFX;
+    [SerializeField] private bool hasPlayedSFX;
 
     void Start()
     {
@@ -13,10 +13,16 @@ public class FallingSound : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.gameObject.layer);
         if (!hasPlayedSFX && col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            AudioManager.instance.Play("Player_Death");
+            if (transform.GetComponentInParent<FallingFrame>() != null)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            else if (transform.parent.GetChild(0).GetComponent<BookEvent>() != null)
+            {
+                GetComponent<AudioSource>().Play();
+            }
             hasPlayedSFX = true;
         }
     }

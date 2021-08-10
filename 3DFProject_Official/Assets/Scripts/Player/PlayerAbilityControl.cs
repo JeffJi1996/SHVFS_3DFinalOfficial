@@ -53,6 +53,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     {
         curDuration = transformDuration;
         isTransforming = true;
+        AudioManager.instance.Play("VO_Werewolf_Roar");
         anim.SetBool("isTransforming", true);
         HandMesh.SetActive(true);
         PlayFx();
