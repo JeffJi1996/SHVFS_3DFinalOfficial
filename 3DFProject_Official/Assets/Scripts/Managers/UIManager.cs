@@ -33,6 +33,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject settingPanel;
     private bool isPause;
     private bool isSettingOpen;
+    
 
     protected override void Awake()
     {

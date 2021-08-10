@@ -40,7 +40,7 @@ public class Obstacle : MonoBehaviour
                 transform.parent.GetComponent<Cabinet>().BeDestroyed();
             }
 
-            if (transform.parent.GetComponent<ObstacleMesh>() != null)
+            else if (transform.parent.GetComponent<ObstacleMesh>() != null)
             {
                 transform.parent.GetComponent<ObstacleMesh>().BeDestroyed();
             }
