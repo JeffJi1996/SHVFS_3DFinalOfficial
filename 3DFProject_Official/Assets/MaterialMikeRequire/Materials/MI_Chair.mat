@@ -23,8 +23,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0ffba961baffb1d41939a5291e3701e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: 7bf9b631544ea444393de292aa5d3359, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normal:
+        m_Texture: {fileID: 2800000, guid: e2f4d4a784eb74e4ca42a7765800c6bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _rmo:
@@ -37,6 +49,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AO_Multi: 1
+    - _Hue: 0
+    - _Hue1: 0
+    - _Metallic_Multi: 1
+    - _Roughness_Multi: 1
+    - _Saturation: 0
+    - _Saturation1: 0
+    - _Value: 0
+    - _Value1: 0
     - __dirty: 0
-    m_Colors: []
+    m_Colors:
+    - _Color0: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
