@@ -34,16 +34,23 @@ public class Obstacle : MonoBehaviour
     {
         if (totalDamage >= objectLevel)
         {
-            boss.RefreshObstacleAttack();
-            if (transform.parent.GetComponent<Cabinet>()!=null)
-            {
-                transform.parent.GetComponent<Cabinet>().BeDestroyed();
-            }
+            StartCoroutine(DelayDestroy());
+        }
+    }
 
-            else if (transform.parent.GetComponent<ObstacleMesh>() != null)
-            {
-                transform.parent.GetComponent<ObstacleMesh>().BeDestroyed();
-            }
+    IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(0.75f);
+        boss.RefreshObstacleAttack();
+        if (transform.parent.GetComponent<Cabinet>()!=null)
+        {
+            transform.parent.GetComponent<Cabinet>().BeDestroyed();
+        }
+
+        else if (transform.parent.GetComponent<ObstacleMesh>() != null)
+        {
+            transform.parent.GetComponent<ObstacleMesh>().BeDestroyed();
         }
     }
 }
+
