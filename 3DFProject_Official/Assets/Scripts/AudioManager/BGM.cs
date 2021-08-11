@@ -8,6 +8,6 @@ public class BGM : MonoBehaviour
     void Start()
     {
         AudioManager.instance.Play("SFX_Amb_1stFloor");
-        AudioManager.instance.Play("Music_Explore");
+        //AudioManager.instance.Play("Music_Explore");
     }
 }

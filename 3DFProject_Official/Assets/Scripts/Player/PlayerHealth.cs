@@ -24,10 +24,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
                 postEffects.Screen_Blur();
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
+                AudioManager.instance.Play("SFX_Werewolf_Attacked");
             }
 
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
+                AudioManager.instance.Play("SFX_Player_Attacked");
                 killMeEnemy = _killMeEnemy;
                 Die(killMeEnemy);
             }

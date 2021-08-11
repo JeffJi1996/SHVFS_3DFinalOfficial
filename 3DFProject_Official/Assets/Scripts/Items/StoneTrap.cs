@@ -7,6 +7,7 @@ public class StoneTrap : MonoBehaviour,ICheckPointObserver
 {
     [SerializeField] private GameObject StoneMesh;
     [SerializeField] private float fallDuration;
+    [SerializeField] private float dropToY;
     private Vector3 iniPosition;
     public bool isTriggered;
 
@@ -27,7 +28,7 @@ public class StoneTrap : MonoBehaviour,ICheckPointObserver
 
     private void StoneFallDown()
     {
-        Tweener tweener = StoneMesh.transform.DOMoveY(0f, fallDuration);
+        Tweener tweener = StoneMesh.transform.DOMoveY(dropToY, fallDuration);
         tweener.OnComplete(CameraShake.Instance.Shake_Human);
     }
 
