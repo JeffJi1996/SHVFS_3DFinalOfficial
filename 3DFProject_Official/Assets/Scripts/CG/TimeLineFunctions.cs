@@ -66,8 +66,7 @@ public class TimeLineFunctions : MonoBehaviour
     {
         GameManager.Instance.CGTime();
         moonAudioSource.volume = 0f;
-        Player.GetComponent<PlayerInputSystem>().enabled = false;
-        Player.GetComponentInChildren<MouseLook>().enabled = false;
+        ClosePlayerInput();
         CG.TransitionTo(0.1f);
     }
 
