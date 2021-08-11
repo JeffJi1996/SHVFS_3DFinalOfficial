@@ -28,6 +28,10 @@ public class BossAttack : MonoBehaviour
         if (other.GetComponent<PlayerMovement>() != null)
         {
             PlayerHealth.Instance.GetHurt(damageTime,transform.parent.gameObject);
+            if (!PlayerAbilityControl.Instance.WhetherTransforming())
+            {
+                transform.parent.GetComponent<BossAI>().SetIsStop();
+            }
         }
     }
 }
