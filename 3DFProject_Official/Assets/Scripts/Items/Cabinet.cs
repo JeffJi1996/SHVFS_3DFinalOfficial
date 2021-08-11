@@ -43,7 +43,7 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
 
     public void Initialize()
     {
-        GetComponentInChildren<Obstacle>().isTriggered = true;
+        GetComponentInChildren<Obstacle>().isTriggered = false;
         isDestroyed = false;
         LeftMesh.SetActive(true);
         RightMesh.SetActive(true);
