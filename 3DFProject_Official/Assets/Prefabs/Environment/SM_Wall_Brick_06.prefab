@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2028144541048387571}
   - component: {fileID: 3137514857190471766}
   - component: {fileID: 895730798153026716}
+  - component: {fileID: 3361703727788284163}
   m_Layer: 0
   m_Name: SM_Wall_Brick_06
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3361703727788284163
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688491533036580169}
+  m_Material: {fileID: 13400000, guid: 3e16ed79e9b9e4049ae304ca97b1cd8c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1112303123769309676, guid: 819820a7e63f63a48996f5e06d783db9, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8639539391656753507}
   - component: {fileID: 4632538085333071558}
   - component: {fileID: 7471159047030178316}
+  - component: {fileID: 4228219923352704014}
   m_Layer: 0
   m_Name: SM_Wall_Paper_1m
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4228219923352704014
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984153361972569049}
+  m_Material: {fileID: 13400000, guid: 3e16ed79e9b9e4049ae304ca97b1cd8c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3790115516181616407, guid: 8d9113ed02e99894f81c8ef7c1787f7e, type: 3}

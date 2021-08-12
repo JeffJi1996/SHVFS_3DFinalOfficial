@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1560658373479835314}
   - component: {fileID: 2452008858836412695}
   - component: {fileID: 424392080221986269}
+  - component: {fileID: 7347102365866500244}
   m_Layer: 0
   m_Name: SM_Basement_Wall_04 (1)
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7347102365866500244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225695384807767048}
+  m_Material: {fileID: 13400000, guid: 3e16ed79e9b9e4049ae304ca97b1cd8c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5870922238451582585, guid: d893f7509b6cb874d902487a4cb3df9c, type: 3}

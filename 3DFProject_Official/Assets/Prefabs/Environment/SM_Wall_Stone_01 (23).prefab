@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4865019589039934585}
   - component: {fileID: 8371028557258146780}
   - component: {fileID: 6039091078464091926}
+  - component: {fileID: 4439581263668002459}
   m_Layer: 0
   m_Name: SM_Wall_Stone_01 (23)
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4439581263668002459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246646453664388803}
+  m_Material: {fileID: 13400000, guid: 3e16ed79e9b9e4049ae304ca97b1cd8c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3600659764272532426, guid: 05ac5d0586e425a4d8dd6d21aff9ad93, type: 3}
