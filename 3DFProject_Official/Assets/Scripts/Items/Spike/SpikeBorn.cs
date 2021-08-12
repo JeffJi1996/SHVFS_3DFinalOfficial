@@ -40,7 +40,7 @@ public class SpikeBorn : MonoBehaviour
         {
             if (doOnce)
             {
-                transform.parent.GetComponentInChildren<Animator>().SetTrigger("StartHint");
+                ActiveSpike();
                 doOnce = false;
             }
 

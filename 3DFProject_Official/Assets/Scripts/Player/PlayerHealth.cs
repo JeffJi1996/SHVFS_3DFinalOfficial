@@ -53,7 +53,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             killMeEnemy.GetComponent<EnemyController>().SetIsStop();
             killMeEnemy.GetComponent<EnemyController>().ChuJue();
         }
-        else if (killMeEnemy.GetComponent<SpikeDamage>() != null)
+        else if (killMeEnemy.GetComponent<SpikeDamage>() != null || killMeEnemy.GetComponent<SpikeStay>() != null)
         {
             PlayerDeath.Instance.PlayerDeathEffect();
             DeathCG();
@@ -62,6 +62,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             killMeEnemy.GetComponent<BossAI>().ChuJue();
         }
+        
     }
 
     public void DeathCG()
