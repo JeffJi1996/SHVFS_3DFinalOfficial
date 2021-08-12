@@ -9,7 +9,6 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
     [SerializeField]private GameObject LeftMesh;
     [SerializeField]private GameObject RightMesh;
 
-
     void Start()
     {
         Initialize();
@@ -23,7 +22,7 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
             PlayerMovement.Instance.AdjustWalkingSpeed(CabinetManager.Instance.GetSpeedRate());
         }
     }
-
+     
     void OnTriggerExit(Collider col)
     {
         if (col.GetComponent<PlayerMovement>() != null && !isDestroyed)
