@@ -58,8 +58,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5994282, y: 1, z: 1}
-  m_Center: {x: 0.0017482, y: 0, z: 0}
+  m_Size: {x: 2.9039595, y: 1.9535773, z: 2.3507056}
+  m_Center: {x: -0.6505163, y: 0.8944961, z: 0.7273824}
 --- !u!1 &6214828331065339045
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9203316171494927607}
-  - component: {fileID: 6885448800974377892}
+  - component: {fileID: 5043457283525758029}
   - component: {fileID: 1715646809282200116}
   - component: {fileID: 5500107695311511123}
   - component: {fileID: 9064750224089930823}
@@ -88,21 +88,21 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214828331065339045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0.91465, z: 41.985897}
-  m_LocalScale: {x: 1.8650234, y: 1.8293, z: 1.9482046}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6684440323490952963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6885448800974377892
+--- !u!33 &5043457283525758029
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214828331065339045}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 8928907463885268388, guid: 7b483ddcfdaf60e4d80cd1feb9b70305, type: 3}
 --- !u!23 &1715646809282200116
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -123,7 +123,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c4c6873c97f2e3e4e9f20b79810ea501, type: 2}
+  - {fileID: 2100000, guid: 33e0a092ff73cfd45be40e629cd5566a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,8 +157,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7158931, y: 1.262086, z: 2.1325655}
+  m_Center: {x: -0.7549581, y: 0.6713378, z: 0.7041471}
 --- !u!114 &9064750224089930823
 MonoBehaviour:
   m_ObjectHideFlags: 0
