@@ -13,10 +13,16 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     [Header("Rotate")]
     public float rotateDuration = 0.2f;
+
+    private float initialWalkSpeed;
+    private float initialRunSpeed;
+
+
     void Start()
     {
-       
         currentSpeed = walkSpeed;
+        initialRunSpeed = runSpeed;
+        initialWalkSpeed = walkSpeed;
     }
     public float GetCurrentMoveSpeed()
     {
@@ -60,5 +66,12 @@ public class PlayerMovement : Singleton<PlayerMovement>
         runSpeed *= radius;
         PlayerInputSystem.Instance.AdjustPWalkingSoundSpeed(radius);
     }
+
+    public void RecoverSpeed()
+    {
+        walkSpeed = initialWalkSpeed;
+        runSpeed = initialRunSpeed;
+    }
+
 
 }

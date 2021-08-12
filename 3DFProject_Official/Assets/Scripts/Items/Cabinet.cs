@@ -36,6 +36,7 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
     {
         isDestroyed = true;
         GetComponentInChildren<Obstacle>().isTriggered = true;
+        PlayerMovement.Instance.RecoverSpeed();
         LeftMesh.SetActive(false);
         RightMesh.SetActive(false);
         CPManager.Instance.AddObserver(this);
