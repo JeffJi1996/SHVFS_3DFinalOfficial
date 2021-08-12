@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Aura2API;
@@ -44,10 +45,12 @@ public class CloseWindow : MonoBehaviour,ICheckPointObserver
         StartCoroutine(MoonLightFadeOut());
         doorAnim.SetTrigger("Close");
         transformTrigger.SetActive(false);
+        PlayerAbilityControl.Instance.ChangeMoonState(false);
+        UIManager.Instance.ExitMoon();
         isTriggered = true;
         CPManager.Instance.AddObserver(this);
     }
-
+    
     public void CheckPoint()
     {
         Initialize();
