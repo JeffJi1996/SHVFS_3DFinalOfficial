@@ -34,4 +34,10 @@ public class BossAttack : MonoBehaviour
             }
         }
     }
+
+    public void ChuJue()
+    {
+        PlayerDeath.Instance.PlayerDeathAction();
+        PlayerDeath.Instance.PlayerDeathEffect();
+    }
 }

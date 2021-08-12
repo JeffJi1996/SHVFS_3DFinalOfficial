@@ -299,7 +299,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
 
     public void ChuJue()
     {
-        anim.SetTrigger("attack1");
+        anim.SetTrigger("chuJue");
     }
 
     public void SetIsStop()
