@@ -56,6 +56,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
         if (Anim != null)
         {
             Anim.SetTrigger("Interact");
+            CameraShake.Instance.Shake_Wolf();
         }
     }
 
@@ -83,6 +84,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
         Collider[] colliderArray = Physics.OverlapSphere(atkTransform.position, AttackRange, enemyLayer);
         foreach (var enemyCollider in colliderArray)
         {
+            CameraShake.Instance.Shake_Wolf();
             enemyCollider.GetComponent<PatolAI>().Die();
             GameManager.Instance.PlayBloodFx(enemyCollider.GetComponent<EnemyController>().bloodFxPos);
         }
