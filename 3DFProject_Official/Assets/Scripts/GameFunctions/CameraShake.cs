@@ -48,13 +48,10 @@ public class CameraShake : Singleton<CameraShake>
     public void CloseShake()
     {
         shakeTimer = 0;
-        if (cinemachineBasicMultiChannelPerlin_wolf != null)
-        {
+       
            cinemachineBasicMultiChannelPerlin_wolf.m_AmplitudeGain = 0f; 
-        }
-        else if (cinemachineBasicMultiChannelPerlin_human != null)
-        {
+           
            cinemachineBasicMultiChannelPerlin_human.m_AmplitudeGain = 0f; 
-        }
+        
     }
 }
