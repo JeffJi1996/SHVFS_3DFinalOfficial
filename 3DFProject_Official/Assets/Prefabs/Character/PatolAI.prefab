@@ -398,6 +398,7 @@ MonoBehaviour:
   alertTime: 3
   alertDistance: 10
   turnDistance: 2
+  turnTime: 1
   bloodFxPos: {fileID: 9033156898407697314}
   patolPoints: []
   damageTime: 2
@@ -845,6 +846,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -7367622622983141520, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.605
+      objectReference: {fileID: 0}
+    - target: {fileID: -7367622622983141520, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.099
+      objectReference: {fileID: 0}
+    - target: {fileID: -7363245817636227901, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4040f8b5e6e24c544972d101edb204dd, type: 2}
     - target: {fileID: -7130350516082543705, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -5.607659
@@ -1261,6 +1274,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6514512864317266275, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.919
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514512864317266275, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.107
+      objectReference: {fileID: 0}
     - target: {fileID: 6527475950368510394, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1285,6 +1306,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8083351774404755113, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4040f8b5e6e24c544972d101edb204dd, type: 2}
     - target: {fileID: 8539411429117443708, guid: 1ffe6c229526007488f173c3f3acfea4, type: 3}
       propertyPath: m_Layer
       value: 7
