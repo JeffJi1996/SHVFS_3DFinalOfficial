@@ -34,7 +34,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
     {
         if (isTransforming && !isInMoon)
         {
-            
+
             if (curDuration > 0f && curDuration <= transformDuration)
             {
                 curDuration -= Time.deltaTime;
@@ -66,8 +66,9 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             isTransforming = false;
             anim.SetBool("isTransforming", false);
             HandMesh.SetActive(false);
+            ScreenFxOff();
         }
-        ScreenFxOff();
+
     }
 
     public bool WhetherTransforming()
@@ -77,14 +78,14 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
 
     public void ReduceTranDuration(float recution)
     {
-        if(Instance.isActiveAndEnabled)
-           curDuration -= recution;
+        if (Instance.isActiveAndEnabled)
+            curDuration -= recution;
     }
 
     public void ChangeMoonState(bool whetherInMoon)
     {
-        if(Instance.isActiveAndEnabled)
-           isInMoon = whetherInMoon;
+        if (Instance.isActiveAndEnabled)
+            isInMoon = whetherInMoon;
     }
 
     public float GetFullDuration()
