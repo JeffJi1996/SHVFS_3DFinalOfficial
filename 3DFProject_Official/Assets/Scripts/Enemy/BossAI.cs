@@ -131,7 +131,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 isIdle = true;
                 agent.isStopped = true;
                 isIdle = true;
-                if (BCanSee()&&BInSight())
+                if (BCanSee() && BInSight())
                 {
                     isChase = true;
                 }

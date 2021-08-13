@@ -27,10 +27,11 @@ public class UIManager : Singleton<UIManager>
     private bool isOriginColor = true;
     private float glitterTimer = 0f;
     private Image handle;
-    
+
     [Header("OtherPanel")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingPanel;
+    [SerializeField] private GameObject[] pauseList;
     private bool isPause;
     private bool isSettingOpen;
     
@@ -38,6 +39,7 @@ public class UIManager : Singleton<UIManager>
     protected override void Awake()
     {
         base.Awake();
+        
         fullTime = 15f;
         timeTrack2Timer = 0;
         timeTrack.color = originColor;
@@ -180,7 +182,7 @@ public class UIManager : Singleton<UIManager>
         }
 
         yield return new WaitForEndOfFrame();
-        
+        timeTrack2Timer = 0;
     }
 
     void ChangeColor()
@@ -223,12 +225,20 @@ public class UIManager : Singleton<UIManager>
     public void OpenSettingPanel()
     {
         isSettingOpen = true;
+        for (var i = 0; i < pauseList.Length; i++)
+        {
+            pauseList[i].SetActive(false);
+        }
         settingPanel.SetActive(isSettingOpen);
     }
 
     public void CloseSettingPanel()
     {
         isSettingOpen = false;
+        for (var i = 0; i < pauseList.Length; i++)
+        {
+            pauseList[i].SetActive(true);
+        }
         settingPanel.SetActive(isSettingOpen);
     }
 }

@@ -23,6 +23,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
             {
                 postEffects.Screen_Blur();
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
+                UIManager.Instance.DecreaseTime(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
                 AudioManager.instance.Play("SFX_Werewolf_Attacked");
             }

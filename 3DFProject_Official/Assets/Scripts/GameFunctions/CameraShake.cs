@@ -49,9 +49,9 @@ public class CameraShake : Singleton<CameraShake>
     {
         shakeTimer = 0;
        
-           cinemachineBasicMultiChannelPerlin_wolf.m_AmplitudeGain = 0f; 
+        cinemachineBasicMultiChannelPerlin_wolf.m_AmplitudeGain = 0f; 
            
-           cinemachineBasicMultiChannelPerlin_human.m_AmplitudeGain = 0f; 
+        cinemachineBasicMultiChannelPerlin_human.m_AmplitudeGain = 0f; 
         
     }
 }
