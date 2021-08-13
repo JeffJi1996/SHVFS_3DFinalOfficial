@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour
     public int objectLevel;
     private BossAI boss;
     [SerializeField] private bool isWeiHe;
+    [SerializeField] private Transform emissionPoint;
     public event EventHandler OnDestroy;
     public bool isTriggered;
 
@@ -42,6 +43,7 @@ public class Obstacle : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         boss.RefreshObstacleAttack();
+        ObstacleManager.Instance.PlayObstacleFx(emissionPoint);
         if (transform.parent.GetComponent<Cabinet>()!=null)
         {
             transform.parent.GetComponent<Cabinet>().BeDestroyed();

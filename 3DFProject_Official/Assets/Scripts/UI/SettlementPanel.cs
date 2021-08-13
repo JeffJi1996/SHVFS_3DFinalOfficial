@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Unity.VisualScripting;
+using UnityEditor;
 
 public class SettlementPanel : Singleton<SettlementPanel>
 {
@@ -39,9 +40,9 @@ public class SettlementPanel : Singleton<SettlementPanel>
         exitButton.gameObject.SetActive(false);
         settlementPanel.SetActive(false);
         button1Color = playAgainButton.GetComponent<Image>().color;
-        button1TextColor = playAgainButton.transform.GetChild(0).GetComponent<Text>().color;
+        button1TextColor = playAgainButton.transform.GetChild(0).GetComponent<Image>().color;
         button2Color = playAgainButton.GetComponent<Image>().color;
-        button2TextColor = exitButton.transform.GetChild(0).GetComponent<Text>().color;
+        button2TextColor = exitButton.transform.GetChild(0).GetComponent<Image>().color;
     }
 
     private void Update()
@@ -53,11 +54,7 @@ public class SettlementPanel : Singleton<SettlementPanel>
             second = (int) (timeTimer - minute * 60);
             timeText.text = string.Format("{0:D2}:{1:D2}", minute, second);
         }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Settlement();
-        }
+        
     }
 
     public void SetTimerPause()
@@ -164,6 +161,6 @@ public class SettlementPanel : Singleton<SettlementPanel>
             yield return null;
         }
         yield return new WaitForFixedUpdate();
-        
+        Cursor.lockState = CursorLockMode.None;
     }
 }
