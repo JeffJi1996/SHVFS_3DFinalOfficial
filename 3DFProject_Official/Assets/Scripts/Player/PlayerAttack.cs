@@ -84,13 +84,19 @@ public class PlayerAttack : Singleton<PlayerAttack>
         Collider[] colliderArray = Physics.OverlapSphere(atkTransform.position, AttackRange, enemyLayer);
         foreach (var enemyCollider in colliderArray)
         {
-            CameraShake.Instance.Shake_Wolf();
             enemyCollider.GetComponent<PatolAI>().Die();
+            StartCoroutine(HitPause());
             GameManager.Instance.PlayBloodFx(enemyCollider.GetComponent<EnemyController>().bloodFxPos);
         }
     }
 
-
+    IEnumerator HitPause()
+    {
+        Time.timeScale = 0.1f;
+        yield return new WaitForSeconds(0.03f);
+        Time.timeScale = 1;
+        CameraShake.Instance.Shake_Wolf();
+    }
     public void StartLeftLAtkDetect()
     {
         leftAttackStart = true;
