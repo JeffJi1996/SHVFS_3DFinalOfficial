@@ -23,6 +23,7 @@ public class CG1_LV2 : MonoBehaviour
     public void CG1_LV2_Start()
     {
         ClosePlayerInput();
+        SettlementPanel.Instance.SetTimerPause();
     }
 
     public void ObstacleDestroy()
@@ -34,6 +35,7 @@ public class CG1_LV2 : MonoBehaviour
     public void CG1_LV2_End()
     {
         StartPlayerInput();
+        SettlementPanel.Instance.SetTimerResume();
         if (Skip_UI.activeSelf)
         {
             Skip_UI.GetComponent<Animator>().SetTrigger("Out");

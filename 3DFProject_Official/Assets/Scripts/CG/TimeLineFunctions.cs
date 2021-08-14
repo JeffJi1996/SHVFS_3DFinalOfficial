@@ -31,6 +31,7 @@ public class TimeLineFunctions : MonoBehaviour
         moonAudioSource.volume = 1;
         CG_End.TransitionTo(3.5f);
         Tutor_CG1.SetActive(true);
+        SettlementPanel.Instance.SetTimerResume();
     }
     public void ClosePlayerInput()
     {
@@ -61,16 +62,20 @@ public class TimeLineFunctions : MonoBehaviour
         moonAudioSource.volume = 0.1f;
         PlayerAbilityControl.Instance.PlayFx();
         CG_End.TransitionTo(0.5f);
+        
+        SettlementPanel.Instance.SetTimerResume();
     }
 
     public void IntroStart()
     {
         Cursor.lockState = CursorLockMode.Locked;
         CG.TransitionTo(0.1f);
+        SettlementPanel.Instance.SetTimerPause();
     }
     public void StartCG2()
     {
         GameManager.Instance.CGTime();
+        SettlementPanel.Instance.SetTimerPause();
         moonAudioSource.volume = 0f;
         ClosePlayerInput();
         CG.TransitionTo(0.1f);
