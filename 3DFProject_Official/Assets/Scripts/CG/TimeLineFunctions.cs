@@ -15,6 +15,7 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private GameObject screenFx;
     [SerializeField] private AudioMixerSnapshot CG;
     [SerializeField] private AudioMixerSnapshot CG_End;
+    [SerializeField] private GameObject Tutor_CG1;
 
     public void StartCG1()
     {
@@ -27,6 +28,7 @@ public class TimeLineFunctions : MonoBehaviour
         UIManager.Instance.SetFullTime(PlayerAbilityControl.Instance.GetFullDuration());
         moonAudioSource.volume = 1;
         CG_End.TransitionTo(3.5f);
+        Tutor_CG1.SetActive(true);
     }
     public void ClosePlayerInput()
     {

@@ -7,6 +7,7 @@ public class TimeLinePause : MonoBehaviour
 {
     private bool StartDetectResume;
     private PlayableDirector currentPlayableDirector;
+    [SerializeField] private GameObject Tutor_CG2;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class TimeLinePause : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 StartDetectResume = false;
+                Tutor_CG2.GetComponent<Animator>().SetTrigger("Out");
                 currentPlayableDirector.Resume();
             }
         }
@@ -24,6 +26,7 @@ public class TimeLinePause : MonoBehaviour
     {
         currentPlayableDirector = playableDirector;
         playableDirector.Pause();
+        Tutor_CG2.SetActive(true);
         StartDetectResume = true;
     }
 
