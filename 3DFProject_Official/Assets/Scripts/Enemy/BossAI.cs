@@ -16,6 +16,8 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     [SerializeField] private float attackRange;
     [SerializeField] private float attackTime;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Transform firstSaveTrans;
+    [SerializeField] private Transform secondSaveTrans;
 
     private float attackTimer = 0;
     private bool isTargetPlayer = true;
@@ -27,8 +29,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     private bool isRoal;
     private bool isAttack;
     private bool isWait = true;
+    private bool isFirstFound = true;
+    private bool isLastChasing;
 
-    private int saveState = 0;
+    private int saveState = 1;
     private Transform saveTrans;
     private GameObject targetObject;
     private int obstacleLevel;
@@ -40,7 +44,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         agent = GetComponent<NavMeshAgent>();
         anim = transform.GetChild(0).GetComponent<Animator>();
-        saveTrans = transform;
+        saveTrans = firstSaveTrans;
     }
 
     private void Start()
@@ -79,6 +83,14 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 break;
             case BossStates.CHASE:
                 isIdle = false;
+                isLastChasing = true;
+                if (isFirstFound)
+                {
+                    Music_Play.Instance.Chase();
+                    GameManager.Instance.chasingNum++;
+                    isFirstFound = false;
+                }
+                
                 if (isTargetPlayer)
                 {
                     Debug.Log(1);
@@ -128,6 +140,13 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                 break;
             case BossStates.WAIT:
                 Debug.Log(3);
+                isFirstFound = true;
+                if (isLastChasing)
+                {
+                    Music_Play.Instance.BackToNormal();
+                    GameManager.Instance.chasingNum--;
+                    isLastChasing = false;
+                }
                 isIdle = true;
                 agent.isStopped = true;
                 isIdle = true;
@@ -276,7 +295,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     public void EndNotify()
     {
         isStop = false;
-        isChase = true;
+        if (saveState == 1)
+            isChase = true;
+        else
+            isChase = false;
         transform.position = saveTrans.position;
         transform.rotation = saveTrans.rotation;
     }
@@ -300,10 +322,19 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     public void ChuJue()
     {
         anim.SetTrigger("chuJue");
+        Vector3 dir2Player = new Vector3(PlayerMovement.Instance.transform.position.x - transform.position.x, 0f,
+            PlayerMovement.Instance.transform.position.z - transform.position.z).normalized;
+        transform.forward = dir2Player;
     }
 
     public void SetIsStop()
     {
         isStop = true;
+    }
+
+    public void SetSecondSavePoint()
+    {
+        saveTrans = secondSaveTrans;
+        saveState = 2;
     }
 }
