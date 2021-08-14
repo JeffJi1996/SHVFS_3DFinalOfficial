@@ -122,6 +122,7 @@ public class UIManager : Singleton<UIManager>
         isOriginColor = true;
         glitterTimer = 0f;
         timeTrack.fillAmount = 1;
+        timeTrack2.value = 1;
         curTime = fullTime;
         isTimeOpen = true;
         StopCoroutine(DelayHide());

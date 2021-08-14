@@ -315,14 +315,12 @@ public class PatolAI : EnemyController
     {
         if (Distance2Player() <= 2f && BInSight())
         {
-            PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
-            if (PlayerAbilityControl.Instance.WhetherTransforming())
-                UIManager.Instance.DecreaseTime(EnemyManager.Instance.damageTime);
-            else
+            if (!PlayerAbilityControl.Instance.WhetherTransforming())
             {
                 isIdle = true;
                 isStop = true;
             }
+            PlayerHealth.Instance.GetHurt(EnemyManager.Instance.damageTime,gameObject);
             Debug.Log("Attack!");
         }
     }
