@@ -91,8 +91,6 @@ public class PatolAI : EnemyController
             case EnemyStates.DEAD:
                 isDead = true;
                 deadTime += Time.deltaTime;
-                if(isLastChasing)
-                    GameManager.Instance.chasingNum--;
                 if(deadTime >= 2f)
                     Destroy(gameObject);
                 break;
@@ -332,6 +330,8 @@ public class PatolAI : EnemyController
             anim.SetTrigger("die");
             AudioManager.instance.Play("Enemy_Death_04");
         }
+        if(isLastChasing)
+            GameManager.Instance.chasingNum--;
         isDead = true;
         CloseCollider();
     }

@@ -143,7 +143,7 @@ public class UIManager : Singleton<UIManager>
         if (curTime == 0)
         {
             //SoundManager.instance.PlaySound("sfx_recover");
-            PlayerAbilityControl.Instance.BackToHuman();
+            //PlayerAbilityControl.Instance.BackToHuman();
             StartCoroutine(DelayHide());
         }
 
