@@ -69,6 +69,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public void DeathCG()
     {
         playerDeathCG.Play();
+        if (CPManager.Instance!=null)
+        {
+            CPManager.Instance.Initialize();
+        }
     }
 
     public int GetPlayerHealth()
