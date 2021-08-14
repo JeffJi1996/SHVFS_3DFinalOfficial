@@ -16,7 +16,8 @@ public class PatolAI : EnemyController
     [SerializeField] private Collider attackColli;
     private bool isLastChasing;
     private bool checkOnce;
-
+    private bool dieOnce = true;
+    
     // Update is called once per frame
 
     protected override void Awake()
@@ -330,8 +331,12 @@ public class PatolAI : EnemyController
             anim.SetTrigger("die");
             AudioManager.instance.Play("Enemy_Death_04");
         }
-        if(isLastChasing)
+
+        if (isLastChasing && dieOnce)
+        {
             GameManager.Instance.chasingNum--;
+            dieOnce = false;
+        }
         isDead = true;
         CloseCollider();
     }
