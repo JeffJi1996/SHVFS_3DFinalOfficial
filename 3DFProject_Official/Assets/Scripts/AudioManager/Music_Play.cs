@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Music_Play : MonoBehaviour
+public class Music_Play : Singleton<Music_Play>
 {
     //public AudioClip Mx_Explore;
     //public AudioClip Mx_Dangrous;
@@ -30,36 +31,35 @@ public class Music_Play : MonoBehaviour
         Music_Explore.TransitionTo(0f);
         m_Mx_Explore.Play();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Chase()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            m_Mx_Dangrous.Stop();
-            m_Mx_BridgeToDangrous.Play();
-            Music_Dangrous.TransitionTo(3f);
-            m_Mx_Dangrous.PlayDelayed(Mx_BridgeToDangrous.length);
-        }
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            m_Mx_Explore.Stop();
-            m_Mx_BridgeToExplore.Play();
-            Music_Explore.TransitionTo(4f);
-            m_Mx_Explore.PlayDelayed(1f);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            m_Mx_Combat.Stop();
-            Music_Combat_Werewolf.TransitionTo(0f);
-            m_Mx_Combat.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            m_Mx_Explore.Stop();
-            m_Mx_Bridge_CombatToAny.Play();
-            Music_Explore.TransitionTo(4f);
-            m_Mx_Explore.PlayDelayed(1f);
-        }
+        m_Mx_Dangrous.Stop();
+        m_Mx_BridgeToDangrous.Play();
+        Music_Dangrous.TransitionTo(3f);
+        m_Mx_Dangrous.PlayDelayed(Mx_BridgeToDangrous.length);
+    }
+
+    public void Found()
+    {
+        m_Mx_Explore.Stop();
+        m_Mx_BridgeToExplore.Play();
+        Music_Explore.TransitionTo(4f);
+        m_Mx_Explore.PlayDelayed(1f);
+    }
+
+    public void Battle()
+    {
+        m_Mx_Combat.Stop();
+        Music_Combat_Werewolf.TransitionTo(0f);
+        m_Mx_Combat.Play();
+    }
+
+    public void BackToNormal()
+    {
+        m_Mx_Explore.Stop();
+        m_Mx_Bridge_CombatToAny.Play();
+        Music_Explore.TransitionTo(4f);
+        m_Mx_Explore.PlayDelayed(1f);
     }
 }
