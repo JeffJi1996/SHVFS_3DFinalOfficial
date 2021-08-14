@@ -27,6 +27,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
         isInMoon = false;
         doOnce = false;
         ScreenFx.SetActive(false);
+        GameManager.Instance.chasingNum = 0;
         //mohuLong.SetActive(false);
     }
 
@@ -57,6 +58,7 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
         anim.SetBool("isTransforming", true);
         HandMesh.SetActive(true);
         PlayFx();
+        Music_Play.Instance.Battle();
     }
 
     public void BackToHuman()
@@ -67,8 +69,15 @@ public class PlayerAbilityControl : Singleton<PlayerAbilityControl>
             anim.SetBool("isTransforming", false);
             HandMesh.SetActive(false);
             ScreenFxOff();
+            if (GameManager.Instance.chasingNum == 0)
+            {
+                Music_Play.Instance.BackToNormal();
+            }
+            else
+            {
+                Music_Play.Instance.Chase();
+            }
         }
-
     }
 
     public bool WhetherTransforming()

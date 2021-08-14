@@ -11,10 +11,13 @@ public class GameManager : Singleton<GameManager>
     public int mouseSensitivity = 100;
     public bool isBossState;
     public GameObject Boss;
+    public int chasingNum = 0;
+    public bool isChasing;
     
     [SerializeField] private GameObject bloodFx;
 
     private bool isBloodActive;
+    
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -93,5 +96,14 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(1f);
         bloodFx.SetActive(true);
         isBloodActive = false;
+    }
+
+    public bool CheckChasingNum(int addNum)
+    {
+        chasingNum += addNum;
+        if (chasingNum > 0)
+            return true;
+        else
+            return false;
     }
 }

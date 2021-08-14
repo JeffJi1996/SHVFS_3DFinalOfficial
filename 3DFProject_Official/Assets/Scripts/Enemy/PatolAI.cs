@@ -14,6 +14,8 @@ public class PatolAI : EnemyController
     private bool isWaiting;
     private bool isAlert;
     [SerializeField] private Collider attackColli;
+    private bool isLastChasing;
+    private bool checkOnce;
 
     // Update is called once per frame
 
@@ -89,6 +91,8 @@ public class PatolAI : EnemyController
             case EnemyStates.DEAD:
                 isDead = true;
                 deadTime += Time.deltaTime;
+                if(isLastChasing)
+                    GameManager.Instance.chasingNum--;
                 if(deadTime >= 2f)
                     Destroy(gameObject);
                 break;
@@ -97,6 +101,8 @@ public class PatolAI : EnemyController
                 agent.isStopped = false;
                 agent.stoppingDistance = attackRange;
                 agent.destination = GameManager.Instance.player.transform.position;
+                isLastChasing = true;
+                checkOnce = true;
                 
                 //Attack
                 if (Distance2Player() <= attackRange)
@@ -139,6 +145,17 @@ public class PatolAI : EnemyController
                 break;
             case EnemyStates.WAIT:
                 Debug.Log("Wait");
+                if (isLastChasing)
+                {
+                    if (GameManager.Instance.CheckChasingNum(-1))
+                    {
+                        if(!PlayerAbilityControl.Instance.WhetherTransforming())
+                            Music_Play.Instance.BackToNormal();
+                    }
+
+                    isLastChasing = false;
+                }
+                
                 waitTimer += Time.deltaTime;
                 agent.isStopped = true;
                 if (BCanSee())
@@ -163,11 +180,22 @@ public class PatolAI : EnemyController
                     isWait = false;
                     GoToNextPoint();
                 }
+                
                 break;
             
             case EnemyStates.STARE:
                 Debug.Log("Stare");
                 agent.isStopped = true;
+                if (isLastChasing)
+                {
+                    if (GameManager.Instance.CheckChasingNum(-1))
+                    {
+                        if(!PlayerAbilityControl.Instance.WhetherTransforming())
+                            Music_Play.Instance.BackToNormal();
+                    }
+
+                    isLastChasing = false;
+                }
                 //Face to target and Attack
                 transform.forward = (GameManager.Instance.player.transform.position - transform.position).normalized;
                 
@@ -228,6 +256,9 @@ public class PatolAI : EnemyController
                         {
                             isChase = true;
                             isIdle = false;
+                            if(GameManager.Instance.chasingNum == 0 && !PlayerAbilityControl.Instance.WhetherTransforming())
+                                Music_Play.Instance.Chase();
+                            GameManager.Instance.chasingNum++;
                         }
                         else if(BCanSee() && ! BPlayerInArea())
                         {
@@ -309,7 +340,8 @@ public class PatolAI : EnemyController
 
     void PlayAlertSound()
     {
-        Debug.Log("Alert Sound");
+        if(!PlayerAbilityControl.Instance.WhetherTransforming())
+            Music_Play.Instance.Found();
     }
 
     public void RefreshData()
