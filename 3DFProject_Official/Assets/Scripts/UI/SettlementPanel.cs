@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class SettlementPanel : Singleton<SettlementPanel>
 {
@@ -162,5 +163,15 @@ public class SettlementPanel : Singleton<SettlementPanel>
         }
         yield return new WaitForFixedUpdate();
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using Debug = UnityEngine.Debug;
 
 public enum BossStates { CHASE, STOP, WAIT }
 [RequireComponent(typeof(NavMeshAgent))]
@@ -32,7 +34,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     private bool isFirstFound = true;
     private bool isLastChasing;
 
-    private int saveState = 1;
+    private int saveState = 0;
     private Transform saveTrans;
     private GameObject targetObject;
     private int obstacleLevel;
@@ -45,6 +47,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
         agent = GetComponent<NavMeshAgent>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         saveTrans = firstSaveTrans;
+        GameManager.Instance.Boss = gameObject;
     }
 
     private void Start()
@@ -296,7 +299,10 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         isStop = false;
         if (saveState == 1)
+        {
+            Debug.Log("SaveState1");
             isChase = true;
+        }
         else
             isChase = false;
         transform.position = saveTrans.position;
@@ -334,7 +340,8 @@ public class BossAI : MonoBehaviour, IEndGameObserver
 
     public void SetSecondSavePoint()
     {
-        saveTrans = secondSaveTrans;
-        saveState = 2;
+        saveState++;
+        if(saveState == 2)
+            saveTrans = secondSaveTrans;
     }
 }

@@ -8,8 +8,12 @@ public class CheckPoint_2 : MonoBehaviour
     {
         if (col.GetComponent<PlayerMovement>() != null)
         {
+            
+            CheckPointManager.Instance.ChangeCheckPoint(transform);
+            GameManager.Instance.Boss.GetComponent<BossAI>().SetSecondSavePoint();
             CPManager.Instance.ClearList();
-            Destroy(this.gameObject);
+
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

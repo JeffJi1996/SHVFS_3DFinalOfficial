@@ -5,6 +5,8 @@ using UnityEngine;
 public class CG1_LV2 : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
+    [SerializeField] private Transform CGObstacle;
+    [SerializeField] private GameObject Skip_UI;
     public void ClosePlayerInput()
     {
         PlayerInputSystem.Instance.StopVelocity();
@@ -23,8 +25,18 @@ public class CG1_LV2 : MonoBehaviour
         ClosePlayerInput();
     }
 
+    public void ObstacleDestroy()
+    {
+        CGObstacle.GetComponent<Collider>().enabled = false;
+        ObstacleManager.Instance.PlayObstacleFx(CGObstacle);
+        CGObstacle.GetComponent<ObstacleMesh>().BeDestroyed();
+    }
     public void CG1_LV2_End()
     {
         StartPlayerInput();
+        if (Skip_UI.activeSelf)
+        {
+            Skip_UI.GetComponent<Animator>().SetTrigger("Out");
+        }
     }
 }
