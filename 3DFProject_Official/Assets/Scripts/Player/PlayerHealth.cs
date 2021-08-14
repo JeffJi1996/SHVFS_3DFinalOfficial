@@ -17,11 +17,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (canBeHurt)
         {
-            CameraShake.Instance.Shake_Wolf();
-            hurtFx.Play();
-            if (PlayerAbilityControl.Instance.WhetherTransforming() == true)
+            if (PlayerAbilityControl.Instance.WhetherTransforming() && !PlayerAbilityControl.Instance.IsInMoon())
             {
+                CameraShake.Instance.Shake_Wolf();
                 postEffects.Screen_Blur();
+                hurtFx.Play();
                 PlayerAbilityControl.Instance.ReduceTranDuration(reduction);
                 UIManager.Instance.DecreaseTime(reduction);
                 AudioManager.instance.Play("Werewolf_Hurt");
@@ -30,6 +30,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
             if (PlayerAbilityControl.Instance.WhetherTransforming() == false)
             {
+                CameraShake.Instance.Shake_Human();
+                hurtFx.Play();
                 AudioManager.instance.Play("SFX_Player_Attacked");
                 killMeEnemy = _killMeEnemy;
                 Die(killMeEnemy);
@@ -42,7 +44,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         health--;
         UIManager.Instance.CloseTimePanel();
         PlayerDeath.Instance.Death_StopPlayerInput();
-        CamLookAt.Instance.LookAt(killMeEnemy.transform.GetChild(0).position,duration,EnemyAction);
+        CamLookAt.Instance.LookAt(killMeEnemy.transform.GetChild(0).position, duration, EnemyAction);
         //AudioManager.instance.Play("Player_Death");
         //playerDeathCG.Play();
     }
@@ -63,13 +65,13 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             killMeEnemy.GetComponent<BossAI>().ChuJue();
         }
-        
+
     }
 
     public void DeathCG()
     {
         playerDeathCG.Play();
-        if (CPManager.Instance!=null)
+        if (CPManager.Instance != null)
         {
             CPManager.Instance.Initialize();
         }

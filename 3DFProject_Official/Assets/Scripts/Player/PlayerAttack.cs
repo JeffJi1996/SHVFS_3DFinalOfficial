@@ -14,6 +14,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
     private bool leftAttackStart;
     private bool rightAttackStart;
     public bool interactBlank;
+    private bool hitPauseOnce;
     void Start()
     {
         AttackNum = 1;
@@ -85,7 +86,12 @@ public class PlayerAttack : Singleton<PlayerAttack>
         foreach (var enemyCollider in colliderArray)
         {
             enemyCollider.GetComponent<PatolAI>().Die();
-            StartCoroutine(HitPause());
+            if (hitPauseOnce)
+            {
+                StartCoroutine(HitPause());
+                hitPauseOnce = false;
+            }
+            
             GameManager.Instance.PlayBloodFx(enemyCollider.GetComponent<EnemyController>().bloodFxPos);
         }
     }
@@ -100,6 +106,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
     public void StartLeftLAtkDetect()
     {
         leftAttackStart = true;
+        hitPauseOnce = true;
     }
 
     public void EndLeftAtkDetect()
@@ -110,6 +117,7 @@ public class PlayerAttack : Singleton<PlayerAttack>
     public void StartRightAtkDetect()
     {
         rightAttackStart = true;
+        hitPauseOnce = true;
     }
 
     public void EndRightAtkDetect()
