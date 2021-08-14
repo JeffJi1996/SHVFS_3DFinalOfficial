@@ -14433,6 +14433,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5838768880408858429, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartCG2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838768880408858429, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
       propertyPath: m_Events.m_Events.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PauseCG
       objectReference: {fileID: 0}
@@ -14624,6 +14628,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1822942861}
+    - target: {fileID: 5838768880437141094, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
+      propertyPath: SkipCG
+      value: 
+      objectReference: {fileID: 1007996329}
     - target: {fileID: 5838768880437141094, guid: 040b82a3c6580174f917220a9c812d28, type: 3}
       propertyPath: mohuFx
       value: 
@@ -19208,16 +19216,16 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 14.999999
+  m_FocalLength: 20
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.3
   far clip plane: 1000
-  field of view: 77.31962
+  field of view: 61.927517
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -19242,8 +19250,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103688529}
-  m_LocalRotation: {x: -0.02305284, y: 0.71159816, z: -0.023605537, w: -0.7018115}
-  m_LocalPosition: {x: 23.12, y: -3.14, z: 41.19}
+  m_LocalRotation: {x: -0.25204393, y: 0.80712134, z: -0.13839157, w: -0.5156325}
+  m_LocalPosition: {x: 22.594, y: -2.659, z: 41.479}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

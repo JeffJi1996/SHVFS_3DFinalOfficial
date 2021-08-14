@@ -16,6 +16,7 @@ public class TimeLineFunctions : MonoBehaviour
     [SerializeField] private AudioMixerSnapshot CG;
     [SerializeField] private AudioMixerSnapshot CG_End;
     [SerializeField] private GameObject Tutor_CG1;
+    [SerializeField] private GameObject SkipCG;
 
     public void StartCG1()
     {
@@ -24,6 +25,7 @@ public class TimeLineFunctions : MonoBehaviour
 
     public void EndCG1()
     {
+        SkipOut();
         audioSource.PlayOneShot(audioSource.clip);
         UIManager.Instance.SetFullTime(PlayerAbilityControl.Instance.GetFullDuration());
         moonAudioSource.volume = 1;
@@ -47,6 +49,8 @@ public class TimeLineFunctions : MonoBehaviour
     {
         Destroy(firstMoon.GetComponent<CGMoon>());
         firstMoon.AddComponent<MoonLight>();
+
+        SkipOut();
 
         Player.GetComponent<PlayerInputSystem>().enabled = true;
         Player.GetComponentInChildren<MouseLook>().enabled = true;
@@ -88,5 +92,13 @@ public class TimeLineFunctions : MonoBehaviour
     public void PlayPlayerSFX()
     {
         AudioManager.instance.Play("Werewolf_Attack");
+    }
+
+    public void SkipOut()
+    {
+        if (SkipCG.activeSelf)
+        {
+            SkipCG.GetComponent<Animator>().SetTrigger("Out");
+        }
     }
 }

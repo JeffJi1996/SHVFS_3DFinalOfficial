@@ -13,6 +13,7 @@ public class Caw : MonoBehaviour
         if (!isTriggered && col.GetComponent<PlayerMovement>() != null)
         {
             GetComponentInChildren<AudioSource>().Play();
+            isTriggered = true;
         }
         
     }
