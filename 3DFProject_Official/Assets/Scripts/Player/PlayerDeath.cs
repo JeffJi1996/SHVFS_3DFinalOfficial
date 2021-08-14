@@ -37,6 +37,7 @@ public class PlayerDeath : Singleton<PlayerDeath>
     {
         Player.GetComponent<PlayerInputSystem>().enabled = true;
         Player.GetComponentInChildren<MouseLook>().enabled = true;
+        Music_Play.Instance.BackToNormal();
     }
 
     public void Death_Check()
