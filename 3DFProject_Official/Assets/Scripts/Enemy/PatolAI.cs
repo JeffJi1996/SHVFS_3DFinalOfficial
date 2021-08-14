@@ -14,9 +14,11 @@ public class PatolAI : EnemyController
     private bool isWaiting;
     private bool isAlert;
     [SerializeField] private Collider attackColli;
+    [SerializeField] private bool isPatolAI;
     private bool isLastChasing;
     private bool checkOnce;
     private bool dieOnce = true;
+    private Vector3 forward;
     
     // Update is called once per frame
 
@@ -33,7 +35,7 @@ public class PatolAI : EnemyController
         }
         canAttack = true;
         isWaiting = false;
-
+        forward = transform.forward;
     }
     
     // Start is called before the first frame update
@@ -238,6 +240,10 @@ public class PatolAI : EnemyController
                 }
                 else if (Vector3.Distance(transform.position, agent.destination) <= 0.7f && !isWaiting)
                 {
+                    if (isPatolAI)
+                    {
+                        transform.forward = forward;
+                    }
                     agent.isStopped = true;
                     StartCoroutine(Wait());
                 }
@@ -375,13 +381,15 @@ public class PatolAI : EnemyController
 
     IEnumerator TurnAround()
     {
-        Debug.Log("Turn Around");
-        isPatol = false;
-        agent.isStopped = false;
-        agent.destination = GameManager.Instance.player.transform.position;
-        PlayAlertSound();
-        yield return new WaitForSeconds(turnTime);
-        isChase = true;
-        isPatol = true;
+        float turntimer = 0;
+        while(turntimer < 1f)
+        {
+            turntimer += Time.deltaTime;
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y + Time.deltaTime * 180,
+                transform.rotation.z, 0);
+            yield return null;
+        }
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(Wait());
     }
 }
