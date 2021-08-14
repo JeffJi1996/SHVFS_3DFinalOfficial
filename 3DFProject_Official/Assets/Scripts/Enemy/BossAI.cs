@@ -20,7 +20,9 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform firstSaveTrans;
     [SerializeField] private Transform secondSaveTrans;
-
+    [SerializeField] private BossSound bossSound;
+    [SerializeField] private AudioSource audio;
+    
     private float attackTimer = 0;
     private bool isTargetPlayer = true;
     private bool canAttack = true;
@@ -92,6 +94,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                     Music_Play.Instance.Chase();
                     GameManager.Instance.chasingNum++;
                     isFirstFound = false;
+                    PlaySound(bossSound.bossRoar);
                 }
                 
                 if (isTargetPlayer)
@@ -131,6 +134,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
                             StartCoroutine(RefreshCanAttack());
                             attackCounter++;
                             targetObject.transform.GetChild(0).GetComponent<Obstacle>().CheckHealth(attackCounter);
+                            PlaySound(bossSound.GetRuinHit());
                         }
                     }
                     else
@@ -282,6 +286,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         Debug.Log("attack 01");
         anim.SetTrigger("attack1");
+        PlaySound(bossSound.bossAttack);
     }
     
     private void AnimAttack2()
@@ -328,6 +333,7 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     public void ChuJue()
     {
         anim.SetTrigger("chuJue");
+        PlaySound(bossSound.bossAttack);
         Vector3 dir2Player = new Vector3(PlayerMovement.Instance.transform.position.x - transform.position.x, 0f,
             PlayerMovement.Instance.transform.position.z - transform.position.z).normalized;
         transform.forward = dir2Player;
@@ -343,5 +349,11 @@ public class BossAI : MonoBehaviour, IEndGameObserver
         saveState++;
         if(saveState == 2)
             saveTrans = secondSaveTrans;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audio.clip = clip;
+        audio.Play();
     }
 }

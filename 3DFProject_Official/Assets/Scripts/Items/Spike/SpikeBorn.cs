@@ -13,6 +13,8 @@ public class SpikeBorn : MonoBehaviour
     [SerializeField] private float GoUpDuration;
     [SerializeField] private float GoDownDuration;
     [SerializeField] private float existTime;
+    [SerializeField] private AudioSource audioUp;
+    [SerializeField] private AudioSource audioDown;
 
     [Header("GoUpDistance")]
     [SerializeField] private float GoUpPosition;
@@ -69,13 +71,13 @@ public class SpikeBorn : MonoBehaviour
     void GoUp()
     {
         LeanTween.moveLocalY(this.gameObject, GoUpPosition, GoUpDuration).setEaseInQuint();
-        AudioManager.instance.Play("SFX_ThornTrap_Active");
+        StartCoroutine(DelayPlay());
     }
 
     void GoDown()
     {
         LeanTween.moveLocalY(gameObject, initialPosition.y, GoDownDuration).setEaseInQuint().setOnComplete(ChangeState);
-        AudioManager.instance.Play("SFX_ThornTrap_Return");
+        audioDown.Play();
     }
 
     IEnumerator Puncture()
@@ -91,6 +93,11 @@ public class SpikeBorn : MonoBehaviour
 
     }
 
+    IEnumerator DelayPlay()
+    {
+        yield return new WaitForSeconds(0.7f);
+        audioUp.Play();
+    }
 
 
 }

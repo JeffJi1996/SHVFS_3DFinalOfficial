@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Elevator : MonoBehaviour
 {
@@ -36,6 +37,6 @@ public class Elevator : MonoBehaviour
 
     public void TransformToLevel2()
     {
-        Debug.Log("Go To level2");
+        SceneManager.LoadScene(2);
     }
 }

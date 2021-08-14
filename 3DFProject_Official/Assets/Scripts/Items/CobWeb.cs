@@ -26,6 +26,7 @@ public class CobWeb : MonoBehaviour,ICheckPointObserver
         WebMesh.SetActive(false);
         WebPanel.Instance.StartWebVFX();
         CPManager.Instance.AddObserver(this);
+        AudioManager.instance.Play("SFX_SpiderWeb");
     }
 
     void Initialize()

@@ -331,7 +331,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2cae37a73b655a74fb6fcb7d93257cda, type: 3}
     - {fileID: 8300000, guid: f74d9861979a17f43b7a473c110e8b0f, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8818c554a7da1fb4c911711fa3528913, type: 3}
     - {fileID: 8300000, guid: 44322063479e3b94787687c4a4d5d41d, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 174d419086665044eae29ff0e300e27a, type: 3}
     - {fileID: 8300000, guid: 49d097f7b0dda664d8006b68797f01a3, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
     loop: 0
   - name: SFX_ThornTrap_Active
     clips:
-    - {fileID: 8300000, guid: 95b5849120576204ab62f1d8fc38c57c, type: 3}
+    - {fileID: 8300000, guid: 3496da956cf038948b8bf697eda52332, type: 3}
     volume: 1
     outPutGroup: {fileID: 0}
     pitch: 1
@@ -437,7 +437,7 @@ MonoBehaviour:
     loop: 0
   - name: SFX_ThornTrap_Return
     clips:
-    - {fileID: 8300000, guid: 636deed5f0a715940b5cf54fb65892e8, type: 3}
+    - {fileID: 8300000, guid: 91365aa42f69a2c418c870a435546471, type: 3}
     volume: 1
     outPutGroup: {fileID: 0}
     pitch: 1
@@ -451,7 +451,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 619cbf380735b4b4bb1ac0169ead6b2e, type: 3}
     - {fileID: 8300000, guid: 08b7531a36c935245bbb99077b2c0ce7, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5749afae68d816b4783ad2133d206ada, type: 3}
     - {fileID: 8300000, guid: 2d09d13aac543d34e9daeb32b46a95ca, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c845fe6d6b6d0a742999c29814f4ad64, type: 3}
     - {fileID: 8300000, guid: f9a4a5e21cca87847b451a703e4626aa, type: 3}
     volume: 1
-    outPutGroup: {fileID: 0}
+    outPutGroup: {fileID: 5973604407809819596, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
     loop: 0
@@ -533,10 +533,10 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 5c60d2964677a6b43856b208e35c8d56, type: 3}
     volume: 1
-    outPutGroup: {fileID: 6093420272014762908, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    outPutGroup: {fileID: -355002096746389388, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
     source: {fileID: 0}
-    loop: 0
+    loop: 1
   - name: Music_Explore
     clips:
     - {fileID: 8300000, guid: 79a6f90728568f04081fd2036af7394f, type: 3}
@@ -636,6 +636,88 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c823336204c8c2140938147fa4f388ee, type: 3}
     volume: 1
     outPutGroup: {fileID: -1931479460076123021, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Change
+    clips:
+    - {fileID: 8300000, guid: 11804cd3c48b7c74a9bfd4dbfe683848, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Checkbox
+    clips:
+    - {fileID: 8300000, guid: eef9f490b62194e418cc92be26f0634d, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Click
+    clips:
+    - {fileID: 8300000, guid: cea0e9668cc32ac448f0b6af4c47dc52, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Close
+    clips:
+    - {fileID: 8300000, guid: c970d6c0c353a0b4ba2cb24fa112a8c5, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_LoseHeart
+    clips:
+    - {fileID: 8300000, guid: e6ab5b0a40a53db439aa52d692e6c5a8, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Slider
+    clips:
+    - {fileID: 8300000, guid: a26b5a90d0d22124e8e5d731280257fa, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_Win
+    clips:
+    - {fileID: 8300000, guid: 435006c3d8746cc46b5f980aff3bea6e, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_SpiderWeb
+    clips:
+    - {fileID: 8300000, guid: 2275bf9adcb59e947bb0f8191598d280, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 3164975478323130450, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SFX_Cloth_Scrape_Wood
+    clips:
+    - {fileID: 8300000, guid: 19b97485e4b155b468ec1836dcb94832, type: 3}
+    - {fileID: 8300000, guid: c05c3ca4077b15c4e9c49309d03d9acb, type: 3}
+    - {fileID: 8300000, guid: ebfe187bc02a4ff4aa98a278de12dcbd, type: 3}
+    volume: 1
+    outPutGroup: {fileID: -1931479460076123021, guid: 305632a1067151e40af71562bebc3a04, type: 2}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_RollerText
+    clips:
+    - {fileID: 8300000, guid: b36e9c6408b54d641922ace1abc1d0a1, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
     pitch: 1
     source: {fileID: 0}
     loop: 0

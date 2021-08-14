@@ -8,6 +8,7 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
     public bool isDestroyed;
     [SerializeField]private GameObject LeftMesh;
     [SerializeField]private GameObject RightMesh;
+    [SerializeField] private AudioSource audio;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class Cabinet : MonoBehaviour,ICheckPointObserver
         LeftMesh.SetActive(false);
         RightMesh.SetActive(false);
         CPManager.Instance.AddObserver(this);
+        audio.Play();
     }
 
     public void Initialize()

@@ -8,6 +8,7 @@ public class StoneTrap : MonoBehaviour,ICheckPointObserver
     [SerializeField] private GameObject StoneMesh;
     [SerializeField] private float fallDuration;
     [SerializeField] private float dropToY;
+    [SerializeField] private AudioSource audio;
     private Vector3 iniPosition;
     public bool isTriggered;
 
@@ -30,6 +31,7 @@ public class StoneTrap : MonoBehaviour,ICheckPointObserver
     {
         Tweener tweener = StoneMesh.transform.DOMoveY(dropToY, fallDuration);
         tweener.OnComplete(CameraShake.Instance.Shake_Human);
+        audio.Play();
     }
 
     private void Initialize()

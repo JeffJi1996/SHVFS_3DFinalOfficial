@@ -28,6 +28,7 @@ public class CloseWindow : MonoBehaviour,ICheckPointObserver
         if (!isTriggered && col.GetComponent<PlayerMovement>()!=null)
         {
             Trigger();
+            GetComponent<AudioSource>().Play();
         }
     }
 
