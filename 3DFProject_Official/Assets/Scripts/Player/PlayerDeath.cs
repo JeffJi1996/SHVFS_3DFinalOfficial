@@ -14,6 +14,7 @@ public class PlayerDeath : Singleton<PlayerDeath>
         var health = PlayerHealth.Instance.GetPlayerHealth();
         var heart = HeartArray.transform.GetChild(HeartArray.transform.childCount-1-health);
         heart.gameObject.GetComponent<Animator>().SetTrigger("Break");
+        AudioManager.instance.Play("UI_LoseHeart");
     }
 
     public void Death_StopPlayerInput()
@@ -60,12 +61,14 @@ public class PlayerDeath : Singleton<PlayerDeath>
 
     public void PlayAgain()
     {
+        AudioManager.instance.Play("Click");
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
             .buildIndex);
     }
 
     public void BackToMainScene()
     {
+        AudioManager.instance.Play("Click");
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
@@ -79,5 +82,10 @@ public class PlayerDeath : Singleton<PlayerDeath>
     {
         LookDownCG.Play();
         CamLookAt.Instance.LookDown(60f,2,PlayerHealth.Instance.DeathCG);
+    }
+
+    public void LosePanel()
+    {
+        AudioManager.instance.Play("UI_LoseLife");
     }
 }

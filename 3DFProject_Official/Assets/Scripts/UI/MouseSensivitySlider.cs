@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MouseSensivitySlider : MonoBehaviour
+public class MouseSensivitySlider : MonoBehaviour,IBeginDragHandler
 {
     [SerializeField] private InputField input;
     [SerializeField] private Slider slider;
@@ -91,6 +92,9 @@ public class MouseSensivitySlider : MonoBehaviour
         num = result;
         return isNum;
     }
-    
-    
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        AudioManager.instance.Play("UI_Slider");
+    }
 }

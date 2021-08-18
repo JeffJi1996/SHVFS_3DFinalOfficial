@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject Boss;
     public int chasingNum = 0;
     public bool isChasing;
-    
+    public float timeTimer=0;
     [SerializeField] private GameObject bloodFx;
 
     private bool isBloodActive;
@@ -33,6 +33,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (PlayerMovement.Instance != null)
             player = PlayerMovement.Instance.gameObject;
+        if (SettlementPanel.Instance != null)
+            timeTimer = SettlementPanel.Instance.timeTimer;
     }
 
     public void AddObserver(IEndGameObserver observer)
@@ -105,5 +107,10 @@ public class GameManager : Singleton<GameManager>
             return true;
         else
             return false;
+    }
+
+    public void RegisterBoss(GameObject boss)
+    {
+        Boss = boss;
     }
 }

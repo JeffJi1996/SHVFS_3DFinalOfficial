@@ -17,6 +17,10 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         isTriggered = false;
+        if (GameManager.Instance.Boss == null)
+        {
+            ObstacleManager.Instance.Register();
+        }
         boss = GameManager.Instance.Boss.GetComponent<BossAI>();
     }
 

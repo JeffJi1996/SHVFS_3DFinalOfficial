@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VolumeControl : MonoBehaviour
+public class VolumeControl : MonoBehaviour,IBeginDragHandler
 {
     // Start is called before the first frame update
     //用三个[SerializeField] Filed 来控制音频的设置
@@ -42,6 +43,7 @@ public class VolumeControl : MonoBehaviour
         }
         else
             _slider.value = _slider.minValue;
+        AudioManager.instance.Play("UI_Checkbox");
     }
 
     private void HandleSliderValueChanged(float value)
@@ -65,5 +67,10 @@ public class VolumeControl : MonoBehaviour
     {
         _slider.value = PlayerPrefs.GetFloat(_volumePrameter, _slider.value);
 
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        AudioManager.instance.Play("UI_Slider");
     }
 }

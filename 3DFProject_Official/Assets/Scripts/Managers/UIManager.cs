@@ -217,15 +217,18 @@ public class UIManager : Singleton<UIManager>
         pausePanel.SetActive(isPause);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        AudioManager.instance.Play("UI_Click");
     }
 
     public void ExitButton()
     {
+        AudioManager.instance.Play("UI_Click");
         Application.Quit();
     }
 
     public void OpenSettingPanel()
     {
+        AudioManager.instance.Play("UI_Click");
         isSettingOpen = true;
         for (var i = 0; i < pauseList.Length; i++)
         {
@@ -242,11 +245,14 @@ public class UIManager : Singleton<UIManager>
             pauseList[i].SetActive(true);
         }
         settingPanel.SetActive(isSettingOpen);
+        AudioManager.instance.Play("UI_Close");
     }
 
     public void MainMenu()
     {
+        AudioManager.instance.Play("UI_Click");
         SceneManager.LoadScene(0);
+
     }
     
 }

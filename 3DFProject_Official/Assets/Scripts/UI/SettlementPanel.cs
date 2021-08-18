@@ -22,7 +22,7 @@ public class SettlementPanel : Singleton<SettlementPanel>
     [SerializeField] private int timeBonusScore = 138;
     [SerializeField] private int lifeBonusScore = 1000;
     [SerializeField] private float settleTime = 2;
-    private float timeTimer = 0f;
+    public float timeTimer = 0f;
     private int timeBonus;
     private int lifeBonus;
     private int minute = 0;
@@ -44,6 +44,10 @@ public class SettlementPanel : Singleton<SettlementPanel>
         button1TextColor = playAgainButton.transform.GetChild(0).GetComponent<Image>().color;
         button2Color = playAgainButton.GetComponent<Image>().color;
         button2TextColor = exitButton.transform.GetChild(0).GetComponent<Image>().color;
+        if (GameManager.Instance.timeTimer != 0)
+        {
+            timeTimer = GameManager.Instance.timeTimer;
+        }
     }
 
     private void Update()
@@ -71,6 +75,7 @@ public class SettlementPanel : Singleton<SettlementPanel>
     public void Settlement()
     {
         SetTimerPause();
+        AudioManager.instance.Play("UI_Win");
         settlementPanel.SetActive(true);
         timeBonus = Mathf.Max(maxTime - (int) timeTimer, 0) * timeBonusScore;
         lifeBonus = PlayerHealth.Instance.GetPlayerHealth() * lifeBonusScore;
@@ -102,6 +107,7 @@ public class SettlementPanel : Singleton<SettlementPanel>
     
     IEnumerator SetTimeBonus()
     {
+        AudioManager.instance.Play("UI_RollerText");
         int targetScore = passScore + timeBonus;
         int tempScore = passScore;
         int tempTimeScore = timeBonus;
@@ -129,6 +135,7 @@ public class SettlementPanel : Singleton<SettlementPanel>
     
     IEnumerator SetLifeBonus()
     {
+        AudioManager.instance.Play("UI_RollerText");
         int targetScore = passScore + lifeBonus;
         int tempScore = passScore;
         int tempLifeScore = lifeBonus;

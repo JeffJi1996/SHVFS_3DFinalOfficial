@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TitleCanvas : MonoBehaviour
 {
@@ -10,5 +11,10 @@ public class TitleCanvas : MonoBehaviour
     private void Awake()
     {
         settingPanel.SetActive(false);
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.instance.Play("UI_Click");
     }
 }

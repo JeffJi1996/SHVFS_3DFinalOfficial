@@ -38,26 +38,23 @@ public class BossAI : MonoBehaviour, IEndGameObserver
 
     private int saveState = 0;
     private Transform saveTrans;
+    private Transform secondTrans;
     private GameObject targetObject;
     private int obstacleLevel;
     private bool canAttackObstacle;
     private bool weiHeOnce = true;
     private bool weiHeEnd;
     private int attackCounter = 0;
-    private void Awake()
+    private void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         saveTrans = firstSaveTrans;
-        GameManager.Instance.Boss = gameObject;
-    }
-
-    private void Start()
-    {
+        secondTrans = secondSaveTrans;
         GameManager.Instance.AddObserver(this);
         GameManager.Instance.AddCGObserver(this);
     }
-
+    
     private void OnDisable()
     {
         GameManager.Instance.RemoveObserver(this);
@@ -348,7 +345,8 @@ public class BossAI : MonoBehaviour, IEndGameObserver
     {
         saveState++;
         if(saveState == 2)
-            saveTrans = secondSaveTrans;
+            saveTrans = secondTrans;
+        Debug.Log(saveTrans);
     }
 
     public void PlaySound(AudioClip clip)

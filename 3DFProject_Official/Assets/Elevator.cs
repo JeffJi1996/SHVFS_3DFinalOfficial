@@ -14,7 +14,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
-            Cursor.lockState = CursorLockMode.None;
+            GameManager.Instance.CGTime();
             Player.GetComponentInChildren<MouseLook>().enabled = false;
             Player.GetComponent<PlayerInputSystem>().enabled = false;
             Player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

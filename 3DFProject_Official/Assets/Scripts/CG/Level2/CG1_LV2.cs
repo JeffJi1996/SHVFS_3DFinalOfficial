@@ -41,4 +41,10 @@ public class CG1_LV2 : MonoBehaviour
             Skip_UI.GetComponent<Animator>().SetTrigger("Out");
         }
     }
+
+    public void BossRoal()
+    {
+        var boss = GetComponentInChildren<BossAI>();
+        boss.PlaySound(boss.GetComponent<BossSound>().bossRoar);
+    }
 }

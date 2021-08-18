@@ -689,7 +689,7 @@ MonoBehaviour:
     loop: 0
   - name: UI_Win
     clips:
-    - {fileID: 8300000, guid: 435006c3d8746cc46b5f980aff3bea6e, type: 3}
+    - {fileID: 8300000, guid: 660f0e361e607e544a1b7412fb375748, type: 3}
     volume: 1
     outPutGroup: {fileID: 3242389788501471002, guid: 305632a1067151e40af71562bebc3a04, type: 2}
     pitch: 1
@@ -716,6 +716,14 @@ MonoBehaviour:
   - name: UI_RollerText
     clips:
     - {fileID: 8300000, guid: b36e9c6408b54d641922ace1abc1d0a1, type: 3}
+    volume: 1
+    outPutGroup: {fileID: 0}
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: UI_LoseLife
+    clips:
+    - {fileID: 8300000, guid: db06d9dcb4e5a44479c6e41076a00733, type: 3}
     volume: 1
     outPutGroup: {fileID: 0}
     pitch: 1
